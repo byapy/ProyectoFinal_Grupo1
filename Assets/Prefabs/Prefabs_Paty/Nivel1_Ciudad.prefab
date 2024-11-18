@@ -1191,6 +1191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HD_Platform_1C (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e22c8193a7620c428358b6f25d6c3f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e22c8193a7620c428358b6f25d6c3f6, type: 3}
       propertyPath: m_RootOrder
       value: 280
@@ -5650,9 +5654,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5866655706389576732}
     m_Modifications:
+    - target: {fileID: 100000, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
       propertyPath: m_Name
       value: Unique_Platform_1A
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 887d862a2792ed6459ad51270cd7ba53, type: 3}
       propertyPath: m_RootOrder
