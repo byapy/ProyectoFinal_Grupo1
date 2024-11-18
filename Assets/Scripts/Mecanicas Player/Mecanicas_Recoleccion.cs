@@ -24,7 +24,7 @@ public class Mecanicas_Recoleccion : MonoBehaviour
     {
         if (collisionplayer.transform.tag == "Saco10")
         {
-            if (Dinero < 200)
+            if (Dinero < 1000)
             {
                 Dinero = Dinero + 10;
                 Destroy(collisionplayer.transform.gameObject);
@@ -43,7 +43,7 @@ public class Mecanicas_Recoleccion : MonoBehaviour
 
         if (collisionplayer.transform.tag == "Saco50")
         {
-            if (Dinero < 200)
+            if (Dinero < 1000)
             {
                 Dinero = Dinero + 50;
                 Destroy(collisionplayer.transform.gameObject);
@@ -62,7 +62,7 @@ public class Mecanicas_Recoleccion : MonoBehaviour
 
         if (collisionplayer.transform.tag == "Saco100")
         {
-            if (Dinero < 200)
+            if (Dinero < 1000)
             {
                 Dinero = Dinero + 100;
                 Destroy(collisionplayer.transform.gameObject);
@@ -108,6 +108,25 @@ public class Mecanicas_Recoleccion : MonoBehaviour
             gema = true;
             Destroy(collisionplayer.transform.gameObject);
             Debug.Log("Has obtenido la gema de nivel");
+        }
+
+        if (collisionplayer.transform.tag == "Vida")
+        {
+            if (Vida < 200)
+            {
+                Vida = Vida + 25;
+                Destroy(collisionplayer.transform.gameObject);
+                Debug.Log("Has recolectado una vida");
+
+                if (Vida >= 100)
+                {
+                    Debug.Log("Tienes toda tu vida.");
+                }
+            }
+            else
+            {
+                Debug.Log("tu vida esta completa.");
+            }
         }
     }
 }

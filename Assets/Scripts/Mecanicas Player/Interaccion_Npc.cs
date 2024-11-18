@@ -6,9 +6,11 @@ public class Interaccion_Npc : MonoBehaviour
 {
     public bool isPlayerInRange;
 
+    public Animator animatorNpc;
+
     void Start()
     {
-
+        animatorNpc = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -34,11 +36,13 @@ public class Interaccion_Npc : MonoBehaviour
         {
             isPlayerInRange = false;
             Debug.Log("saliste del rango de interaccion");
+            animatorNpc.SetBool("isTalking", false);
         }
     }
 
     public void Talk()
     {
         Debug.Log("Hola viajero, ten cuidado por este camino, muchos dicen que el mundo se acabara");
+        animatorNpc.SetBool("isTalking", true);
     }
 }
