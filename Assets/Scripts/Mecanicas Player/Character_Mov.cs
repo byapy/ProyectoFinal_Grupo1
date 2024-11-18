@@ -48,8 +48,10 @@ public class Character_Mov : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
+            Speed = 10;
             Magnitud /= 0.5f;
         }
+        else Speed = 6;
 
         animator.SetFloat("Input Magnitude", Magnitud, 0.05f, Time.deltaTime);
 
