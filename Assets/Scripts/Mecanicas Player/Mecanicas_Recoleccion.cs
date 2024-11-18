@@ -8,8 +8,8 @@ public class Mecanicas_Recoleccion : MonoBehaviour
     public int Vida;
     public int Defensa;
     public int Ataque;
-    public bool mascara;
-    public bool gema;
+   // public bool mascara; estas se asignaran luego
+    
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class Mecanicas_Recoleccion : MonoBehaviour
                 Destroy(collisionplayer.transform.gameObject);
                 Debug.Log("Has recolectado un saco de 10 monedas");
 
-                if (Dinero >= 200)
+                if (Dinero >= 1000)
                 {
                     Debug.Log("Tu alforja está llena. No puedes recoger más dinero.");
                 }
@@ -49,7 +49,7 @@ public class Mecanicas_Recoleccion : MonoBehaviour
                 Destroy(collisionplayer.transform.gameObject);
                 Debug.Log("Has recolectado un saco de 50 monedas");
 
-                if (Dinero >= 200)
+                if (Dinero >= 1000)
                 {
                     Debug.Log("Tu alforja está llena. No puedes recoger más dinero.");
                 }
@@ -68,7 +68,7 @@ public class Mecanicas_Recoleccion : MonoBehaviour
                 Destroy(collisionplayer.transform.gameObject);
                 Debug.Log("Has recolectado un saco de 100 monedas");
 
-                if (Dinero >= 200)
+                if (Dinero >= 1000)
                 {
                     Debug.Log("Tu alforja está llena. No puedes recoger más dinero.");
                 }
@@ -92,27 +92,25 @@ public class Mecanicas_Recoleccion : MonoBehaviour
             Debug.Log("Has recolectado una pocion de ataque, aumentas tu fuerza");
         }
 
-        if (collisionplayer.transform.tag == "Mascara")
-        {
-            mascara = true;
-            Destroy(collisionplayer.transform.gameObject);
-            Debug.Log("Has obtenido la mascara de nivel");
-        }
-        else
-        {
-            Debug.Log("ya tienes mascara");
-        }
+        //if (collisionplayer.transform.tag == "Mascara")
+        //{
+         //  if(!mascara)
+         //   {
+         //       mascara = true;
+        //        Destroy(collisionplayer.transform.gameObject);
+         //       Debug.Log("Has obtenido la mascara de nivel");
+        //    } 
+      //  }
+       // else
+       // {
+        //    Debug.Log("ya tienes mascara");
+       // }
 
-        if (collisionplayer.transform.tag == "Gema")
-        {
-            gema = true;
-            Destroy(collisionplayer.transform.gameObject);
-            Debug.Log("Has obtenido la gema de nivel");
-        }
+      
 
         if (collisionplayer.transform.tag == "Vida")
         {
-            if (Vida < 200)
+            if (Vida < 100)
             {
                 Vida = Vida + 25;
                 Destroy(collisionplayer.transform.gameObject);
