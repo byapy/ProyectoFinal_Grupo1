@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943626007406412638}
-  - component: {fileID: 2122212417296649391}
+  - component: {fileID: 820766280089615898}
   m_Layer: 0
   m_Name: PocioneVida
   m_TagString: Vida
@@ -35,8 +35,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2122212417296649391
-CapsuleCollider:
+--- !u!65 &820766280089615898
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,10 +45,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 0.33
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.17}
+  serializedVersion: 2
+  m_Size: {x: 0.26, y: 0.2, z: 0.41}
+  m_Center: {x: 0, y: 0, z: 0.19}
 --- !u!1 &2472960630639914037
 GameObject:
   m_ObjectHideFlags: 0
