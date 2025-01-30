@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,7 +14,8 @@ public class MaestraNegra : MonoBehaviour
     public Animator Animator;
 
     public GameObject Mosquete;
-
+    public GameObject Cuerpo;
+    private bool rotacion = false;
     void Start()
     {
         Animator = GetComponentInChildren<Animator>();
@@ -29,38 +31,71 @@ public class MaestraNegra : MonoBehaviour
         float distancia = Vector3.Distance(PlayerPointer.position, transform.position);
 
         //Este es el rango en el que te va seguir para atacar a melee.
-        if (distancia <= RadioAtaque )
+        if (distancia <= RadioAtaque)
         {
-            AgentMaestraN.SetDestination(PlayerPointer.position);
-            Debug.Log("Siguiendote");
-            Mosquete.SetActive(false);
-        }
-        //Aqui va a empezar a atacar a distancia.
-        if (distancia <= RadioDisparo )
-        {
-            FaceTarget();
-            Debug.Log("Disparando");
-            Mosquete.SetActive(true);
+            {
+
+
+                AgentMaestraN.SetDestination(PlayerPointer.position);
+                Debug.Log("Siguiendote");
+                Mosquete.SetActive(false);
+
+                Animator.SetBool("Caminando", true);
+                AgentMaestraN.speed = 5f;
+
+
+            }
+            
         }
         else
         {
-            Mosquete.SetActive(false);
+            Animator.SetBool("Caminando", false);
+            AgentMaestraN.speed = 0f;
         }
-        //Aqui va a detectarte pero no hara nada.
-        if (distancia <=  RadioDeVision)
+            //Aqui va a empezar a atacar a distancia.
+            if (distancia <= RadioDisparo)
+            {
+                FaceTarget();
+                Debug.Log("Disparando");
+                Mosquete.SetActive(true);
+                Animator.SetBool("Disparando", true);
+                
+            if (!rotacion)
+            {
+                Cuerpo.transform.Rotate(0, 90, 0);
+                rotacion = true;
+            }
+            else
+            {
+                
+            }
+
+
+            }
+
+            else
+            {
+                Mosquete.SetActive(false);
+            Animator.SetBool("Disparando", false);
+            }
+
+            //Aqui va a detectarte pero no hara nada.
+            if (distancia <= RadioDeVision)
+            {
+                FaceTarget();
+            
+            }
+
+
+        }
+
+        void FaceTarget()
         {
-            FaceTarget();
+            Vector3 direction = (PlayerPointer.position - transform.position).normalized;
+            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
 
-
-    }
-
-    void FaceTarget()
-    {
-        Vector3 direction = (PlayerPointer.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
@@ -74,3 +109,6 @@ public class MaestraNegra : MonoBehaviour
 
     }
 }
+
+    
+
