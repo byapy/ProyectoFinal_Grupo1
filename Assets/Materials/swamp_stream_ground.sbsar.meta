@@ -17,8 +17,18 @@ ScriptedImporter:
     generateAllOutputs: 0
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://swamp_stream_ground\" label=\"\" >\n  <presetinput
-      identifier=\"$outputsize\" uid=\"2595733180\" type=\"8\" value=\"9,9\" />\n
-      </sbspreset>\n"
+      identifier=\"$outputsize\" uid=\"2595733180\" type=\"8\" value=\"9,9\" />\n 
+      <presetinput identifier=\"$randomseed\" uid=\"3452283118\" type=\"4\" value=\"5321\"
+      />\n  <presetinput identifier=\"dirt_roughness\" uid=\"4065550547\" type=\"0\"
+      value=\"1\" />\n  <presetinput identifier=\"leaf_density\" uid=\"4066237043\"
+      type=\"0\" value=\"0.643\" />\n  <presetinput identifier=\"leaf_roughness\"
+      uid=\"4065252784\" type=\"0\" value=\"0\" />\n  <presetinput identifier=\"branch_roughness\"
+      uid=\"4065320917\" type=\"0\" value=\"0.238\" />\n  <presetinput identifier=\"water_level\"
+      uid=\"4065621028\" type=\"0\" value=\"0.718\" />\n  <presetinput identifier=\"water_opacity\"
+      uid=\"4065623776\" type=\"0\" value=\"0.642\" />\n  <presetinput identifier=\"moss_spread\"
+      uid=\"4065551872\" type=\"0\" value=\"1\" />\n  <presetinput identifier=\"channel_ambientocclusion\"
+      uid=\"3979530597\" type=\"4\" value=\"0\" />\n  <presetinput identifier=\"luminosity\"
+      uid=\"2682980103\" type=\"0\" value=\"0.507\" />\n </sbspreset>\n"
     shaderName: Universal Render Pipeline/Lit
     materialProperties:
       shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
@@ -124,7 +134,7 @@ ScriptedImporter:
       - name: _ReceiveShadows
         float: 1
       - name: _Smoothness
-        float: 1
+        float: 0
       - name: _SmoothnessTextureChannel
         float: 0
       - name: _SpecularHighlights
