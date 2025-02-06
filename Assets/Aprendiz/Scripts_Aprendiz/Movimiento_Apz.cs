@@ -49,6 +49,11 @@ public class Movimiento_Apz : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             Magnitud /= 0.5f;
+            Speed = 13;
+        }
+        else
+        {
+            Speed = 5;
         }
 
         animator.SetFloat("Input Magnitude", Magnitud, 0.05f, Time.deltaTime);
