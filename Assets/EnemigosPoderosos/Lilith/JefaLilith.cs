@@ -5,13 +5,17 @@ using UnityEngine;
 public class JefaLilith : MonoBehaviour
 {
     public bool Aura;
-    public GameObject AuraFisica;
-    public GameObject Player;
+    //public GameObject AuraParticulas;
+    public SphereCollider trigger;
+
 
     void Start()
     {
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
         Aura = false;
+        trigger = GetComponent<SphereCollider>(); 
+        trigger.isTrigger = true;
+
     }
 
 
@@ -27,11 +31,11 @@ public class JefaLilith : MonoBehaviour
 
        if(Aura == true)
         {
-            AuraFisica.SetActive(true);
+           // AuraParticulas.SetActive(true);
         }
        else
         {
-            AuraFisica.SetActive(false);
+            // AuraParticulas.SetActive(false);
         }
 
     }
@@ -39,6 +43,16 @@ public class JefaLilith : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Objeto detectado: " + other.gameObject.name); // Muestra qué está tocando el trigger
 
+        if (other.CompareTag("Player")) // Verifica que sea el jugador
+        {
+
+            Debug.Log("El Jugador esta siendo dañado");
+            
+        }
+    }
 
 }
