@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,10 +8,11 @@ public class JefaLilith : MonoBehaviour
 {
     public NavMeshAgent agentLilith;
     public Animator Animator;
+    public Rigidbody rb;
     public float VidaLilith;
     public bool Aura;
     public float Fases;
-    public float DaÒo;
+    public float Da√±o;
     public bool JugadorEnRango;
     public bool Derrotada;
     public bool Atacando;
@@ -21,19 +22,22 @@ public class JefaLilith : MonoBehaviour
     public GameObject ParticulasDerrota;
     public GameObject CirculoFisicoAura;
     public GameObject LilithModel;
+    public GameObject EspadaHit;
     public Transform PlayerPointer;
     public float Rango;
     public float Melee;
 
     void Start()
     {
+        agentLilith = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
         VidaLilith = 2000;
         Fases = 1;
-        DaÒo = 30;
+        Da√±o = 30;
         trigger = GetComponent<SphereCollider>(); 
         trigger.isTrigger = true;
-  
+        EspadaHit.SetActive(false);
 
         
         
@@ -54,7 +58,7 @@ public class JefaLilith : MonoBehaviour
     {
         while (!Derrotada)
         {
-            yield return new WaitForSeconds(Random.Range(10f, 20f));
+            yield return new WaitForSeconds(Random.Range(3f, 8f));
             
             if (JugadorEnRango)
             {
@@ -77,20 +81,28 @@ public class JefaLilith : MonoBehaviour
     
     void Update()
     {
+        if (LilithModel != null)
+        {
+            transform.position = LilithModel.transform.position;
+
+        }
         
-        transform.position = LilithModel.transform.position;
-
-        Comportamiento();
-
         if (VidaLilith <= 0 && !Derrotada)
         {
             Derrotada = true;
+            Animator.SetBool("Muerte", true);
             Derrota();
             LilithModel = null;
         }
+        if (!Derrotada)
+        {
+            Comportamiento();
+
+        }
+
         if (Aura == true && !Derrotada)
         {
-            DaÒoDeArea();
+            Da√±oDeArea();
             
         }
         else
@@ -107,37 +119,47 @@ public class JefaLilith : MonoBehaviour
             Fases = 2;
 
         }
-        //if(Fases == 2 && ) //Aqui se pondra la regeneraciÛn. Cuando tenga el modelo, animaciones y NavMesh configurado.
+        //if(Fases == 2 && ) //Aqui se pondra la regeneraci√≥n. Cuando tenga el modelo, animaciones y NavMesh configurado.
     }
     void Comportamiento()
     {
         float distancia = Vector3.Distance(PlayerPointer.position, transform.position);
-        if (distancia <= Rango)
+        if (!Derrotada)
         {
+            if (distancia <= Rango && Atacando == false && !Derrotada)
             {
+
 
 
                 agentLilith.SetDestination(PlayerPointer.position);
                 FaceTarget();
-                Animator.SetBool("Correr", true);           
+                Animator.SetBool("Correr", true);
                 Animator.SetBool("Golpe1", false);
 
 
-                agentLilith.speed = 30f;
+                agentLilith.speed = 10f;
 
                 Debug.Log("En Combate");
 
+
+
+
             }
+            if (distancia <= Melee)
+            {
+                Animator.SetBool("Correr", false);
+                Animator.SetBool("Golpe1", true);
+                agentLilith.speed = 0f;
+                EspadaHit.SetActive(true);
+                Atacando = true;
 
+            }
+            else
+            {
+                EspadaHit.SetActive(false);
+                Atacando = false;
+            }
         }
-        if (distancia <= Melee)
-        {
-            Animator.SetBool("Correr", false);
-            Animator.SetBool("Golpe1", true);
-            agentLilith.speed = 0f;
-
-        }
-
     }
     private void OnDrawGizmosSelected()
     {
@@ -151,21 +173,21 @@ public class JefaLilith : MonoBehaviour
     void Fase2()
     {
         Debug.Log("FASE 2");
-        DaÒo = 60;
+        Da√±o = 60;
     }
-    void DaÒoDeArea()
+    void Da√±oDeArea()
     {
         
        if(Aura == true)
         {
             CirculoFisicoAura.transform.Rotate(0, 10, 0);
             CirculoFisicoAura.SetActive(true);
-           // AuraParticulas.SetActive(true);
+          //  AuraParticulas.SetActive(true);
         }
        else
         {
             CirculoFisicoAura.transform.Rotate(0, 0, 0);
-            // AuraParticulas.SetActive(false);
+           // AuraParticulas.SetActive(false);
             CirculoFisicoAura.SetActive(false);
         }
 
@@ -179,13 +201,32 @@ public class JefaLilith : MonoBehaviour
 
     void Derrota()
     {
-        Animator.SetBool("Muerte", true);
+        
+        Animator.SetBool("Correr", false);
+        Animator.SetBool("Golpe1", false);
+        Animator.Play("Muerte");
+        
+       
         Debug.Log("Uhhm..Acabas de cometer un error..");
         Debug.Log("Lilith ha sido derrotada");
+
         Invoke("ActivarParticulas", 5);
+
         Destroy(LilithModel, 5);
+
+        //agentLilith.isStopped = true;
+        agentLilith.enabled = false;
+
         
+            rb.isKinematic = false; // Se asegura de que la f√≠sica est√© activa
+            rb.useGravity = true;   // Reactiva la gravedad
+            rb.velocity = Vector3.zero;
         
+            
+        
+        NavMeshObstacle obstacle = gameObject.AddComponent<NavMeshObstacle>();
+        obstacle.carving = true; // Se ajusta al entorno
+
     }
     void ActivarParticulas()
     {
@@ -198,7 +239,7 @@ public class JefaLilith : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Objeto detectado: " + other.gameObject.name); // Muestra quÈ est· tocando el trigger
+        Debug.Log("Objeto detectado: " + other.gameObject.name); // Muestra qu√© est√° tocando el trigger
 
         if (other.CompareTag("Player")) 
         {
@@ -212,7 +253,7 @@ public class JefaLilith : MonoBehaviour
         if (other.CompareTag("Player")) 
         {
             JugadorEnRango = false;
-            Debug.Log("El Jugador saliÛ del rango");
+            Debug.Log("El Jugador sali√≥ del rango");
 
         }
     }

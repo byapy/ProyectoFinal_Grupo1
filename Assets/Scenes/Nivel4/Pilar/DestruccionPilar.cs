@@ -15,7 +15,7 @@ public class DestruccionPilar : MonoBehaviour
 
     void Update()
     {
-        if (VidaPilar == 0)
+        if (VidaPilar <= 0)
         {
             Destruido();
 
@@ -30,7 +30,7 @@ public class DestruccionPilar : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if ((collision.transform.tag == "Player"))//Remplazar esto por el arma de Lilith
+        if ((collision.transform.tag == "Lilith"))//Remplazar esto por el arma de Lilith
         {
             Debug.Log("Se le hizo daño a un pilar");
             VidaPilar = VidaPilar - 1;
