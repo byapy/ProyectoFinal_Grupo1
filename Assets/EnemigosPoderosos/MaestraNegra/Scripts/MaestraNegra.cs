@@ -17,6 +17,7 @@ public class MaestraNegra : MonoBehaviour
 
     public GameObject Mosquete;
     public GameObject Cuerpo;
+    public GameObject bala;
     private bool rotacion = false;
     private Quaternion rotacionInicial;
     void Start()
@@ -30,6 +31,10 @@ public class MaestraNegra : MonoBehaviour
     void Update()
     {
         Movimiento();
+    }
+    public void Disparo()
+    {
+        //Instantiate(bala, PointerBala.position, PointerBala.rotation);
     }
     public void Movimiento()
     {
@@ -70,6 +75,7 @@ public class MaestraNegra : MonoBehaviour
             Debug.Log("Disparando");
             Mosquete.SetActive(true);
             Animator.SetBool("Disparando", true);
+            Disparo();
 
             if (!rotacion)
             {
