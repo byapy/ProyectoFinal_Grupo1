@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
 
 public class JefaLilith : MonoBehaviour
 {
@@ -27,12 +28,21 @@ public class JefaLilith : MonoBehaviour
     public float Rango;
     public float Melee;
 
+    public Image BarraVida;
+    public float VidaActual;
+    public float VidaMaxima = 2000;
+
+    private void Awake()
+    {
+        VidaActual = 2000;
+        VidaLilith = VidaActual;
+
+    }
     void Start()
     {
         agentLilith = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
-        VidaLilith = 2000;
         Fases = 1;
         Daño = 30;
         trigger = GetComponent<SphereCollider>(); 
@@ -81,6 +91,10 @@ public class JefaLilith : MonoBehaviour
     
     void Update()
     {
+        VidaLilith = VidaActual;
+
+        BarraVida.fillAmount = VidaActual / VidaMaxima;
+
         if (LilithModel != null)
         {
             transform.position = LilithModel.transform.position;
@@ -111,7 +125,7 @@ public class JefaLilith : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.U))
         {
-            VidaLilith = 0;
+            VidaActual = 0;
         }
         if(VidaLilith <= 1000 && Fases == 1)
         {
