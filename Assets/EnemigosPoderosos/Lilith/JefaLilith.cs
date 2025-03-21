@@ -218,14 +218,14 @@ public class JefaLilith : MonoBehaviour
         agentLilith.enabled = false;
 
         
-            rb.isKinematic = false; // Se asegura de que la física esté activa
-            rb.useGravity = true;   // Reactiva la gravedad
+            rb.isKinematic = false; 
+            rb.useGravity = true;   
             rb.velocity = Vector3.zero;
         
             
         
         NavMeshObstacle obstacle = gameObject.AddComponent<NavMeshObstacle>();
-        obstacle.carving = true; // Se ajusta al entorno
+        obstacle.carving = true; 
 
     }
     void ActivarParticulas()
@@ -239,7 +239,7 @@ public class JefaLilith : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Objeto detectado: " + other.gameObject.name); // Muestra qué está tocando el trigger
+        Debug.Log("Objeto detectado: " + other.gameObject.name);
 
         if (other.CompareTag("Player")) 
         {
