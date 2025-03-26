@@ -40,6 +40,7 @@ public class JefaLilith : MonoBehaviour
     }
     void Start()
     {
+        Animator = GetComponentInChildren<Animator>();
         agentLilith = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
@@ -62,7 +63,6 @@ public class JefaLilith : MonoBehaviour
 
 
 
-        Animator = GetComponentInChildren<Animator>();
     }
     IEnumerator ActivarAuraAleatoriamente()
     {
@@ -126,6 +126,7 @@ public class JefaLilith : MonoBehaviour
         if (Input.GetKey(KeyCode.U))
         {
             VidaActual = 0;
+            VidaLilith = 0;
         }
         if(VidaLilith <= 1000 && Fases == 1)
         {
