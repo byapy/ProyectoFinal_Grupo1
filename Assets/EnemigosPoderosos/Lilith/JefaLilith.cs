@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -48,7 +49,7 @@ public class JefaLilith : MonoBehaviour
         Daño = 30;
         trigger = GetComponent<SphereCollider>(); 
         trigger.isTrigger = true;
-        EspadaHit.SetActive(false);
+        
 
         
         
@@ -95,16 +96,16 @@ public class JefaLilith : MonoBehaviour
 
         BarraVida.fillAmount = VidaActual / VidaMaxima;
 
-        if (LilithModel != null)
+        /*/if (LilithModel != null)
         {
             transform.position = LilithModel.transform.position;
 
         }
+        /*/
         
         if (VidaLilith <= 0 && !Derrotada)
         {
             Derrotada = true;
-            Animator.SetBool("Muerte", true);
             Derrota();
             LilithModel = null;
         }
@@ -136,6 +137,8 @@ public class JefaLilith : MonoBehaviour
         }
         //if(Fases == 2 && ) //Aqui se pondra la regeneración. Cuando tenga el modelo, animaciones y NavMesh configurado.
     }
+
+    
     void Comportamiento()
     {
         float distancia = Vector3.Distance(PlayerPointer.position, transform.position);
@@ -165,14 +168,15 @@ public class JefaLilith : MonoBehaviour
                 Animator.SetBool("Correr", false);
                 Animator.SetBool("Golpe1", true);
                 agentLilith.speed = 0f;
-                EspadaHit.SetActive(true);
                 Atacando = true;
+                agentLilith.enabled = false;
 
             }
             else
             {
-                EspadaHit.SetActive(false);
                 Atacando = false;
+                agentLilith.enabled = true;
+
             }
         }
     }
@@ -220,25 +224,18 @@ public class JefaLilith : MonoBehaviour
         Animator.SetBool("Correr", false);
         Animator.SetBool("Golpe1", false);
         Animator.Play("Muerte");
-        
-       
+
         Debug.Log("Uhhm..Acabas de cometer un error..");
         Debug.Log("Lilith ha sido derrotada");
 
-        Invoke("ActivarParticulas", 5);
+        Invoke("ActivarParticulas", 4);
+        Destroy(LilithModel, 4);
 
-        Destroy(LilithModel, 5);
 
-        //agentLilith.isStopped = true;
         agentLilith.enabled = false;
-
-        
             rb.isKinematic = false; 
             rb.useGravity = true;   
             rb.velocity = Vector3.zero;
-        
-            
-        
         NavMeshObstacle obstacle = gameObject.AddComponent<NavMeshObstacle>();
         obstacle.carving = true; 
 
