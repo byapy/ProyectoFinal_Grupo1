@@ -8,11 +8,13 @@ public class ActivadorJefeFinal : MonoBehaviour
     public GameObject LilithActivar;
     public GameObject Torre;
     public GameObject ColisionEntrada;
+    public GameObject BarraVida;
 
     void Start()
     {
         LilithActivar.SetActive(false);
         ColisionEntrada.SetActive(false);
+        BarraVida.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +24,7 @@ public class ActivadorJefeFinal : MonoBehaviour
             {
                 LilithActivar.SetActive(true); 
                 ColisionEntrada.SetActive(true);
+                BarraVida.SetActive(true);
                 Destroy(Torre);
 
 
