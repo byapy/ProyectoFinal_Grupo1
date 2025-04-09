@@ -27,8 +27,7 @@ public class TorreInteraccion : MonoBehaviour
         Debug.Log("¿Ascender?");
         GameObject playerObj = GameObject.FindWithTag("Player");
         MovAnimacionesArmas scriptArmas = playerObj.GetComponent<MovAnimacionesArmas>();
-        scriptArmas.enabled = false;
-        Animator animator = playerObj.GetComponentInChildren<Animator>();
-        animator.Play("Idle_Apz1");
+        
+
     }
 }
