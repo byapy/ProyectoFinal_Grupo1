@@ -64,6 +64,20 @@ public class MovAnimacionesArmas : MonoBehaviour
     {
         ActivarPersonajeSinArma();
         
+        if(!string.IsNullOrEmpty(SceneData.spawnPoint))
+        {
+            GameObject spawnpoint = GameObject.Find(SceneData.spawnPoint);
+
+            if(spawnpoint != null)
+            {
+                transform.position = spawnpoint.transform.position;
+                transform.rotation = spawnpoint.transform.rotation;
+            }
+            else
+            {
+                Debug.LogWarning("No se encontró el punto de aparición: " + SceneData.spawnPoint);
+            }
+        }
     }
 
     void Update()

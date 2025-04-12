@@ -5,57 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class EntrarAlaTorre : MonoBehaviour
 {
-    public static EntrarAlaTorre instance;
-    public float CambioNivel;
-    public bool ControladorPrincipal = false;
+    [Header("Configuración de transición")]
+    public string sceneToLoad;            // Nombre de la escena a la que quieres ir
+    public string spawnPointName;         // Nombre del punto donde el jugador aparecerá en esa escena
 
-    public void Awake()
-    {
-        if (ControladorPrincipal)
-        {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-                CambioNivel = 1;
-
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
-        
-
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && instance != null)
+        if (other.CompareTag("Player"))
         {
-            if (!ControladorPrincipal && instance == null)
-            {
-                Debug.LogWarning("No hay instancia del controlador principal.");
-                return;
-            }
+            // Guardamos el punto de entrada para la próxima escena
+            SceneData.spawnPoint = spawnPointName;
 
-
-
-            if (instance.CambioNivel == 1)
-            {
-                SceneManager.LoadScene("Torre-Nivel4");
-                CambioNivel = 4;
-            }
-            else if (instance.CambioNivel == 4)
-            {
-                if (other.CompareTag("Player") && CambioNivel == 4)
-                {
-
-                    SceneManager.LoadScene("JuegoFinal");
-                    CambioNivel = 1;
-                }
-            }
+            // Cargamos la nueva escena
+            SceneManager.LoadScene(sceneToLoad);
         }
-
-        
     }
 }

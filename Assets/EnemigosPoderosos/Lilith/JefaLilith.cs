@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class JefaLilith : MonoBehaviour
 {
+    public GameObject Player;
     public NavMeshAgent agentLilith;
     public Animator Animator;
     public Rigidbody rb;
@@ -25,13 +26,19 @@ public class JefaLilith : MonoBehaviour
     public GameObject CirculoFisicoAura;
     public GameObject LilithModel;
     public GameObject EspadaHit;
-    public Transform PlayerPointer;
+    private Transform PlayerPointer;
     public float Rango;
     public float Melee;
 
     public Image BarraVida;
     public float VidaActual;
     public float VidaMaxima = 2000;
+
+
+    public AudioSource AuraAudioSource;
+    public AudioClip AuraSonido;
+    public AudioSource SourceGeneral;
+    public AudioClip Caminar;
 
     private void Awake()
     {
@@ -43,7 +50,13 @@ public class JefaLilith : MonoBehaviour
     {
         Animator = GetComponentInChildren<Animator>();
         agentLilith = GetComponent<NavMeshAgent>();
+        AuraAudioSource = GetComponentInChildren<AudioSource>();
         rb = GetComponent<Rigidbody>();
+
+        Player = GameObject.FindWithTag("Player");
+        PlayerPointer = Player.transform.Find("PlayerPointer");
+       
+
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
         Fases = 1;
         Daño = 30;
@@ -77,10 +90,12 @@ public class JefaLilith : MonoBehaviour
                 Debug.Log("Aura Activada");
                 CirculoFisicoAura.SetActive(true);
 
+                AuraAudioSource.PlayOneShot(AuraSonido);
 
                 yield return new WaitForSeconds(5f);
                 Aura = false;
                 CirculoFisicoAura.SetActive(false);
+                AuraAudioSource.Stop();
 
 
             }

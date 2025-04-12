@@ -6,7 +6,8 @@ public class TorreInteraccion : MonoBehaviour
 {
     public GameObject CamaraJugador;
     public GameObject CamaraCenital;
-
+    public GameObject Particulas;
+    private GameObject Player;
     void Start()
     {
         CamaraCenital.SetActive(false);
@@ -16,18 +17,29 @@ public class TorreInteraccion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            CamaraCenital.SetActive(false);
             CamaraCenital.SetActive(true);
+            Particulas.SetActive(true);
+
             CajaDeDialogo();
-            
+
+            Player.SetActive(false);
+            Player = other.gameObject;
         }
     }
+
+
+
     public void CajaDeDialogo()
     {
-        Debug.Log("¿Ascender?");
+        
+        Player = GameObject.FindWithTag("Player");
         GameObject playerObj = GameObject.FindWithTag("Player");
         MovAnimacionesArmas scriptArmas = playerObj.GetComponent<MovAnimacionesArmas>();
         
+
+    }
+    public void Teleport()
+    {
 
     }
 }
