@@ -52,6 +52,8 @@ public class JefaLilith : MonoBehaviour
         agentLilith = GetComponent<NavMeshAgent>();
         AuraAudioSource = GetComponentInChildren<AudioSource>();
         rb = GetComponent<Rigidbody>();
+        agentLilith.enabled = true;
+
 
         Player = GameObject.FindWithTag("Player");
         PlayerPointer = Player.transform.Find("PlayerPointer");
