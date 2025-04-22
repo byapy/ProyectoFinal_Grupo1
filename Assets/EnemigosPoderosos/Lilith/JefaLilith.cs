@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ public class JefaLilith : MonoBehaviour
     public GameObject CirculoFisicoAura;
     public GameObject LilithModel;
     public GameObject EspadaHit;
-    private Transform PlayerPointer;
+    public Transform PlayerPointer;
     public float Rango;
     public float Melee;
 
@@ -56,7 +57,7 @@ public class JefaLilith : MonoBehaviour
 
 
         Player = GameObject.FindWithTag("Player");
-        PlayerPointer = Player.transform.Find("PlayerPointer");
+        PlayerPointer = Player.transform.Find("Pointer");
        
 
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
@@ -75,8 +76,17 @@ public class JefaLilith : MonoBehaviour
 
 
 
+        NavMeshHit hit;
 
-
+        if (NavMesh.SamplePosition(transform.position, out hit, 2.0f, NavMesh.AllAreas))
+        {
+            transform.position = hit.position;
+            Debug.Log("Lilith colocada correctamente en el NavMesh");
+        }
+        else
+        {
+            Debug.LogError("Lilith NO está sobre el NavMesh. No podrá moverse.");
+        }
 
 
     }
@@ -159,12 +169,13 @@ public class JefaLilith : MonoBehaviour
     void Comportamiento()
     {
         float distancia = Vector3.Distance(PlayerPointer.position, transform.position);
+
         if (!Derrotada)
         {
             if (distancia <= Rango && Atacando == false && !Derrotada)
             {
-
-
+                if (agentLilith.isOnNavMesh)
+                { 
 
                 agentLilith.SetDestination(PlayerPointer.position);
                 FaceTarget();
@@ -175,11 +186,13 @@ public class JefaLilith : MonoBehaviour
                 agentLilith.speed = 10f;
 
                 Debug.Log("En Combate");
-
-
-
-
+                }
+                else
+                {
+                    Debug.LogWarning("Lilith aun no esta sobre el Navmesh");
+                }
             }
+           
             if (distancia <= Melee)
             {
                 Animator.SetBool("Correr", false);
