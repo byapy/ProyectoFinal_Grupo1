@@ -26,7 +26,11 @@ public class Movimiento_Apz : MonoBehaviour
     public Animator animator;
     public bool isJump;
     public bool isGround;
+
+
+    //Para calcular cuántos metros está cayendo el personaje
     public bool isFalling;
+    public float DistanciaRecorrida, TiempoEnElAire;
 
     void Start()
     {
@@ -36,6 +40,7 @@ public class Movimiento_Apz : MonoBehaviour
     {
         Movimiento();
         Salto();
+        EstaCayendo();
 
     }
     void Movimiento()
@@ -66,6 +71,20 @@ public class Movimiento_Apz : MonoBehaviour
         }
     }
 
+    void EstaCayendo()
+    {
+        if (isFalling)
+        {
+            DistanciaRecorrida = (TiempoEnElAire * VelocidadGravedad.y) / 2.3f;
+        }
+
+        if ((DistanciaRecorrida * -1) >= 10f)
+        {
+            Debug.Log("Caíste más de 10 metros. Eso es un daño del 100%");
+            //Time.timeScale = 0;
+        }
+    }
+
     void Salto()
     {
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, groundMask);
@@ -78,6 +97,11 @@ public class Movimiento_Apz : MonoBehaviour
             animator.SetBool("isJumping", false);
             isJump = false;
 
+            //Para calcular caidas
+            isFalling = false;
+            DistanciaRecorrida = 0;
+            TiempoEnElAire = 0;
+
         }
         else
         {
@@ -87,6 +111,10 @@ public class Movimiento_Apz : MonoBehaviour
             if (isJump && VelocidadGravedad.y < 0)
             {
                 animator.SetBool("isFalling", true);
+
+                //Para calcular distancia caída
+                isFalling = true;
+                TiempoEnElAire += (1 * Time.deltaTime);
             }
         }
 

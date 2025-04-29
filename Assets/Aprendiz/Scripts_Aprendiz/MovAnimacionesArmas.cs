@@ -30,7 +30,10 @@ public class MovAnimacionesArmas : MonoBehaviour
     public Animator animator;
     public bool isJump;
     public bool isGround;
+
+    //Para calcular cuántos metros está cayendo el personaje
     public bool isFalling;
+    public float DistanciaRecorrida, TiempoEnElAire;
 
     public GameObject EsferaAtaque;
     public GameObject EsferaLaza;
@@ -149,7 +152,9 @@ public class MovAnimacionesArmas : MonoBehaviour
         Ataque();
      
         DispararMosquete();
-        
+        EstaCayendo();
+
+
     }
     void Movimiento()
     {
@@ -184,6 +189,20 @@ public class MovAnimacionesArmas : MonoBehaviour
         }
     }
 
+    void EstaCayendo()
+    {
+        if (isFalling)
+        {
+            DistanciaRecorrida = (TiempoEnElAire * VelocidadGravedad.y) / 2.3f;
+        }
+
+        if ((DistanciaRecorrida * -1) >= 10f)
+        {
+            Debug.Log("Caíste más de 10 metros. Eso es un daño del 100%");
+            Time.timeScale = 0;
+        }
+    }
+
     void Salto()
     {
         isGrounded = Physics.CheckSphere(GroundCheck.position, GroundDistance, groundMask);
@@ -196,6 +215,11 @@ public class MovAnimacionesArmas : MonoBehaviour
             animator.SetBool("isJumping", false);
             isJump = false;
 
+            //Para calcular caidas
+            isFalling = false;
+            DistanciaRecorrida = 0;
+            TiempoEnElAire = 0;
+
         }
         else
         {
@@ -205,6 +229,10 @@ public class MovAnimacionesArmas : MonoBehaviour
             if (isJump && VelocidadGravedad.y < 0)
             {
                 animator.SetBool("isFalling", true);
+
+                //Para calcular distancia caída
+                isFalling = true;
+                TiempoEnElAire += (1 * Time.deltaTime);
             }
         }
 
