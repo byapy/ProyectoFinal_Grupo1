@@ -41,6 +41,10 @@ public class JefaLilith : MonoBehaviour
     public AudioSource SourceGeneral;
     public AudioClip Caminar;
 
+    public int velocidadLi;
+    public bool esVulnerable;
+    public bool CuracionON;
+
     private void Awake()
     {
         VidaActual = 2000;
@@ -54,6 +58,7 @@ public class JefaLilith : MonoBehaviour
         AuraAudioSource = GetComponentInChildren<AudioSource>();
         rb = GetComponent<Rigidbody>();
         agentLilith.enabled = true;
+        velocidadLi = 10;
 
 
         Player = GameObject.FindWithTag("Player");
@@ -72,6 +77,8 @@ public class JefaLilith : MonoBehaviour
         Aura = false;
         ParticulasDerrota.SetActive(false);
         CirculoFisicoAura.SetActive(false);
+        agentLilith.speed = velocidadLi;
+
         StartCoroutine(ActivarAuraAleatoriamente());
 
 
@@ -156,10 +163,16 @@ public class JefaLilith : MonoBehaviour
             VidaActual = 0;
             VidaLilith = 0;
         }
-        if(VidaLilith <= 1000 && Fases == 1)
+        if (Input.GetKey(KeyCode.T))
+        {
+            VidaActual = 1000;
+            VidaLilith = 1000;
+        }
+        if (VidaLilith <= 1000 && Fases == 1)
         {
             Fase2();
             Fases = 2;
+            Debug.Log("Lilith entró a Fase2");
 
         }
         //if(Fases == 2 && ) //Aqui se pondra la regeneración. Cuando tenga el modelo, animaciones y NavMesh configurado.
@@ -168,6 +181,9 @@ public class JefaLilith : MonoBehaviour
     
     void Comportamiento()
     {
+        if (esVulnerable) return;
+
+
         float distancia = Vector3.Distance(PlayerPointer.position, transform.position);
 
         if (!Derrotada)
@@ -183,7 +199,6 @@ public class JefaLilith : MonoBehaviour
                 Animator.SetBool("Golpe1", false);
 
 
-                agentLilith.speed = 10f;
 
                 Debug.Log("En Combate");
                 }
@@ -197,16 +212,23 @@ public class JefaLilith : MonoBehaviour
             {
                 Animator.SetBool("Correr", false);
                 Animator.SetBool("Golpe1", true);
-                agentLilith.speed = 0f;
+                
+
                 Atacando = true;
-                agentLilith.enabled = false;
+                agentLilith.isStopped = true;
 
             }
             else
             {
                 Atacando = false;
+                agentLilith.isStopped = false;
+
                 agentLilith.enabled = true;
 
+                agentLilith.speed = velocidadLi;
+
+                
+                   
             }
         }
     }
@@ -222,7 +244,28 @@ public class JefaLilith : MonoBehaviour
     void Fase2()
     {
         Debug.Log("FASE 2");
+        CuracionON = true;
+        velocidadLi = 15;
         Daño = 60;
+        StartCoroutine(Fase2Inicio());
+
+    }
+
+    private IEnumerator Fase2Inicio()
+    {
+        Animator.SetBool("Correr", false);
+        Animator.SetBool("Golpe1", false);
+
+        Animator.Play("Herida");
+        esVulnerable = true;
+        agentLilith.isStopped = true;
+
+        yield return new WaitForSeconds(5f);
+        
+        esVulnerable = false;
+        agentLilith.isStopped = false;
+        Animator.Play("CaminarL");
+
     }
     void DañoDeArea()
     {
@@ -246,6 +289,16 @@ public class JefaLilith : MonoBehaviour
         Vector3 direction = (PlayerPointer.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    public void CurarsePorGolpe()
+    {
+        if (CuracionON && VidaActual < VidaMaxima)
+        {
+            VidaActual += 150;
+            VidaActual = Mathf.Min(VidaActual, VidaMaxima);
+            Debug.Log("Lilith se curó al golpear al jugador");
+        }
     }
 
     void Derrota()
