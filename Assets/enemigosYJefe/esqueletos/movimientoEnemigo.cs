@@ -94,13 +94,13 @@ public class movimientoEnemigo : MonoBehaviour
         if (collision.transform.tag == "mosquete")
         {
             saludEnemigo = saludEnemigo - 47;
-            animacionEnemigo.SetBool("golpes", true);
+            animacionEnemigo.SetBool("golpess", true);
         }
        
         if (collision.transform.tag == "lanza")
         {
             saludEnemigo = saludEnemigo - 60;
-            animacionEnemigo.SetBool("golpe1", true);
+            animacionEnemigo.SetBool("golpess", true);
         }
         
         if (saludEnemigo <= 0)
