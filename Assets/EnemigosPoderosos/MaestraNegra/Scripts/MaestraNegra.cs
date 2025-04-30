@@ -15,6 +15,7 @@ public class MaestraNegra : MonoBehaviour
     public Animator Animator;
 
     public GameObject Mosquete;
+    public GameObject Espada;
     public GameObject Cuerpo;
     public GameObject bala;
     public Transform PointerBala;
@@ -43,6 +44,7 @@ public class MaestraNegra : MonoBehaviour
             if (!sacandoArma && !armaSacada)
             {
                 sacandoArma = true;
+                Espada.SetActive(true);
                 Animator.SetBool("MeleeSacarArma", true);  // Empieza la animación de sacar el arma
                 StartCoroutine(SacarArmaYCaminar());
             }
@@ -75,6 +77,8 @@ public class MaestraNegra : MonoBehaviour
             Mosquete.SetActive(true);
             Animator.SetBool("Disparando", true);
             Animator.SetBool("Caminando", false);
+            Espada.SetActive(false);
+
             disparando = true;
 
             AgentMaestraN.speed = 0f; // Se queda quieta al disparar
@@ -98,6 +102,9 @@ public class MaestraNegra : MonoBehaviour
             Animator.SetBool("Pegar", true);
             Animator.SetBool("Caminando", false);
             Animator.SetBool("Disparando", false);
+            Animator.SetBool("MeleeSacarArma", false);
+
+            Espada.SetActive(true);
 
 
             AgentMaestraN.speed = 0f;
