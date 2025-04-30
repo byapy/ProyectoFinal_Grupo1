@@ -7,20 +7,7 @@ public class CollectibleBehaivior : MonoBehaviour
 
     //public string ColorPocion;
     public GameObject ParticulaRecolectado;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    
+    // Start is called before the first frame update  
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -32,10 +19,6 @@ public class CollectibleBehaivior : MonoBehaviour
             catch(System.Exception ex)
             {
                 Debug.Log("error: " + ex.Message);
-            }
-            finally
-            {
-                Destroy(gameObject);
             }
         }
 

@@ -4,43 +4,40 @@ using UnityEngine;
 
 public class Mecanica_Recoleccion : MonoBehaviour
 {
-    public int Dinero;
-    public int Vida;
-    public int Defensa;
-    public int Ataque;
     public int Gema;
-    
 
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnCollisionEnter(Collision collisionplayer)
-    {
-        if (collisionplayer.transform.tag == "Saco10")
+        switch (other.tag)
         {
-            if (Dinero < 200)
-            {
-                Dinero = Dinero + 10;
-                Destroy(collisionplayer.transform.gameObject);
-                Debug.Log("Has recolectado un saco de 10 monedas");
+            case "Saco10":
+                StatsPlayer.Instance.AgregarDinero(10);
+                break;
+            case "Saco50":
+                StatsPlayer.Instance.AgregarDinero(50);
+                break;
+            case "Vida":
+                StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
+                break;
+            case "Defensa":
+                StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
+                break;
+            case "Ataque":
+                StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
+                break;
+        }
+    }
+    /*private void OnCollisionEnter(Collision collisionplayer)
+    {
+        
 
-                if (Dinero >= 200)
-                {
-                    Debug.Log("Tu alforja está llena. No puedes recoger más dinero.");
-                }
-            }
-            else
-            {
-                Debug.Log("Tu alforja está llena. No puedes recoger más dinero.");
-            }
+
+        if (collisionplayer.transform.CompareTag("Saco10"))
+        {
+            StatsPlayer.Instance.AgregarDinero(10);
+            Destroy(collisionplayer.transform.gameObject);
+            Debug.Log("Has recolectado un saco de 10 monedas");
+
         }
 
         if (collisionplayer.transform.tag == "Saco50")
@@ -104,7 +101,6 @@ public class Mecanica_Recoleccion : MonoBehaviour
             {
                 Debug.Log("Has conseguido la gema completa");
             }
-        }
+        }*/
 
-    }
 }
