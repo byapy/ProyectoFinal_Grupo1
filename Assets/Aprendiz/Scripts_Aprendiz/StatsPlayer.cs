@@ -1,0 +1,149 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StatsPlayer : MonoBehaviour
+{
+    //Para poder acceder a los valores del jugador desde otros scripts
+    public static StatsPlayer Instance;
+
+
+    //variables de solo los objetos que el jugador va a tener
+    public static int PVidaActual, PVidaMaxima = 100;
+    public static int PDefensa, PAtaque;
+    public static float TiempoDefensa, TiempoAtaque;
+    public static int PDinero;
+
+    public static bool BoostDefensa, BoostAtaque;
+
+    //Las pociones y los trozos de Gema van a ser un array de 3 filas
+    //Pociones en Fila 0 son Vida, 1 son Defensa y 2 son ataque.
+    //Gema en fila 0 va a ser la del tutorial, 1 la del nivel 2 y 2 la del final del nivel 3
+    //Todo está inicializado en 0 y False
+    public static int [] PPociones = new int [3];
+    public static bool[] PGemas = new bool[3];
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        PVidaActual = PVidaMaxima;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        DuracionAtaqueExtra();
+        DuracionDefensaExtra();
+    }
+
+    private void DuracionAtaqueExtra()
+    {
+        if(BoostAtaque)
+        { 
+            TiempoAtaque -= (1 * Time.deltaTime);
+
+            if(TiempoAtaque <= 0)
+            {
+                BoostAtaque = false;
+                PAtaque = 0;
+            }
+        }
+    }
+
+    private void DuracionDefensaExtra()
+    {
+        if (BoostDefensa)
+        {
+            TiempoDefensa -= (1 * Time.deltaTime);
+
+            if (TiempoDefensa <= 0)
+            {
+                BoostDefensa = false;
+                PDefensa = 0;
+            }
+        }
+
+    }
+
+
+    //Métodos para contar que se acabe el efecto de las pociones de ataque y defensa
+
+    //Métodos para contar, agregar y quitar los objetos
+    public void UsarPocion(string TipoPocion)
+    {
+        switch (TipoPocion)
+        {
+            case "vida":
+                if (PPociones[0] > 0)
+                {
+                    PPociones[0] -= 1;
+                    
+                    if ((PVidaActual + 30) >= PVidaMaxima) PVidaActual = PVidaMaxima;
+                    else PVidaActual += 30;
+                }
+                else
+                    Debug.Log("No tienes pociones de Vida.");
+                break;
+
+            case "defensa":
+                if (PPociones[1] > 0)
+                {
+                    PPociones[1] -= 1;
+                    PDefensa = 15;
+                    TiempoDefensa = 20f;
+                    BoostDefensa = true;
+                }
+                else
+                    Debug.Log("No tienes pociones de Defensa.");
+                break;
+
+            case "ataque":
+                if (PPociones[2] > 0)
+                {
+                    PPociones[2] -= 1;
+                    PAtaque = 10;
+                    BoostAtaque = true;
+                    TiempoAtaque = 15f;
+                }
+                else
+                    Debug.Log("No tienes pociones de Ataque.");
+                break;
+        }
+    }
+
+    public void AgregarPocion(string TipoPocion)
+    {
+        switch (TipoPocion)
+        {
+            case "vida":
+                if(PPociones[0] + 1 <= 15) PPociones[0] += 1;
+                break;
+
+            case "defensa":
+                if (PPociones[1] +1 <= 15) PPociones[1] += 1;
+                break;
+
+            case "ataque":
+                if (PPociones[2] + 1 <= 15) PPociones[2] += 1;
+                break;
+        }
+    }
+
+    //El dinero tiene un límite de 1000
+    public void AgregarDinero(int ValorMoneda)
+    {
+        if (PDinero + ValorMoneda >= 1000) PDinero = 1000;
+        else PDinero += ValorMoneda;
+    }
+    public void QuitarDinero(int PrecioPagado)
+    {
+        PDinero -= PrecioPagado;
+    }
+
+
+}
