@@ -18,40 +18,13 @@ public class CollectibleBehaivior : MonoBehaviour
             }
             catch(System.Exception ex)
             {
-                Debug.Log("error: " + ex.Message);
+                UIController.Instance.MensajeAConsola("error: " + ex.Message);
+            }
+            finally
+            {
+                Destroy(gameObject);
             }
         }
-
-        
-       /*     switch(ColorPocion.ToLower())
-            {
-                case "azul":
-                    Debug.Log("Poción de defensa añadida.");
-                    Destroy(this.gameObject);
-                    break;
-
-                case "rojo":
-                    Debug.Log("Poción de vida añadida.");
-                    Destroy(this.gameObject);
-                    break;
-
-                case "verde":
-                    Debug.Log("Poción de ataque añadida.");
-                    Destroy(this.gameObject);
-                    break;
-
-                case "oro":
-                    Debug.Log("Encontraste 1 pieza de oro.");
-                    Destroy(this.gameObject);
-                    break;
-                case "cafe":
-                    Debug.Log("Encontraste una bolsa con 50 de oro.");
-                    Destroy(this.gameObject);
-                    break;
-
-            }
-
-        }*/
     }
 
 

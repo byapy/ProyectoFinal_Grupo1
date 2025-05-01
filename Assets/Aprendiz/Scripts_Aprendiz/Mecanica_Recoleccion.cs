@@ -8,6 +8,8 @@ public class Mecanica_Recoleccion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        UIController.Instance.MensajeAConsola("Se agarró " + other.tag);
+
         switch (other.tag)
         {
             case "Saco10":

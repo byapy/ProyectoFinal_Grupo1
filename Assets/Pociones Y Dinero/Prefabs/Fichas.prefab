@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5819881321258024114}
   m_Layer: 0
   m_Name: Fichas
-  m_TagString: Saco10
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5013,6 +5013,10 @@ PrefabInstance:
     - target: {fileID: 1041930751214590152, guid: 6d2980f203a79ef4a8636ac126f872ac, type: 3}
       propertyPath: m_Name
       value: coin_01_set
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041930751214590152, guid: 6d2980f203a79ef4a8636ac126f872ac, type: 3}
+      propertyPath: m_TagString
+      value: Saco10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d2980f203a79ef4a8636ac126f872ac, type: 3}

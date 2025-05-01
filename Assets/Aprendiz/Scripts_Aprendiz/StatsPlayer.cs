@@ -87,7 +87,7 @@ public class StatsPlayer : MonoBehaviour
                     else PVidaActual += 30;
                 }
                 else
-                    Debug.Log("No tienes pociones de Vida.");
+                    UIController.Instance.MensajeAConsola("No tienes pociones de Vida.");
                 break;
 
             case "defensa":
@@ -95,11 +95,12 @@ public class StatsPlayer : MonoBehaviour
                 {
                     PPociones[1] -= 1;
                     PDefensa = 15;
+                    PDefensa = 15;
                     TiempoDefensa = 20f;
                     BoostDefensa = true;
                 }
                 else
-                    Debug.Log("No tienes pociones de Defensa.");
+                    UIController.Instance.MensajeAConsola("No tienes pociones de Defensa.");
                 break;
 
             case "ataque":
@@ -111,7 +112,7 @@ public class StatsPlayer : MonoBehaviour
                     TiempoAtaque = 15f;
                 }
                 else
-                    Debug.Log("No tienes pociones de Ataque.");
+                    UIController.Instance.MensajeAConsola("No tienes pociones de Ataque.");
                 break;
         }
     }

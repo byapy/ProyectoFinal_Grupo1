@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110245086934461456}
-  m_LocalRotation: {x: 0.17011492, y: 0.00000002651574, z: -0.0000000045774424, w: 0.9854243}
+  m_LocalRotation: {x: 0.17011492, y: 0.00000002397882, z: -0.000000004139491, w: 0.9854243}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -879,6 +879,7 @@ GameObject:
   - component: {fileID: 3189374955767280319}
   - component: {fileID: 8354736371789403399}
   - component: {fileID: 4291434147397070234}
+  - component: {fileID: 4020152034725402217}
   m_Layer: 0
   m_Name: Aprendiz
   m_TagString: Player
@@ -962,10 +963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b632e7d413dfe4e4098459b94ddc644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dinero: 0
-  Vida: 0
-  Defensa: 0
-  Ataque: 0
   Gema: 0
 --- !u!114 &4291434147397070234
 MonoBehaviour:
@@ -1017,6 +1014,18 @@ MonoBehaviour:
   ParticulaCambioArma: {fileID: 3166972268852818041, guid: a425776b6b702af478b82873b3f9d794, type: 3}
   AnimatorNpc: {fileID: 0}
   enConversacion: 0
+--- !u!114 &4020152034725402217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4845717571927167003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3e822bc4077f244a26218c5f9b36b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5584547041481216658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1038,7 @@ GameObject:
   - component: {fileID: 8977496621357781598}
   - component: {fileID: 660034620560045022}
   - component: {fileID: 5072497826494010709}
+  - component: {fileID: 5116772741676233747}
   m_Layer: 0
   m_Name: CameraAprediz
   m_TagString: Untagged
@@ -1043,8 +1053,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584547041481216658}
-  m_LocalRotation: {x: 0.17011493, y: -0.00000003791384, z: 0.00000000654511, w: 0.9854243}
-  m_LocalPosition: {x: -5.8338184, y: 5.6545258, z: -15.04488}
+  m_LocalRotation: {x: 0.17011493, y: 0.000000037913843, z: -0.0000000065451107, w: 0.9854243}
+  m_LocalPosition: {x: 0.038397927, y: 2.9592628, z: -10.650145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1161,6 +1171,14 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!81 &5116772741676233747
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584547041481216658}
+  m_Enabled: 1
 --- !u!1 &5843585970871093537
 GameObject:
   m_ObjectHideFlags: 3
@@ -1185,7 +1203,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5843585970871093537}
-  m_LocalRotation: {x: 0.1522099, y: -0.000000020066263, z: 0.0000000030902914, w: 0.9883482}
+  m_LocalRotation: {x: 0.1522099, y: 0.000000017005892, z: -0.0000000026189813, w: 0.9883482}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

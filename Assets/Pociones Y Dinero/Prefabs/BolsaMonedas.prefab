@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8807809581783395297}
   m_Layer: 0
   m_Name: BolsaMonedas
-  m_TagString: Saco50
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4969,6 +4969,10 @@ PrefabInstance:
     - target: {fileID: 1289030603937034218, guid: 85512b1b138ee4747a7f7539c0600b7d, type: 3}
       propertyPath: m_Name
       value: coin_01_bag
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289030603937034218, guid: 85512b1b138ee4747a7f7539c0600b7d, type: 3}
+      propertyPath: m_TagString
+      value: Saco50
       objectReference: {fileID: 0}
     - target: {fileID: 1920888791375443280, guid: 85512b1b138ee4747a7f7539c0600b7d, type: 3}
       propertyPath: m_RootOrder
