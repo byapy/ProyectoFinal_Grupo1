@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     //Esta variable va a ser la que vamos a llamar para que esté mostrando
     //mensajes durante el gameplay
     public Text TxtConsola;
+    
     public static UIController Instance;
 
     private void Awake()

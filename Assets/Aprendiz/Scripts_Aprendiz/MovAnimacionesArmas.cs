@@ -176,8 +176,6 @@ public class MovAnimacionesArmas : MonoBehaviour
 
         animator.SetFloat("Input Magnitude", Magnitud, 0.05f, Time.deltaTime);
 
-
-
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;//detecta el agunlo
@@ -196,11 +194,7 @@ public class MovAnimacionesArmas : MonoBehaviour
             DistanciaRecorrida = (TiempoEnElAire * VelocidadGravedad.y) / 2.3f;
         }
 
-        if ((DistanciaRecorrida * -1) >= 10f)
-        {
-            Debug.Log("Caíste más de 10 metros. Eso es un daño del 100%");
-            Time.timeScale = 0;
-        }
+
     }
 
     void Salto()
@@ -215,11 +209,18 @@ public class MovAnimacionesArmas : MonoBehaviour
             animator.SetBool("isJumping", false);
             isJump = false;
 
-            //Para calcular caidas
+            //Para calcular daño de las caidas
+
+            if ((DistanciaRecorrida * -1) > 3f)
+            {
+                float FallDamage = (95f * ((DistanciaRecorrida*-1) - 3f))/7f + 5f;
+                StatsPlayer.Instance.ReceivedDamage(FallDamage);
+                UIController.Instance.MensajeAConsola("Caíste " + (DistanciaRecorrida * -1) + " metros. Eso es un daño del " + FallDamage);
+            }
+
             isFalling = false;
             DistanciaRecorrida = 0;
             TiempoEnElAire = 0;
-
         }
         else
         {
@@ -285,6 +286,8 @@ public class MovAnimacionesArmas : MonoBehaviour
 
         animator = personajeSinArma.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
+
+        StatsPlayer.Instance.SetPlayerDamage(10f);
     }
     void ActivarPersonajeLanza()
     {
@@ -296,6 +299,9 @@ public class MovAnimacionesArmas : MonoBehaviour
         ArmaMosquete = false; //Desactivara el mosquete y no lo dectara para sacar la bala
         animator = personajeConLanza.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
+
+        StatsPlayer.Instance.SetPlayerDamage(15f);
+
     }
     void ActivarPersonajeEspada()
     {
@@ -306,6 +312,9 @@ public class MovAnimacionesArmas : MonoBehaviour
 
         animator = personajeConEspada.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
+
+        StatsPlayer.Instance.SetPlayerDamage(20f);
+
     }
 
     void ActivarPersonajeMosquete()
@@ -318,7 +327,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         animator = personajeMosquete.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
 
-
+        StatsPlayer.Instance.SetPlayerDamage(0f);
     }
     void DispararMosquete()
     {

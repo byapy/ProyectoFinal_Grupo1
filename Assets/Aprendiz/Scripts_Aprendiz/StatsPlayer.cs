@@ -9,8 +9,8 @@ public class StatsPlayer : MonoBehaviour
 
 
     //variables de solo los objetos que el jugador va a tener
-    public static int PVidaActual, PVidaMaxima = 100;
-    public static int PDefensa, PAtaque;
+    public static float PVidaActual, PVidaMaxima = 100f;
+    public static float PDefensa, PAtaque, PAtaqueBase;
     public static float TiempoDefensa, TiempoAtaque;
     public static int PDinero;
 
@@ -28,18 +28,32 @@ public class StatsPlayer : MonoBehaviour
         Instance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         PVidaActual = PVidaMaxima;
     }
 
-    // Update is called once per frame
     void Update()
     {
         DuracionAtaqueExtra();
         DuracionDefensaExtra();
     }
+
+
+    public float CalcularAtaque()
+    {
+        float AtaqueTotal;
+        AtaqueTotal = PAtaqueBase + PAtaque;
+
+        return AtaqueTotal;
+    }
+
+    public void ReceivedDamage(float Damage)
+    {
+        PVidaActual -= Damage - PDefensa;
+    }
+
+    //Métodos para contar que se acabe el efecto de las pociones de ataque y defensa
 
     private void DuracionAtaqueExtra()
     {
@@ -70,8 +84,12 @@ public class StatsPlayer : MonoBehaviour
 
     }
 
-
-    //Métodos para contar que se acabe el efecto de las pociones de ataque y defensa
+    //Método para establecer el daño que va a hacer el player
+    public void SetPlayerDamage(float Damage)
+    {
+        PAtaqueBase = Damage;
+        UIController.Instance.MensajeAConsola("El jugador hace un daño base de " + PAtaqueBase);
+    }
 
     //Métodos para contar, agregar y quitar los objetos
     public void UsarPocion(string TipoPocion)
@@ -94,7 +112,6 @@ public class StatsPlayer : MonoBehaviour
                 if (PPociones[1] > 0)
                 {
                     PPociones[1] -= 1;
-                    PDefensa = 15;
                     PDefensa = 15;
                     TiempoDefensa = 20f;
                     BoostDefensa = true;
