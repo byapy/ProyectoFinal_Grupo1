@@ -5,23 +5,24 @@ using UnityEngine;
 public class activarSonidoEnenmigos : MonoBehaviour
 {
     public GameObject particulaAtaqueE;
+    public GameObject particulaPatada;
+
     public Transform inicioParticula;
     public Transform inicioParticula2;
+
     public AudioClip clipAtaqueE;
     public AudioClip clipSonidoEnemigo;
     public AudioClip clipDano;
     public AudioClip clipIdleEnemigo;
     public AudioClip clipEnemigoPatada;
     public AudioClip clipGolpeDeEspada;
+    public AudioClip clipDerrota;
+    public AudioClip clipCaminar1;
+    public AudioClip clipCaminar2;
     public AudioSource fuente2;
 
     public GameObject patadaColision;
     public GameObject espadaColision;
-
-    public void activarAudioEnemigo()
-    {
-        fuente2.PlayOneShot(clipAtaqueE);
-    }
 
     public void golpe()
     {
@@ -42,7 +43,7 @@ public class activarSonidoEnenmigos : MonoBehaviour
     {
        
         patadaColision.SetActive(true);
-        Instantiate(particulaAtaqueE, inicioParticula2);
+        Instantiate(particulaPatada, inicioParticula2);
     }
     public void patadaAudio()
     {
@@ -64,5 +65,20 @@ public class activarSonidoEnenmigos : MonoBehaviour
     {
         espadaColision.SetActive(false);
         //lsjdjdsfdsfds
+    }
+
+    public void derrota()
+    {
+        fuente2.PlayOneShot(clipDerrota);
+    }
+
+    public void caminar1()
+    {
+        fuente2.PlayOneShot(clipCaminar1);
+    }
+
+    public void caminar2()
+    {
+        fuente2.PlayOneShot(clipCaminar2);
     }
 }
