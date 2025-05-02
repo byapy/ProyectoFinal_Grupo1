@@ -12,6 +12,9 @@ public class UIController : MonoBehaviour
     //Esta variable va a ser la que vamos a llamar para que esté mostrando
     //mensajes durante el gameplay
     public Text TxtConsola;
+
+    public GameObject PanelPausa;
+    public GameObject PanelGamePlay;
     
     public static UIController Instance;
 
@@ -54,5 +57,20 @@ public class UIController : MonoBehaviour
     {
         TxtConsola.text = Mnsj;
     }
+    public void MenuPausa()
+    {
+        PanelPausa.SetActive(true);
+        Time.timeScale = 1;
+        PanelGamePlay.SetActive (false);
+    }
+    public void Continuar()
+    {
+        PanelPausa.SetActive(false);
+        Time.timeScale = 1;
+        PanelGamePlay.SetActive(true);
+    }
+    public void CargarEscena()
+    {
 
+    }
 }
