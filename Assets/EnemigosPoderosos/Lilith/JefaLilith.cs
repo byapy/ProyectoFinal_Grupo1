@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class JefaLilith : MonoBehaviour
 {
+    public static JefaLilith Instance;
     public GameObject Player;
     public NavMeshAgent agentLilith;
     public Animator Animator;
@@ -41,12 +42,27 @@ public class JefaLilith : MonoBehaviour
     public AudioSource SourceGeneral;
     public AudioClip Caminar;
 
+    private TiposGolpe golpeSeleccionado;
     public int velocidadLi;
     public bool esVulnerable;
     public bool CuracionON;
+    private bool animacionTerminada = true;
+    private float tiempoEntreGolpes = 2f;
+    private float tiempoUltimoGolpe = 0f;
 
     private void Awake()
     {
+        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;  
+            DontDestroyOnLoad(gameObject); 
+        }
+
         VidaActual = 2000;
         VidaLilith = VidaActual;
 
@@ -178,7 +194,12 @@ public class JefaLilith : MonoBehaviour
         //if(Fases == 2 && ) //Aqui se pondra la regeneración. Cuando tenga el modelo, animaciones y NavMesh configurado.
     }
 
-    
+    private enum TiposGolpe
+    {
+        Golpe1,
+        Golpe2,
+        Golpe3,
+    }
     void Comportamiento()
     {
         if (esVulnerable) return;
@@ -192,15 +213,22 @@ public class JefaLilith : MonoBehaviour
             {
                 if (agentLilith.isOnNavMesh)
                 { 
+                if (animacionTerminada)
+                    {
+                        agentLilith.SetDestination(PlayerPointer.position);
+                        FaceTarget();
+                        Animator.SetBool("Correr", true);
+                        Animator.SetBool("Golpe1", false);
+                        Animator.SetBool("Golpe2", false);
+                        Animator.SetBool("Golpe3", false);
 
-                agentLilith.SetDestination(PlayerPointer.position);
-                FaceTarget();
-                Animator.SetBool("Correr", true);
-                Animator.SetBool("Golpe1", false);
+
+                    }
 
 
 
-                Debug.Log("En Combate");
+
+                    Debug.Log("En Combate");
                 }
                 else
                 {
@@ -210,21 +238,39 @@ public class JefaLilith : MonoBehaviour
            
             if (distancia <= Melee)
             {
-                Animator.SetBool("Correr", false);
-                Animator.SetBool("Golpe1", true);
+                if (Time.time - tiempoUltimoGolpe >= tiempoEntreGolpes)
+                {
+                    Animator.SetBool("Correr", false);
+                    Atacando = true;
+                    agentLilith.isStopped = true;
+                    animacionTerminada = false;
+                    golpeSeleccionado = (TiposGolpe)Random.Range(0, System.Enum.GetValues(typeof(TiposGolpe)).Length);
+                    tiempoUltimoGolpe = Time.time;
+                }
                 
 
-                Atacando = true;
-                agentLilith.isStopped = true;
+                switch (golpeSeleccionado)
+                {
+                    case TiposGolpe.Golpe1:
+                        Animator.SetBool("Golpe1", true);
+                        break;
+                    case TiposGolpe.Golpe2:
+                        Animator.SetBool("Golpe2", true);
+                        break;
+                    case TiposGolpe.Golpe3:
+                        Animator.SetBool("Golpe3", true);
+                        break;
+                    default:
+                        break;
+                }
 
             }
             else
             {
+                Animator.SetBool("Correr", true);
                 Atacando = false;
                 agentLilith.isStopped = false;
-
                 agentLilith.enabled = true;
-
                 agentLilith.speed = velocidadLi;
 
                 
@@ -232,15 +278,7 @@ public class JefaLilith : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, Rango);
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, Melee);
-
-    }
+    
     void Fase2()
     {
         Debug.Log("FASE 2");
@@ -250,7 +288,10 @@ public class JefaLilith : MonoBehaviour
         StartCoroutine(Fase2Inicio());
 
     }
-
+    public void TerminarAnimacion()
+    {
+        animacionTerminada = true;
+    }
     private IEnumerator Fase2Inicio()
     {
         Animator.SetBool("Correr", false);
@@ -295,7 +336,7 @@ public class JefaLilith : MonoBehaviour
     {
         if (CuracionON && VidaActual < VidaMaxima)
         {
-            VidaActual += 150;
+            VidaActual += 30;
             VidaActual = Mathf.Min(VidaActual, VidaMaxima);
             Debug.Log("Lilith se curó al golpear al jugador");
         }
@@ -352,5 +393,13 @@ public class JefaLilith : MonoBehaviour
 
         }
     }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, Rango);
 
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, Melee);
+
+    }
 }

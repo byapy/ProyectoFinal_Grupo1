@@ -18,10 +18,21 @@ public class GolpeConfirm : MonoBehaviour
         espadaCollider.enabled = true;
         StartCoroutine(DesactivarCollider());
 
+
+        if (JefaLilith.Instance != null && JefaLilith.Instance.Fases == 2 && JefaLilith.Instance.CuracionON)
+        {
+
+            JefaLilith.Instance.CurarsePorGolpe(); // Llama a la curación si está en fase 2
+        }
+
     }
     private IEnumerator DesactivarCollider()
     {
         yield return new WaitForSeconds(1f); 
         espadaCollider.enabled = false;  
+    }
+    public void Terminado()
+    {
+        JefaLilith.Instance.TerminarAnimacion();
     }
 }
