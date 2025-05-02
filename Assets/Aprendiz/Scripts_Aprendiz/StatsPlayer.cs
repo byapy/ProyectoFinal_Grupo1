@@ -35,6 +35,7 @@ public class StatsPlayer : MonoBehaviour
 
     void Update()
     {
+
         DuracionAtaqueExtra();
         DuracionDefensaExtra();
     }
