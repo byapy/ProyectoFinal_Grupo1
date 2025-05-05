@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110245086934461456}
-  m_LocalRotation: {x: 0.05242483, y: -0.67396176, z: 0.04804926, w: 0.73533565}
+  m_LocalRotation: {x: 0.08363406, y: -0.67131025, z: 0.07665365, w: 0.7324426}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477162920022076498}
-  m_LocalRotation: {x: 0.06579153, y: -0.67297626, z: 0.060300328, w: 0.7342604}
+  m_LocalRotation: {x: 0.096943006, y: -0.6698049, z: 0.08885178, w: 0.73080015}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1054,8 +1054,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584547041481216658}
-  m_LocalRotation: {x: 0.044050045, y: -0.67446584, z: 0.040373534, w: 0.7358842}
-  m_LocalPosition: {x: 206.51448, y: -0.51318634, z: -433.51227}
+  m_LocalRotation: {x: 0.044050034, y: -0.6744651, z: 0.040373452, w: 0.7358848}
+  m_LocalPosition: {x: 1.2938849, y: 1.9420763, z: -4.846873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1204,7 +1204,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5843585970871093537}
-  m_LocalRotation: {x: 0.039076146, y: -0.67472255, z: 0.035814706, w: 0.7361657}
+  m_LocalRotation: {x: 0.07033272, y: -0.6725903, z: 0.06446249, w: 0.73383933}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1270,7 +1270,7 @@ GameObject:
   - component: {fileID: 2993629801450599479}
   - component: {fileID: 1125822548516065294}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: Luz_Antorcha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1302,8 +1302,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Color: {r: 0.9339623, g: 0.78288877, b: 0.3039783, a: 1}
+  m_Intensity: 1
   m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
