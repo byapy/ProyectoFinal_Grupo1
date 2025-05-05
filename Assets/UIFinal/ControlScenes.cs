@@ -36,7 +36,7 @@ public class ControlScenes : MonoBehaviour
     }
     public void CargarEscenaInicio()//Carga la escena principal desde el panel perdiste
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
         Time.timeScale = 1;
     }
 }
