@@ -39,4 +39,11 @@ public class ControlScenes : MonoBehaviour
         SceneManager.LoadScene(2);
         Time.timeScale = 1;
     }
+
+    public void ReiniciarEscena()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+    }
+
 }

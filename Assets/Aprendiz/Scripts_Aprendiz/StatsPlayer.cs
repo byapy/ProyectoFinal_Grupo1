@@ -15,6 +15,7 @@ public class StatsPlayer : MonoBehaviour
     public static int PDinero;
 
     public static bool BoostDefensa, BoostAtaque;
+    public static bool IsAlive;
 
     //Las pociones y los trozos de Gema van a ser un array de 3 filas
     //Pociones en Fila 0 son Vida, 1 son Defensa y 2 son ataque.
@@ -31,16 +32,25 @@ public class StatsPlayer : MonoBehaviour
     void Start()
     {
         PVidaActual = PVidaMaxima;
+        IsAlive = true;
+
     }
 
     void Update()
     {
 
+        CheckLife();
         DuracionAtaqueExtra();
         DuracionDefensaExtra();
     }
 
-
+    public void CheckLife()
+    {
+        if(PVidaActual <= 0)
+        {
+            IsAlive = false;
+        }
+    }
     public float CalcularAtaque()
     {
         float AtaqueTotal;
