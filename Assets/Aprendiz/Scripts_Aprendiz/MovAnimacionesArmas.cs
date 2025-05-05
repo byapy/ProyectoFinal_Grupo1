@@ -85,75 +85,81 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            if (ArmaLanza)
+        if(StatsPlayer.IsAlive)
+        { 
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ActivarPersonajeLanza();
-                ArmaLanza = false;
-            }
-            else
-            {
-                ActivarPersonajeLanza();
-                ArmaLanza = true;
-                ArmaEspada = false;
-                ArmaMosquete = false;
+                if (ArmaLanza)
+                {
+                    ActivarPersonajeLanza();
+                    ArmaLanza = false;
+                }
+                else
+                {
+                    ActivarPersonajeLanza();
+                    ArmaLanza = true;
+                    ArmaEspada = false;
+                    ArmaMosquete = false;
 
-                Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                    Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if (ArmaEspada)
+                {
+                    ActivarPersonajeEspada();
+                    ArmaEspada = false;
+                }
+                else
+                {
+                    ActivarPersonajeEspada();
+                    ArmaLanza = false;
+                    ArmaEspada = true;
+                    ArmaMosquete = false;
+                    Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                if (ArmaMosquete)
+                {
+                    ActivarPersonajeMosquete();
+                    ArmaMosquete = false;
+                }
+                else
+                {
+                    ActivarPersonajeMosquete();
+                    ArmaLanza = false;
+                    ArmaEspada = false;
+                    ArmaMosquete = true;
+                    Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                }
+            }
+            else if (Input.GetMouseButtonDown(1))
+            {
+                ActivarPersonajeSinArma();
+                ArmaMosquete = false;//para que no reconozca la bala
 
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (ArmaEspada)
+            if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
             {
-                ActivarPersonajeEspada();
-                ArmaEspada = false;
+                ActivarPersonajeSinArma();
+                ArmaMosquete = false;//para que no reconozca la bala
             }
-            else
-            {
-                ActivarPersonajeEspada();
-                ArmaLanza = false;
-                ArmaEspada = true;
-                ArmaMosquete = false;
-                Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (ArmaMosquete)
-            {
-                ActivarPersonajeMosquete();
-                ArmaMosquete = false;
-            }
-            else
-            {
-                ActivarPersonajeMosquete();
-                ArmaLanza = false;
-                ArmaEspada = false;
-                ArmaMosquete = true;
-                Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
-            }
-        }
-        else if (Input.GetMouseButtonDown(1))
-        {
-            ActivarPersonajeSinArma();
-            ArmaMosquete = false;//para que no reconozca la bala
 
-        }
-        if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
-        {
-            ActivarPersonajeSinArma();
-            ArmaMosquete = false;//para que no reconozca la bala
-        }
-
-        Movimiento();
-        Salto();
-        Ataque();
+            Movimiento();
+            Salto();
+            Ataque();
      
-        DispararMosquete();
-        EstaCayendo();
-
+            DispararMosquete();
+            EstaCayendo();
+        }
+        else
+        {
+            animator.SetBool("IsAlive", false);
+        }
 
     }
     void Movimiento()
