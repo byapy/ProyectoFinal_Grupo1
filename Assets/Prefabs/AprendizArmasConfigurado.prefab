@@ -90,14 +90,14 @@ GameObject:
   - component: {fileID: 5810909593884617841}
   - component: {fileID: 1213891515125688592}
   - component: {fileID: 4125772999238801043}
-  - component: {fileID: 3446772888069291181}
+  - component: {fileID: 4413072962687692735}
   m_Layer: 7
   m_Name: Sphere_Espada
-  m_TagString: Untagged
+  m_TagString: ArmaPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1877995040225402722
 Transform:
   m_ObjectHideFlags: 0
@@ -106,8 +106,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321675844226438775}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 0.518, z: 0.01}
-  m_LocalScale: {x: 0.46250993, y: 0.4625099, z: 0.46250987}
+  m_LocalPosition: {x: 0.35, y: -0.564, z: -0.18}
+  m_LocalScale: {x: 0.67100936, y: 0.67100936, z: 0.6710093}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3846144327275789213}
@@ -171,27 +171,23 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321675844226438775}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3446772888069291181
-Rigidbody:
+--- !u!114 &4413072962687692735
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321675844226438775}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859d059a5eacfc046a971757df9a10be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477162920022076498
 GameObject:
   m_ObjectHideFlags: 3
@@ -216,7 +212,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477162920022076498}
-  m_LocalRotation: {x: 0.096943006, y: -0.6698049, z: 0.08885178, w: 0.73080015}
+  m_LocalRotation: {x: 0.09694297, y: -0.6698049, z: 0.08885175, w: 0.73080015}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -483,14 +479,14 @@ GameObject:
   - component: {fileID: 2395627909707318620}
   - component: {fileID: 3154816275397670243}
   - component: {fileID: 6056714826963017459}
-  - component: {fileID: 8944123796299907641}
+  - component: {fileID: 7919757547518781778}
   m_Layer: 7
   m_Name: Sphere_Lanza
-  m_TagString: Untagged
+  m_TagString: ArmaPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &234348076495176481
 Transform:
   m_ObjectHideFlags: 0
@@ -564,27 +560,23 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3953402577517171994}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8944123796299907641
-Rigidbody:
+--- !u!114 &7919757547518781778
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3953402577517171994}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859d059a5eacfc046a971757df9a10be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4289455834874860789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1196,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5843585970871093537}
-  m_LocalRotation: {x: 0.07033272, y: -0.6725903, z: 0.06446249, w: 0.73383933}
+  m_LocalRotation: {x: 0.07033273, y: -0.6725904, z: 0.064462505, w: 0.73383933}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1639,14 +1631,14 @@ GameObject:
   - component: {fileID: 428208810488888271}
   - component: {fileID: 4759876090961683459}
   - component: {fileID: 8590206025593792628}
-  - component: {fileID: 4548395302713416689}
+  - component: {fileID: 1111655273633915716}
   m_Layer: 7
   m_Name: Sphere_NoArma
-  m_TagString: Untagged
+  m_TagString: ArmaPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6556630566071666512
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,7 +1647,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170348493025002768}
   m_LocalRotation: {x: -0.15677822, y: -0.31616542, z: -0.029317524, w: 0.9352008}
-  m_LocalPosition: {x: -0.0068, y: 0.065, z: 0.0121}
+  m_LocalPosition: {x: -0.027, y: 0.101, z: -0.005}
   m_LocalScale: {x: 0.30504826, y: 0.3050483, z: 0.30504826}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1720,27 +1712,23 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170348493025002768}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &4548395302713416689
-Rigidbody:
+--- !u!114 &1111655273633915716
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9170348493025002768}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859d059a5eacfc046a971757df9a10be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &351631600758903738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2119,6 +2107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PantallaGameOver: {fileID: 0}
   PantallaGameplay: {fileID: 0}
+  HitboxSinArma: {fileID: 0}
+  HitboxLanza: {fileID: 0}
+  HitboxEspada: {fileID: 1321675844226438775}
 --- !u!4 &1091000176516192859 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 33bbc1b905b53cf419f469e36b23d299, type: 3}
@@ -2675,6 +2666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PantallaGameOver: {fileID: 0}
   PantallaGameplay: {fileID: 0}
+  HitboxSinArma: {fileID: 0}
+  HitboxLanza: {fileID: 0}
+  HitboxEspada: {fileID: 0}
 --- !u!4 &626043718429385375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f455196111adce45aefcdc6b10c989c, type: 3}
@@ -3015,6 +3009,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PantallaGameOver: {fileID: 0}
   PantallaGameplay: {fileID: 0}
+  HitboxSinArma: {fileID: 9170348493025002768}
+  HitboxLanza: {fileID: 0}
+  HitboxEspada: {fileID: 0}
 --- !u!1001 &2773901458221633296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3407,6 +3404,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PantallaGameOver: {fileID: 0}
   PantallaGameplay: {fileID: 0}
+  HitboxSinArma: {fileID: 0}
+  HitboxLanza: {fileID: 3953402577517171994}
+  HitboxEspada: {fileID: 0}
 --- !u!1001 &9078925468525794719
 PrefabInstance:
   m_ObjectHideFlags: 0

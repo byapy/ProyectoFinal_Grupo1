@@ -261,7 +261,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         {
             animator.SetBool("Attack", true);
 
-            if (ArmaLanza)
+            /*if (ArmaLanza)
             {
                 EsferaLaza.SetActive(true);
             }
@@ -270,15 +270,16 @@ public class MovAnimacionesArmas : MonoBehaviour
                 EsferaEspada.SetActive(true);
             }
 
-            EsferaAtaque.SetActive(true);
+            EsferaAtaque.SetActive(true);*/
+
             tiempoUltimoUso = Time.time;
         }
         else
         {
             animator.SetBool("Attack", false);
-            EsferaAtaque.SetActive(false);
+            /*EsferaAtaque.SetActive(false);
             EsferaLaza.SetActive(false);
-            EsferaEspada.SetActive(false);
+            EsferaEspada.SetActive(false);*/
 
         }
     }
@@ -333,7 +334,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         animator = personajeMosquete.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
 
-        StatsPlayer.Instance.SetPlayerDamage(0f);
+        StatsPlayer.Instance.SetPlayerDamage(5f);
     }
     void DispararMosquete()
     {
@@ -348,7 +349,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     public void ActivarHablarNPC()
     {
         enConversacion = true;
-            AnimatorNpc.SetBool("Talk", true);
+        AnimatorNpc.SetBool("Talk", true);
     }
 
     public void DesactivarHablarNPC()

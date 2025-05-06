@@ -20,7 +20,7 @@ public class ControlScenes : MonoBehaviour
     public void MenuPausa()
     {
         PanelPausa.SetActive(true);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
         PanelGamePlay.SetActive(false);
     }
     public void Continuar()

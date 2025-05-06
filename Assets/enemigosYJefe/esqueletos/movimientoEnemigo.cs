@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class movimientoEnemigo : MonoBehaviour
 {
+    public static movimientoEnemigo Instance;
     public NavMeshAgent Agent;
     public Transform pointPlayer;
     public float radio;
@@ -17,8 +18,12 @@ public class movimientoEnemigo : MonoBehaviour
     [SerializeField] GameObject[] objetos;
 
    
-    public int saludEnemigo;
-   
+    public float saludEnemigo;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         animacionEnemigo = GetComponentInChildren<Animator>();
@@ -27,9 +32,13 @@ public class movimientoEnemigo : MonoBehaviour
     void Update()
     {
         NavMeshMovimiento();
-        
+        RevisarVida();
     }
 
+    public void ReceivedDamage(float Damage)
+    {
+        saludEnemigo -= Damage;
+    }
     public void NavMeshMovimiento()
     {
         float rango = Vector3.Distance(pointPlayer.position, transform.position);
@@ -81,9 +90,10 @@ public class movimientoEnemigo : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radioAtaque);
     }
+    //ONCOLLISION NO SE USA POR EL MOMENTO
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "simitarra")
+        /*if (collision.transform.tag == "simitarra")
         {
             saludEnemigo = saludEnemigo - 90;
             animacionEnemigo.SetBool("golpess", true);
@@ -101,8 +111,11 @@ public class movimientoEnemigo : MonoBehaviour
         {
             saludEnemigo = saludEnemigo - 60;
             animacionEnemigo.SetBool("golpess", true);
-        }
+        }*/
         
+    }
+    private void RevisarVida()
+    {
         if (saludEnemigo <= 0)
         {
             Agent.speed = 0f;

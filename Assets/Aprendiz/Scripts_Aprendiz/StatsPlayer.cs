@@ -61,7 +61,7 @@ public class StatsPlayer : MonoBehaviour
 
     public void ReceivedDamage(float Damage)
     {
-        PVidaActual -= Damage - PDefensa;
+        if((Damage - PDefensa) > 0) PVidaActual -= (Damage - PDefensa);
     }
 
     //Métodos para contar que se acabe el efecto de las pociones de ataque y defensa
