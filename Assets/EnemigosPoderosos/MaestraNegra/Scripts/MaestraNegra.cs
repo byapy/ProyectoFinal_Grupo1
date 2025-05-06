@@ -1,103 +1,222 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class MaestraNegra : MonoBehaviour
 {
+    // Referencias a componentes
+    public static MaestraNegra Instance;
+
     public NavMeshAgent AgentMaestraN;
     public Transform PlayerPointer;
+    public Animator Animator;
+    public AudioClip sonidoDisparo;
+    public AudioClip MuerteSonido;
+    public AudioClip Caminar;
+
+
+
+    public AudioSource AudioFuente;
+
+    public float tiempoEntrePasos = 0.5f;
+
+
+
+
+    // Radios y rangos
     public float RadioDeVision;
     public float RadioDisparo;
     public float RadioAtaque;
-    public float RadioMelee;
+    public float RadioMelee; // Ya no lo usare
     public float Golpe;
-    public Animator Animator;
 
+    // Objetos relacionados con las armas y el disparo
     public GameObject Mosquete;
     public GameObject Espada;
     public GameObject Cuerpo;
     public GameObject bala;
     public Transform PointerBala;
+    public GameObject ParticulasDerrota;
 
+    // Estado interno
     private bool sacandoArma = false;
     private bool armaSacada = false;
     private bool disparando = false;
+    public bool muerta;
+    private bool yaMurio = false;
+
+
+    //Stats
+    public int vida = 500;
+    public int Da√±oG;
+    public int Da√±oD;
 
     void Start()
     {
+        StartCoroutine(SonidoPasos());
         Animator = GetComponentInChildren<Animator>();
     }
 
+    private void Awake()
+    {
+        Instance = this;
+
+    }
     void Update()
     {
-        Movimiento();
-    }
+        Debug.Log("VIDA:" + StatsPlayer.PVidaActual);
 
+
+        // Si no est√° muerta, realiza el movimiento
+        if (!muerta)
+        {
+            Movimiento();
+        }
+        if (vida <= 0 && !yaMurio)
+        {
+            muerta = true;
+            Muriendo();
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            vida = 0;
+        }
+
+    }
+    private IEnumerator SonidoPasos()
+    {
+        while (true)
+        {
+            if (Animator.GetBool("Caminando") && !AudioFuente.isPlaying && !muerta)
+            {
+                AudioFuente.PlayOneShot(Caminar);
+            }
+
+            yield return new WaitForSeconds(tiempoEntrePasos);
+        }
+    }
     public void Movimiento()
     {
+
+        if (StatsPlayer.PVidaActual <= 0)
+        {
+            Animator.SetBool("Pegar", false);
+            DetenerMovimiento(); 
+            AgentMaestraN.ResetPath(); 
+            return;
+        }
+
+       
         float distancia = Vector3.Distance(PlayerPointer.position, transform.position);
 
-        // Si est· en rango de melee, comienza a sacar el arma y esperar para caminar
+       
         if (distancia <= RadioMelee)
         {
-            if (!sacandoArma && !armaSacada)
-            {
-                sacandoArma = true;
-                Espada.SetActive(true);
-                Animator.SetBool("MeleeSacarArma", true);  // Empieza la animaciÛn de sacar el arma
-                StartCoroutine(SacarArmaYCaminar());
-            }
-
-            // Solo se mueve hacia el jugador una vez que el arma haya sido sacada
-            if (armaSacada)
-            {
-                AgentMaestraN.SetDestination(PlayerPointer.position);
-                FaceTarget();
-            }
+            ManejarMelee(distancia);
         }
         else if (distancia <= RadioAtaque)
         {
-            // Comienza a caminar hacia el jugador si est· dentro del rango de ataque
-            AgentMaestraN.SetDestination(PlayerPointer.position);
-            FaceTarget();
-
-            Mosquete.SetActive(false);
-            Animator.SetBool("Caminando", true);
-            Animator.SetBool("Disparando", false);
-            disparando = false;
-
-            AgentMaestraN.speed = 5f; // Velocidad de movimiento
+            ManejarAtaque(distancia);
         }
         else if (distancia <= RadioDisparo)
         {
-            // Comienza a disparar si est· dentro del rango de disparo
-            FaceTarget();
-
-            Mosquete.SetActive(true);
-            Animator.SetBool("Disparando", true);
-            Animator.SetBool("Caminando", false);
-            Espada.SetActive(false);
-
-            disparando = true;
-
-            AgentMaestraN.speed = 0f; // Se queda quieta al disparar
-
+            ManejarDisparo(distancia);
         }
         else if (distancia <= RadioDeVision)
         {
-            // Solo gira hacia el jugador si est· en el rango de visiÛn
+           
             FaceTarget();
         }
         else
         {
-            // Si no est· en ning˙n rango relevante, no hace nada
-            Animator.SetBool("Caminando", false);
-            Animator.SetBool("Disparando", false);
-            disparando = false;
-            AgentMaestraN.speed = 0f;
+          
+            DetenerMovimiento();
         }
+
+       
         if (distancia <= Golpe)
+        {
+            ManejarGolpe();
+        }
+        else
+        {
+            AgentMaestraN.isStopped = false;
+
+            Animator.SetBool("Pegar", false);
+        }
+
+        AjustarCuerpo();
+    }
+
+    void Muriendo()
+    {
+        yaMurio = true;
+        Animator.Play("Dying");
+        AgentMaestraN.enabled = false;
+        Destroy(gameObject, 6);
+        Invoke("ActivarParticulaMuerte", 2.5f);
+        AudioFuente.PlayOneShot(MuerteSonido);
+
+
+    }
+    void ActivarParticulaMuerte()
+    {
+        ParticulasDerrota.SetActive(true);
+    }
+    
+    void ManejarMelee(float distancia)
+    {
+        if (!sacandoArma && !armaSacada)
+        {
+            sacandoArma = true;
+            Espada.SetActive(true);
+            Animator.SetBool("MeleeSacarArma", true);  
+            StartCoroutine(SacarArmaYCaminar());
+        }
+
+    
+        if (armaSacada)
+        {
+            AgentMaestraN.SetDestination(PlayerPointer.position);
+            FaceTarget();
+        }
+    }
+
+    void ManejarAtaque(float distancia)
+    {
+        
+        AgentMaestraN.SetDestination(PlayerPointer.position);
+        FaceTarget();
+
+        Mosquete.SetActive(false);
+        Animator.SetBool("Caminando", true);
+        Animator.SetBool("Disparando", false);
+        disparando = false;
+
+        AgentMaestraN.speed = 5f; 
+    }
+
+    void ManejarDisparo(float distancia)
+    {
+        // Dentro del rango de disparo, el enemigo se detiene y dispara
+        FaceTarget();
+
+        Mosquete.SetActive(true);
+        Animator.SetBool("Disparando", true);
+        Animator.SetBool("Caminando", false);
+        Espada.SetActive(false);
+
+        disparando = true;
+
+        AgentMaestraN.speed = 0f; // Se queda quieta al disparar
+    }
+
+    void ManejarGolpe()
+    {
+        
+        if (!Animator.GetBool("Pegar"))
         {
             Animator.SetBool("Pegar", true);
             Animator.SetBool("Caminando", false);
@@ -106,25 +225,27 @@ public class MaestraNegra : MonoBehaviour
 
             Espada.SetActive(true);
 
-
-            AgentMaestraN.speed = 0f;
-
+            AgentMaestraN.speed = 0f; 
+            AgentMaestraN.isStopped = true;
         }
-        else
-        {
-            Animator.SetBool("Pegar", false);
+        
+    }
+    
 
-        }
-
-
-        AjustarCuerpo();
+    void DetenerMovimiento()
+    {
+        // Si no est√° en ning√∫n rango relevante, detiene el movimiento
+        Animator.SetBool("Caminando", false);
+        Animator.SetBool("Disparando", false);
+        disparando = false;
+        AgentMaestraN.speed = 0f;
     }
 
     void FaceTarget()
     {
-        // Calcula la direcciÛn hacia el jugador sin afectar la inclinaciÛn
+        // Calcula la direcci√≥n hacia el jugador sin afectar la inclinaci√≥n
         Vector3 direction = (PlayerPointer.position - transform.position).normalized;
-        direction.y = 0;  // Mantener solo la rotaciÛn en el plano XZ
+        direction.y = 0;  // Mantener solo la rotaci√≥n en el plano XZ
         if (direction == Vector3.zero) return;
 
         Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -135,12 +256,12 @@ public class MaestraNegra : MonoBehaviour
     {
         if (disparando)
         {
-            // Aplica la rotaciÛn de 90∞ cuando est· disparando
+            // Aplica la rotaci√≥n de 90¬∞ cuando est√° disparando
             Cuerpo.transform.localRotation = Quaternion.Euler(0, 90, 0);
         }
         else
         {
-            // Restaura la rotaciÛn normal del cuerpo
+            // Restaura la rotaci√≥n normal del cuerpo
             Cuerpo.transform.localRotation = Quaternion.identity;
         }
     }
@@ -150,34 +271,33 @@ public class MaestraNegra : MonoBehaviour
         if (bala != null && PointerBala != null)
         {
             GameObject balaInstanciada = Instantiate(bala, PointerBala.position, PointerBala.rotation);
-
-            // Inicializamos la bala para que apunte hacia el jugador
+            AudioFuente.PlayOneShot(sonidoDisparo);
+            
             BalaMovimiento balaScript = balaInstanciada.GetComponent<BalaMovimiento>();
             if (balaScript != null)
             {
-                balaScript.Inicializar(PlayerPointer.position); // Apunta hacia el jugador
+                balaScript.Inicializar(PlayerPointer.position); 
             }
         }
-
     }
 
     private IEnumerator SacarArmaYCaminar()
     {
-        // Espera el tiempo de la animaciÛn de sacar el arma
-        yield return new WaitForSeconds(2.5f); 
+        // Espera el tiempo de la animaci√≥n de sacar el arma
+        yield return new WaitForSeconds(2.5f);
 
-        // Termina la animaciÛn de sacar el arma
+        // Termina la animaci√≥n de sacar el arma
         Animator.SetBool("MeleeSacarArma", false);
 
         // Solo comienza a caminar una vez que el arma ha sido sacada
         Animator.SetBool("Caminando", true);
-        armaSacada = true;  // El arma ya est· sacada
-        sacandoArma = false; // Ya no est· sacando el arma
+        armaSacada = true;  // El arma ya est√° sacada
+        sacandoArma = false; // Ya no est√° sacando el arma
     }
 
     private void OnDrawGizmosSelected()
     {
-        // Gizmos para visualizar las ·reas de rango
+        // Gizmos para visualizar las √°reas de rango
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, RadioDeVision);
 

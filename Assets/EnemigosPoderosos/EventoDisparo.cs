@@ -5,7 +5,8 @@ using UnityEngine;
 public class EventoDisparo : MonoBehaviour
 {
     private MaestraNegra maestra;
-
+    public AudioSource AudioSource;
+    public AudioClip GolpeEspada;
     private void Start()
     {
         maestra = GetComponentInParent<MaestraNegra>();
@@ -17,5 +18,9 @@ public class EventoDisparo : MonoBehaviour
         {
             maestra.Disparo();
         }
+    }
+    public void GolpeRealizado()
+    {
+        AudioSource.PlayOneShot(GolpeEspada);
     }
 }

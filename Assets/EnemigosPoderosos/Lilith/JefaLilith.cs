@@ -49,7 +49,8 @@ public class JefaLilith : MonoBehaviour
     private bool animacionTerminada = true;
     private float tiempoEntreGolpes = 2f;
     private float tiempoUltimoGolpe = 0f;
-
+    private float tiempoUltimoDañoAura = 0f;
+    private float intervaloAura = 1f;
     private void Awake()
     {
         
@@ -60,7 +61,6 @@ public class JefaLilith : MonoBehaviour
         else
         {
             Instance = this;  
-            DontDestroyOnLoad(gameObject); 
         }
 
         VidaActual = 2000;
@@ -117,7 +117,7 @@ public class JefaLilith : MonoBehaviour
     {
         while (!Derrotada)
         {
-            yield return new WaitForSeconds(Random.Range(3f, 8f));
+            yield return new WaitForSeconds(Random.Range(50f, 80f));
             
             if (JugadorEnRango)
             {
@@ -233,6 +233,9 @@ public class JefaLilith : MonoBehaviour
                 else
                 {
                     Debug.LogWarning("Lilith aun no esta sobre el Navmesh");
+                    Animator.SetBool("Golpe1", false);
+                    Animator.SetBool("Golpe2", false);
+                    Animator.SetBool("Golpe3", false);
                 }
             }
            
@@ -247,18 +250,35 @@ public class JefaLilith : MonoBehaviour
                     golpeSeleccionado = (TiposGolpe)Random.Range(0, System.Enum.GetValues(typeof(TiposGolpe)).Length);
                     tiempoUltimoGolpe = Time.time;
                 }
-                
+                else
+                {
+                    agentLilith.isStopped = false;
+                    agentLilith.enabled = true;
+                } 
+                    
 
                 switch (golpeSeleccionado)
                 {
                     case TiposGolpe.Golpe1:
                         Animator.SetBool("Golpe1", true);
+
+                        Animator.SetBool("Golpe2", false);
+                        Animator.SetBool("Golpe3", false);
+
+
                         break;
                     case TiposGolpe.Golpe2:
                         Animator.SetBool("Golpe2", true);
+
+                        Animator.SetBool("Golpe1", false);
+                        Animator.SetBool("Golpe3", false);
+
                         break;
                     case TiposGolpe.Golpe3:
                         Animator.SetBool("Golpe3", true);
+
+                        Animator.SetBool("Golpe1", false);
+                        Animator.SetBool("Golpe2", false);
                         break;
                     default:
                         break;
@@ -268,13 +288,16 @@ public class JefaLilith : MonoBehaviour
             else
             {
                 Animator.SetBool("Correr", true);
+
+
                 Atacando = false;
                 agentLilith.isStopped = false;
                 agentLilith.enabled = true;
                 agentLilith.speed = velocidadLi;
 
-                
-                   
+ 
+
+
             }
         }
     }
@@ -371,18 +394,25 @@ public class JefaLilith : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            JugadorEnRango = true;
+            if (Time.time - tiempoUltimoDañoAura >= intervaloAura && Aura == true)
+            {
+                StatsPlayer.Instance.ReceivedDamage(5); // ajusta el daño aquí
+                tiempoUltimoDañoAura = Time.time;
+            }
+
+
+
+
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Objeto detectado: " + other.gameObject.name);
 
-        if (other.CompareTag("Player")) 
-        {
-            JugadorEnRango = true;
-            Debug.Log("El Jugador esta en el rango");
-            
-        }
+        
     }
     private void OnTriggerExit(Collider other)
     {
