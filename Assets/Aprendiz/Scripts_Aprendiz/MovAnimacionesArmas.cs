@@ -23,13 +23,12 @@ public class MovAnimacionesArmas : MonoBehaviour
     public float GroundDistance;
     //public float GroundDistance = 0.4f;
     public LayerMask groundMask;
-    public bool isGrounded;
+    public bool isGrounded, isGround;
 
     public float HeightJump;
 
     public Animator animator;
     public bool isJump;
-    public bool isGround;
 
     //Para calcular cuántos metros está cayendo el personaje
     public bool isFalling;
@@ -164,6 +163,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     }
     void Movimiento()
     {
+
         float Movx = Input.GetAxis("Horizontal");
         float Movz = Input.GetAxis("Vertical");
 
@@ -215,15 +215,17 @@ public class MovAnimacionesArmas : MonoBehaviour
             animator.SetBool("isJumping", false);
             isJump = false;
 
+
             //Para calcular daño de las caidas
 
-            if ((DistanciaRecorrida * -1) > 3f)
+            if ((DistanciaRecorrida * -1) > 5f)
             {
                 float FallDamage = (95f * ((DistanciaRecorrida*-1) - 3f))/7f + 5f;
                 StatsPlayer.Instance.ReceivedDamage(FallDamage);
                 UIController.Instance.MensajeAConsola("Caíste " + (DistanciaRecorrida * -1) + " metros. Eso es un daño del " + FallDamage);
             }
 
+            animator.SetBool("isFalling", false);
             isFalling = false;
             DistanciaRecorrida = 0;
             TiempoEnElAire = 0;
@@ -248,6 +250,15 @@ public class MovAnimacionesArmas : MonoBehaviour
             VelocidadGravedad.y = Mathf.Sqrt(HeightJump * -2f * gravedad);
             animator.SetBool("isJumping", true);
             isJump = true;
+        }
+        //Por si se cae solo así
+        if (!isJump && !isGrounded)
+        {
+
+            animator.SetBool("isFalling", true);
+            //Para calcular distancia caída
+            isFalling = true;
+            TiempoEnElAire += (1 * Time.deltaTime);
         }
 
         VelocidadGravedad.y += gravedad * Time.deltaTime;

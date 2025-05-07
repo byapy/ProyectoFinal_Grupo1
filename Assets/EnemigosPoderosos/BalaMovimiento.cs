@@ -6,8 +6,9 @@ public class BalaMovimiento : MonoBehaviour
     private Vector3 direccion; 
     public float tiempoDeVida = 3f; 
 
-    private ParticleSystem particulaBala; 
+    private ParticleSystem particulaBala;
 
+    
     void Start()
     {
        
@@ -43,6 +44,7 @@ public class BalaMovimiento : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        
         if (collision.gameObject.CompareTag("Player"))
         {
             StatsPlayer.Instance.ReceivedDamage(MaestraNegra.Instance.DañoD);

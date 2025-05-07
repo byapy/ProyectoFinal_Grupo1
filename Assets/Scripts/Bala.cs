@@ -6,6 +6,7 @@ public class Bala : MonoBehaviour
 {
     public Vector3 BalaInstancia;
     float BalaDamage;
+    public GameObject  ParticulaExplocion;
 
     void Start()
     {
@@ -22,7 +23,9 @@ public class Bala : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        Instantiate(ParticulaExplocion, transform.position, Quaternion.identity);
+
+        if (other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             movimientoEnemigo.Instance.ReceivedDamage(BalaDamage);
