@@ -38,11 +38,15 @@ public class BalaMovimiento : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
        
-        if (other.CompareTag("Player"))
+        
+        
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
             StatsPlayer.Instance.ReceivedDamage(MaestraNegra.Instance.DañoD);
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
-        
     }
 }
