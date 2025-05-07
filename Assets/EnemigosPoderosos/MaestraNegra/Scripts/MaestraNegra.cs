@@ -79,10 +79,7 @@ public class MaestraNegra : MonoBehaviour
             muerta = true;
             Muriendo();
         }
-        if (Input.GetKey(KeyCode.T))
-        {
-            vida = 0;
-        }
+        
 
     }
     private IEnumerator SonidoPasos()
