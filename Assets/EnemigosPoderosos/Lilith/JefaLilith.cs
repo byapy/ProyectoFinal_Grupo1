@@ -17,7 +17,7 @@ public class JefaLilith : MonoBehaviour
     public float VidaLilith;
     public bool Aura;
     public float Fases;
-    public float Daño;
+
     public bool JugadorEnRango;
     public bool Derrotada;
     public bool Atacando;
@@ -83,7 +83,6 @@ public class JefaLilith : MonoBehaviour
 
         Debug.Log("Tienes agallas para desafiarme, simple mortal");
         Fases = 1;
-        Daño = 30;
         trigger = GetComponent<SphereCollider>(); 
         trigger.isTrigger = true;
         
@@ -305,7 +304,6 @@ public class JefaLilith : MonoBehaviour
         Debug.Log("FASE 2");
         CuracionON = true;
         velocidadLi = 15;
-        Daño = 60;
         StartCoroutine(Fase2Inicio());
 
     }

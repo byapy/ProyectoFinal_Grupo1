@@ -12,6 +12,14 @@ public class EnemyDamage : MonoBehaviour
         {
             StatsPlayer.Instance.ReceivedDamage(AttackDamage);
             Debug.Log("Has recibido daño de " + AttackDamage);
+
+            if (JefaLilith.Instance != null &&
+                JefaLilith.Instance.Fases == 2 &&
+                JefaLilith.Instance.CuracionON)
+            {
+                JefaLilith.Instance.CurarsePorGolpe();
+            }
+
         }
     }
 
