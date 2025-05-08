@@ -179,7 +179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2313734473373032860, guid: 3c24e52af0a4a754a8cff7c43882bbec, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2313734473373032861, guid: 3c24e52af0a4a754a8cff7c43882bbec, type: 3}
       propertyPath: pointPlayer
@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2313734473373032862, guid: 3c24e52af0a4a754a8cff7c43882bbec, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2313734474324131779, guid: 3c24e52af0a4a754a8cff7c43882bbec, type: 3}
       propertyPath: m_Enabled
@@ -245,8 +245,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
-  m_Pitch: 1
+  m_Volume: 0.65
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0

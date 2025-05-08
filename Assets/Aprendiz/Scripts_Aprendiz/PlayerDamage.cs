@@ -10,7 +10,7 @@ public class PlayerDamage : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             movimientoEnemigo.Instance.ReceivedDamage(StatsPlayer.Instance.CalcularAtaque());
-           Instantiate (ParticulaGolpe, transform.position, Quaternion.identity);
+            Instantiate (ParticulaGolpe, transform.position, Quaternion.identity);
         }
         
 

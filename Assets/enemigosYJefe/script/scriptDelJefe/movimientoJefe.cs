@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class movimientoJefe : MonoBehaviour
 {
+    public static movimientoJefe Instance;
     public NavMeshAgent Agent;
     public Transform pointPlayer;
     public float radioAcercarse;
@@ -15,9 +16,12 @@ public class movimientoJefe : MonoBehaviour
 
     public bool escudoActivado;
 
-    public static float saludJefe = 1248f;
-    
+    public static float saludJefe = 2500f;
 
+    public void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         
@@ -164,32 +168,22 @@ public class movimientoJefe : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radioAtaque);
     }
-    public void OnCollisionEnter(Collision collision)
+
+    public void ReciveDanoJefe(float Damage)
     {
-      if(escudoActivado == false)
-      {
-        if (collision.transform.tag == "mosquete")
+        saludJefe -= Damage;
+        animacionJefe.SetBool("dano", true);
+        animacionJefe.SetBool("bloquear", true);
+        escudoActivado = true;
+
+        if (escudoActivado == true)
         {
-            saludJefe = saludJefe - 25;
-            animacionJefe.SetBool("dano", true);
-            animacionJefe.SetBool("bloquear", true);
-
+            saludJefe = saludJefe + 0;
         }
-        if (collision.transform.tag == "simitarra")
-        {
-            saludJefe = saludJefe - 100;
-            animacionJefe.SetBool("dano", true);
-            animacionJefe.SetBool("bloquear", true);
-            escudoActivado = true;
-        }
-      }
+    }
 
-      if (escudoActivado == true)
-      {
-        saludJefe = saludJefe + 0;
-      }
-     
-
+    public void VidaJefeTotal()
+    {
         if (saludJefe <= 0)
         {
             Agent.speed = 0f;
@@ -198,5 +192,23 @@ public class movimientoJefe : MonoBehaviour
             animacionJefe.SetBool("derrotaJ", true);
 
         }
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+    //  if(escudoActivado == false)
+      //{
+      //  if (collision.transform.tag == "mosquete")
+      //  {
+       //     saludJefe = saludJefe - 25;
+       //     animacionJefe.SetBool("dano", true);
+       //     animacionJefe.SetBool("bloquear", true);
+
+      //  }
+        //if (collision.transform.tag == "simitarra")
+       // {
+       //     saludJefe = saludJefe - 100;
+       //     
+       // }
+     // }
     }
 }

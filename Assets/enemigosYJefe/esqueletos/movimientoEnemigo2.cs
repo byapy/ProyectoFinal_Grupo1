@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class movimientoEnemigo2 : MonoBehaviour
 {
+    public static movimientoEnemigo2 Instance;
     public NavMeshAgent Agent2;
     public Transform pointPlayer;
     public float radio2;
@@ -14,10 +15,15 @@ public class movimientoEnemigo2 : MonoBehaviour
 
    // public GameObject objeto2;
     public GameObject enemigo2;
-    public int saludEnemi2;
+    public float saludEnemi2;
+
     [SerializeField] GameObject[] objetos2;
 
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         
@@ -84,32 +90,51 @@ public class movimientoEnemigo2 : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radioAtaque2);
     }
+
+    public void ReceivedDamage2(float Damage2)
+    {
+        saludEnemi2 -= Damage2;
+        animacionEnemigo2.SetBool("golpe2", true);
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "simitarra")
-        {
-            saludEnemi2 = saludEnemi2 - 90;
-            animacionEnemigo2.SetBool("golpe2", true);
-        }
+       // if (collision.transform.tag == "simitarra")
+       // {
+       //     saludEnemi2 = saludEnemi2 - 90;
+        //    
+        //}
       
-        if (collision.transform.tag == "mosquete")
-        {
-            saludEnemi2 = saludEnemi2 - 47;
-            animacionEnemigo2.SetBool("golpe3", true);
-        }
+       // if (collision.transform.tag == "mosquete")
+       // {
+       //     saludEnemi2 = saludEnemi2 - 47;
+       //     animacionEnemigo2.SetBool("golpe3", true);
+      //  }
         
-        if (collision.transform.tag == "lanza")
-        {
-            saludEnemi2 = saludEnemi2 - 60;
-            animacionEnemigo2.SetBool("golpe4", true);
-        }
+      //  if (collision.transform.tag == "lanza")
+       // {
+       //     saludEnemi2 = saludEnemi2 - 60;
+       //     animacionEnemigo2.SetBool("golpe4", true);
+      //  }
         
+        //if (saludEnemi2 <= 0)
+       // {
+        //    Agent2.speed = 0f;
+       //     radio2 = 0f;
+       //     Destroy(gameObject, 7f);
+       //     animacionEnemigo2.SetBool("derrota2", true);
+       //     Posicion2();
+       // }
+    }
+
+    private void RevisarVida2()
+    {
         if (saludEnemi2 <= 0)
         {
             Agent2.speed = 0f;
             radio2 = 0f;
             Destroy(gameObject, 7f);
-            animacionEnemigo2.SetBool("derrota2", true);
+            animacionEnemigo2.SetBool("derrota", true);
             Posicion2();
         }
     }

@@ -38,6 +38,7 @@ public class movimientoEnemigo : MonoBehaviour
     public void ReceivedDamage(float Damage)
     {
         saludEnemigo -= Damage;
+        animacionEnemigo.SetBool("golpess", true);
     }
     public void NavMeshMovimiento()
     {
@@ -96,7 +97,7 @@ public class movimientoEnemigo : MonoBehaviour
         /*if (collision.transform.tag == "simitarra")
         {
             saludEnemigo = saludEnemigo - 90;
-            animacionEnemigo.SetBool("golpess", true);
+            
 
                   
         }

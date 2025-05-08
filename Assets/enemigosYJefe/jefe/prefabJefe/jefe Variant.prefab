@@ -40,7 +40,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5177263019881544438, guid: 423dbdf0b1728a7468cd5a81c0ac31d6, type: 3}
       propertyPath: m_Name
-      value: jefe
+      value: jefe Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177263019881544438, guid: 423dbdf0b1728a7468cd5a81c0ac31d6, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5177263019881544439, guid: 423dbdf0b1728a7468cd5a81c0ac31d6, type: 3}
       propertyPath: pointPlayer
