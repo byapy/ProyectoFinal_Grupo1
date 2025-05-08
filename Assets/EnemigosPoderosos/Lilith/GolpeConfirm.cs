@@ -69,7 +69,7 @@ public class GolpeConfirm : MonoBehaviour
     {
         if (StatsPlayer.Instance != null)
         {
-            StatsPlayer.Instance.ReceivedDamage(15);
+           // StatsPlayer.Instance.ReceivedDamage(JefaLilith.Instance.Daño);
             Debug.Log("Jugador recibió daño: 15");
 
             if (JefaLilith.Instance != null &&
