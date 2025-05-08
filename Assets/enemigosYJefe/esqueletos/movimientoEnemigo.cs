@@ -17,15 +17,24 @@ public class movimientoEnemigo : MonoBehaviour
 
     [SerializeField] GameObject[] objetos;
 
-   
-    public float saludEnemigo;
+    //Para la barra flotante y los números de daño
+    bool IsAlive;
+    BarraVidaEnemigo barraVida;
+    [SerializeField] private float saludEnemigo;
+    public float MaxSalud;
 
     private void Awake()
     {
+        barraVida = GetComponentInChildren<BarraVidaEnemigo>();
         Instance = this;
     }
     void Start()
     {
+        IsAlive = true;
+        //Para que se reinicien los valor por si se recarga la escena
+        barraVida.ActualizarBarra(saludEnemigo, MaxSalud);
+
+        saludEnemigo = MaxSalud;
         animacionEnemigo = GetComponentInChildren<Animator>();
     }
 
@@ -117,18 +126,22 @@ public class movimientoEnemigo : MonoBehaviour
     }
     private void RevisarVida()
     {
-        if (saludEnemigo <= 0)
+        barraVida.ActualizarBarra(saludEnemigo, MaxSalud);
+
+        if (saludEnemigo <= 0 && IsAlive)
         {
             Agent.speed = 0f;
             radio = 0f;
             Destroy(gameObject, 5f);
             animacionEnemigo.SetBool("derrota", true);
+            IsAlive = false;
+
             Posicion();
         }
     }
     public void Posicion()
     {
         int RangoCosas = Random.Range(0, objetos.Length);
-        Instantiate(objetos[RangoCosas], enemigo1.transform.position, enemigo1.transform.rotation);
+        Instantiate(objetos[RangoCosas], enemigo1.transform.position, Quaternion.identity);
     }
 }
