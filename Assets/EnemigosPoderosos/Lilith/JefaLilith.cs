@@ -41,6 +41,7 @@ public class JefaLilith : MonoBehaviour
     public AudioClip AuraSonido;
     public AudioSource SourceGeneral;
     public AudioClip Caminar;
+    public AudioClip Grito1;
 
     private TiposGolpe golpeSeleccionado;
     public int velocidadLi;
@@ -301,6 +302,7 @@ public class JefaLilith : MonoBehaviour
     
     void Fase2()
     {
+        SourceGeneral.PlayOneShot(Grito1);
         Debug.Log("FASE 2");
         CuracionON = true;
         velocidadLi = 15;
@@ -355,7 +357,7 @@ public class JefaLilith : MonoBehaviour
     {
         if (CuracionON && VidaActual < VidaMaxima)
         {
-            VidaActual += 30;
+            VidaActual += 100;
             VidaActual = Mathf.Min(VidaActual, VidaMaxima);
             Debug.Log("Lilith se curó al golpear al jugador");
         }

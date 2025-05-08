@@ -10,6 +10,8 @@ public class ActivadorJefeFinal : MonoBehaviour
     public GameObject ColisionEntrada;
     public GameObject BarraVida;
 
+    public AudioSource MusicaSource;
+    public Collider boxcollider;
     void Start()
     {
         LilithActivar.SetActive(false);
@@ -22,12 +24,12 @@ public class ActivadorJefeFinal : MonoBehaviour
         {
             if (LilithActivar != null)
             {
+                MusicaSource.Play();
                 LilithActivar.SetActive(true); 
                 ColisionEntrada.SetActive(true);
                 BarraVida.SetActive(true);
                 Destroy(Torre);
-
-
+                boxcollider.enabled = false;
 
             }
         }

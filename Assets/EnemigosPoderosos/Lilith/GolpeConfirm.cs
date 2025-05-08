@@ -10,9 +10,13 @@ public class GolpeConfirm : MonoBehaviour
     public GameObject ParticulasHIT;
     public GameObject visualtest;
 
+    private SonidoAleatorio SonidoSeleccion;
+
     public AudioSource GolpesSource;
     public AudioClip Golpe1Clip;
     public AudioClip Golpe2Clip;
+    public AudioClip Golpe3Clip;
+
     public AudioClip impactoClip;
     public Transform PointerParticulas;
     private bool golpeActivo = false;
@@ -28,11 +32,35 @@ public class GolpeConfirm : MonoBehaviour
     {
         Debug.Log("VIDA: " + StatsPlayer.PVidaActual);
     }
+    private enum SonidoAleatorio
+    {
+        Sonido1,
+        Sonido2,
+        Sonido3
+        
+    }
+    
 
 
     public void Golpe()
     {
-        GolpesSource.PlayOneShot(Golpe1Clip);
+        SonidoSeleccion = (SonidoAleatorio)Random.Range(0, System.Enum.GetValues(typeof(SonidoAleatorio)).Length);
+
+        switch (SonidoSeleccion)
+        {
+            case SonidoAleatorio.Sonido1:
+                GolpesSource.PlayOneShot(Golpe1Clip);
+                break;
+
+            case SonidoAleatorio.Sonido2:
+                GolpesSource.PlayOneShot(Golpe2Clip);
+                break;
+            case SonidoAleatorio .Sonido3:
+                GolpesSource.PlayOneShot(Golpe3Clip);
+                break;
+
+        }
+
         GolpesSource.PlayOneShot(impactoClip);
 
         visualtest.SetActive(true);
