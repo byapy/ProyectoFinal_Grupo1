@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GolpeConfirm : MonoBehaviour
@@ -7,12 +8,19 @@ public class GolpeConfirm : MonoBehaviour
 
     public Collider espadaCollider;
     public GameObject ParticulasHIT;
+    public GameObject visualtest;
+
+    public AudioSource GolpesSource;
+    public AudioClip Golpe1Clip;
+    public AudioClip Golpe2Clip;
+    public AudioClip impactoClip;
     public Transform PointerParticulas;
     private bool golpeActivo = false;
     private bool yaGolpeo = false;
 
     private void Awake()
     {
+
         espadaCollider = GetComponentInChildren<Collider>();
         espadaCollider.isTrigger = true;
     }
@@ -24,6 +32,10 @@ public class GolpeConfirm : MonoBehaviour
 
     public void Golpe()
     {
+        GolpesSource.PlayOneShot(Golpe1Clip);
+        GolpesSource.PlayOneShot(impactoClip);
+
+        visualtest.SetActive(true);
         Debug.Log("Golpe Realizado");
         golpeActivo = true;
         yaGolpeo = false;
@@ -44,29 +56,14 @@ public class GolpeConfirm : MonoBehaviour
     public void Terminado()
     {
         JefaLilith.Instance.TerminarAnimacion();
+        espadaCollider.enabled = false;
+        visualtest.SetActive(false);
+
 
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!golpeActivo || yaGolpeo) return;
 
-        if (other.CompareTag("Player"))
-        {
-            AplicarDaño();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!golpeActivo || yaGolpeo) return;
-
-        if (other.CompareTag("Player"))
-        {
-            AplicarDaño();
-        }
-    }
 
     private void AplicarDaño()
     {

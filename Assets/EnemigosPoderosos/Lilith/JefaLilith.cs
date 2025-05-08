@@ -117,7 +117,7 @@ public class JefaLilith : MonoBehaviour
     {
         while (!Derrotada)
         {
-            yield return new WaitForSeconds(Random.Range(50f, 80f));
+            yield return new WaitForSeconds(Random.Range(5f, 10f));
             
             if (JugadorEnRango)
             {
@@ -125,8 +125,7 @@ public class JefaLilith : MonoBehaviour
                 Debug.Log("Aura Activada");
                 CirculoFisicoAura.SetActive(true);
 
-                AuraAudioSource.PlayOneShot(AuraSonido);
-
+                AuraAudioSource.Play();
                 yield return new WaitForSeconds(5f);
                 Aura = false;
                 CirculoFisicoAura.SetActive(false);
@@ -191,7 +190,6 @@ public class JefaLilith : MonoBehaviour
             Debug.Log("Lilith entró a Fase2");
 
         }
-        //if(Fases == 2 && ) //Aqui se pondra la regeneración. Cuando tenga el modelo, animaciones y NavMesh configurado.
     }
 
     private enum TiposGolpe
