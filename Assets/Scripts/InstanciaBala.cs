@@ -7,6 +7,9 @@ public class InstanciaBala : MonoBehaviour
     public GameObject bala;
     public GameObject mira;
     public bool mosqueteActivo;
+    //Variables de audio
+    public AudioClip ClipBoom;
+    public AudioSource Source;
 
     void Start()
     {
@@ -24,6 +27,7 @@ public class InstanciaBala : MonoBehaviour
     public void dispara()
     {
         Instantiate(bala, mira.transform.position, mira.transform.rotation);
+        Source.PlayOneShot(ClipBoom);
     }
 
     

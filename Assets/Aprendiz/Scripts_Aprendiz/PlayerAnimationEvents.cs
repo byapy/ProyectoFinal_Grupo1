@@ -11,6 +11,10 @@ public class PlayerAnimationEvents : MonoBehaviour
     //Variables de hitboxes
     public GameObject HitboxSinArma, HitboxLanza, HitboxEspada;
 
+    //Variables de Audio
+    public AudioClip ClipAttack;
+    public AudioSource Source;
+
     public void PlayerDies()
     {
         PantallaGameOver.SetActive(true);
@@ -21,14 +25,18 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void ActivarHitboxSinArma()
     {
         HitboxSinArma.SetActive(true);
+        Source.PlayOneShot(ClipAttack);
     }
     public void ActivarHitboxEspada()
     {
         HitboxEspada.SetActive(true);
+        Source.PlayOneShot(ClipAttack);
+
     }
     public void ActivarHitboxLanza()
     {
         HitboxLanza.SetActive(true);
+        Source.PlayOneShot(ClipAttack);
 
     }
     //*************** DESACTIVACIÓN *********************
