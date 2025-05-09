@@ -28,17 +28,19 @@ public class Mecanica_Recoleccion : MonoBehaviour
                 StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
                 break;
         }
-    }
-    //Meter en el código lo de añadir las partes de la gema
-    /*        if (collisionplayer.transform.tag == "Gema")
+        if (other.transform.tag == "Gema")
         {
             Gema = Gema + 1;
-            Destroy(collisionplayer.transform.gameObject);
+            Destroy(other.transform.gameObject);
             Debug.Log($"Has obtenido la gema {Gema}");
             if (Gema >= 3)
             {
                 Debug.Log("Has conseguido la gema completa");
             }
-        }*/
+        }
+
+    }
+    //Meter en el código lo de añadir las partes de la gema
+            
 
 }
