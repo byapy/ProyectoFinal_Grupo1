@@ -13,6 +13,11 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     //Variables de Audio
     public AudioClip ClipAttack;
+    public AudioClip ClipCaminar;
+    public AudioClip ClipCorrer;
+    public AudioClip ClipIdle;
+    public AudioClip Clipland;
+
     public AudioSource Source;
 
     public void PlayerDies()
@@ -55,5 +60,20 @@ public class PlayerAnimationEvents : MonoBehaviour
         HitboxLanza.SetActive(false);
     }
 
-
+    public void Caminar()
+    {
+        Source.PlayOneShot(ClipCaminar);
+    }
+    public void Correr()
+    {
+        Source.PlayOneShot(ClipCorrer);
+    }
+    public void Idle()
+    {
+        Source.PlayOneShot(ClipIdle);
+    }
+    public void Salto()
+    {
+        Source.PlayOneShot(Clipland);
+    }
 }

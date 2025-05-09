@@ -60,7 +60,9 @@ public class MovAnimacionesArmas : MonoBehaviour
     public Animator AnimatorNpc;
     public bool enConversacion;
 
-
+    //Variable de audio changeWeappon
+    public AudioClip ClipCambioArma;
+    public AudioSource Source;
 
     void Start()
     {
@@ -101,7 +103,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ArmaMosquete = false;
 
                     Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
-
+                    Source.PlayOneShot(ClipCambioArma);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -118,6 +120,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ArmaEspada = true;
                     ArmaMosquete = false;
                     Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                    Source.PlayOneShot(ClipCambioArma);
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -134,6 +137,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ArmaEspada = false;
                     ArmaMosquete = true;
                     Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                    Source.PlayOneShot(ClipCambioArma);
                 }
             }
             else if (Input.GetMouseButtonDown(1))
