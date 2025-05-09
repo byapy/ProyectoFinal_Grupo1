@@ -6,7 +6,13 @@ using UnityEngine.Events;
 public class PlayerEvents : MonoBehaviour
 {
     [SerializeField] private UnityEvent EntrarPlayer;
-    [SerializeField] private UnityEvent ExitPlayer;
+    [SerializeField] public UnityEvent ExitPlayer;
+    public static PlayerEvents Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

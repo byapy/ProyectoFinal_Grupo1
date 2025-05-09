@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 
 public class MovAnimacionesArmas : MonoBehaviour
 {
+    public static MovAnimacionesArmas Instance;
     public CharacterController Controller;
     public float Speed;
     public float SpeedWalk;
@@ -57,12 +58,17 @@ public class MovAnimacionesArmas : MonoBehaviour
     public GameObject ParticulaCambioArma;
 
     //private AnimacionNpc animacionNpc;
-    public Animator AnimatorNpc;
+    //public Animator AnimatorNpc;
     public bool enConversacion;
 
     //Variable de audio changeWeappon
     public AudioClip ClipCambioArma;
     public AudioSource Source;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -152,12 +158,12 @@ public class MovAnimacionesArmas : MonoBehaviour
                 ArmaMosquete = false;//para que no reconozca la bala
             }
 
-            Movimiento();
-            Salto();
-            Ataque();
-     
-            DispararMosquete();
-            EstaCayendo();
+                Movimiento();
+                Salto();
+                Ataque();
+
+                DispararMosquete();
+                EstaCayendo();
         }
         else
         {
@@ -364,13 +370,11 @@ public class MovAnimacionesArmas : MonoBehaviour
     public void ActivarHablarNPC()
     {
         enConversacion = true;
-        AnimatorNpc.SetBool("Talk", true);
     }
 
     public void DesactivarHablarNPC()
     {
         enConversacion = false;
-        AnimatorNpc.SetBool("Talk", false);
-     }
+    }
     
 }

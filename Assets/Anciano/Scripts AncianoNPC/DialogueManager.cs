@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     private Queue<string> sentences;
-
     public Text nameText;
     public Text dialogoText;
 
-
+    
     void Start()
     {
         sentences = new Queue<string>();
@@ -18,7 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogo(Dialogue dialogue)//Empieza la conversacion CARGA LAS ORACIONES DEL NPC
     {
-        Debug.Log("Has iniciado la conversacion de " + dialogue.name);
+        //Debug.Log("Has iniciado la conversacion de " + dialogue.name);
         nameText.text = dialogue.name;
 
         sentences.Clear();//Limpia los espacios
@@ -34,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
+            Debug.Log("Se finaliza dialogo + " + sentences.Count.ToString());
             EndDialogue();
             return;
         }
@@ -44,6 +44,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        Debug.Log("Has acabado la conversacion");
+        DialogueTrigger.Instance.TriggerDesactivar();
+        //Debug.Log("Has acabado la conversacion");
     }
 }
