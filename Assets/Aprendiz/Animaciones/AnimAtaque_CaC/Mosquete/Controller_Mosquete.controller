@@ -112,7 +112,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 3f455196111adce45aefcdc6b10c989c, type: 3}
+    m_Motion: {fileID: 7400000, guid: 32b87f241f418e0449d45f7994380fee, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -120,7 +120,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 3df6d161eb1ed0849a837fe7ff5ac591, type: 3}
+    m_Motion: {fileID: 7400000, guid: 986aec6809d515b49a90adf7ee016efe, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 0.5
@@ -249,7 +249,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Landing2
+  m_Name: Landing2_AE
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -264,7 +264,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 904185ff2ddc6e843ac15ef11ef0384d, type: 3}
+  m_Motion: {fileID: 7400000, guid: 616630b5c4a9ad64388ded71a562329a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -516,7 +516,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shoot
+  m_Name: Shoot_AE
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -531,7 +531,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: f3d63ee09948f5644b42a48892b4df29, type: 3}
+  m_Motion: {fileID: 7400000, guid: 7df195d6a4bf8d74c9c9063b3bce3864, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

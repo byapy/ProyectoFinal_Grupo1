@@ -17,6 +17,7 @@ public class PlayerAnimationEvents : MonoBehaviour
     public AudioClip ClipCorrer;
     public AudioClip ClipIdle;
     public AudioClip Clipland;
+    public AudioClip ClipMuerte;
 
     public AudioSource Source;
 
@@ -75,5 +76,9 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void Salto()
     {
         Source.PlayOneShot(Clipland);
+    }
+    public void Muerte()
+    {
+        Source.PlayOneShot(ClipMuerte);
     }
 }
