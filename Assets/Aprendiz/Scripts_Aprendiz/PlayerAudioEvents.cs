@@ -31,10 +31,12 @@ public class PlayerAudioEvents : MonoBehaviour
     }
     public void Salto()
     {
+        SourceBlendTree.Stop();
         SourceBlendTree.PlayOneShot(Clipland);
     }
     public void Muerte()
     {
+        SourceBlendTree.Stop();
         SourceBlendTree.PlayOneShot(ClipMuerte);
     }
 }
