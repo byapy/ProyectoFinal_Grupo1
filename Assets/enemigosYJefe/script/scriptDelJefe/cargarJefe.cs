@@ -9,10 +9,17 @@ public class cargarJefe : MonoBehaviour
     public GameObject particula1;
     public GameObject panelNombreJ;
 
+    
+   
+    public GameObject Player;
+    public Transform transportar;
+
     public float conteoRegresivo;
     public float entradaJefe;
+    public float tiempoCambio;
     void Start()
     {
+        // cambioDeArea();
         
     }
 
@@ -28,6 +35,14 @@ public class cargarJefe : MonoBehaviour
         panelNombreJ.SetActive(true);
         entradaDelJefe();
         cambio();
+        cambioDeArea();
+        
+
+        
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+       
     }
 
     public void cambio()
@@ -51,7 +66,26 @@ public class cargarJefe : MonoBehaviour
             particula1.SetActive(true);
             entradaJefe = 0; 
         }
-    }    
+    }
 
-  
+    public void cambioDeArea()
+    {
+        
+        if (movimientoJefe.saludJefe <= 0)
+        {
+           
+            tiempoCambio = tiempoCambio - Time.deltaTime;
+            if (tiempoCambio <= 0)
+            {
+                trasladar();
+                tiempoCambio = 0;
+            }
+        }
+        
+    }
+      public void trasladar()
+      {
+        Player.transform.position = transportar.position;
+        Player.transform.rotation = transportar.rotation;
+    }
 }
