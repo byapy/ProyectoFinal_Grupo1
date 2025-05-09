@@ -21,6 +21,8 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public AudioSource Source;
 
+
+
     public void PlayerDies()
     {
         PantallaGameOver.SetActive(true);
