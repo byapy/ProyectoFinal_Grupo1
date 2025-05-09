@@ -49,7 +49,7 @@ public class MaestraNegra : MonoBehaviour
 
 
     //Stats
-    public int vida = 500;
+    public float vida = 500;
     public int DañoG;
     public int DañoD;
 
@@ -147,6 +147,10 @@ public class MaestraNegra : MonoBehaviour
         AjustarCuerpo();
     }
 
+    public void RecibirDaño(float Damage)
+    {
+        vida -= Damage;
+    }
     void Muriendo()
     {
         yaMurio = true;

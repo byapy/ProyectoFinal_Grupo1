@@ -35,6 +35,13 @@ public class Bala : MonoBehaviour
             movimientoEnemigo.Instance.ReceivedDamage(BalaDamage);
             
         }
-       
+        if (other.CompareTag("Lilith"))
+        {
+         
+            JefaLilith.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+            
+
+        }
+
     }
 }

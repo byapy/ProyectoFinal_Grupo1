@@ -362,7 +362,13 @@ public class JefaLilith : MonoBehaviour
             Debug.Log("Lilith se curó al golpear al jugador");
         }
     }
+    public void RecibirDaño(float Damage)
+    {
+        VidaActual -= Damage;
+        VidaLilith -= Damage;
+        Debug.Log("Daño recibido");
 
+    }
     void Derrota()
     {
         

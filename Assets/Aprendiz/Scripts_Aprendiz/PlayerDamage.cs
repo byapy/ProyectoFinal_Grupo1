@@ -23,6 +23,14 @@ public class PlayerDamage : MonoBehaviour
         {
             movimientoJefe.Instance.ReciveDanoJefe(StatsPlayer.Instance.CalcularAtaque());
             Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
+
+        }
+        if (other.CompareTag("Lilith"))
+        {
+           
+            JefaLilith.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+            Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
+
         }
     }
 

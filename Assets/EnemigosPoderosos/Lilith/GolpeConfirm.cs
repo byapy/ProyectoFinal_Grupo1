@@ -26,7 +26,6 @@ public class GolpeConfirm : MonoBehaviour
     {
 
         espadaCollider = GetComponentInChildren<Collider>();
-        espadaCollider.isTrigger = true;
     }
     public void Update()
     {
@@ -69,13 +68,13 @@ public class GolpeConfirm : MonoBehaviour
         yaGolpeo = false;
         espadaCollider.enabled = true;
         StartCoroutine(DesactivarCollider());
-        Instantiate(ParticulasHIT, PointerParticulas);
+        //Instantiate(ParticulasHIT, PointerParticulas);
     }
 
     private IEnumerator DesactivarCollider()
     {
         yield return new WaitForSeconds(3f); 
-        espadaCollider.enabled = false;
+        //espadaCollider.enabled = false;
         golpeActivo = false;
         yaGolpeo = false;
         Debug.Log("La colisión de la espada está desactivada");
@@ -84,7 +83,7 @@ public class GolpeConfirm : MonoBehaviour
     public void Terminado()
     {
         JefaLilith.Instance.TerminarAnimacion();
-        espadaCollider.enabled = false;
+        //espadaCollider.enabled = false;
         visualtest.SetActive(false);
 
 
