@@ -175,10 +175,11 @@ public class movimientoJefe : MonoBehaviour
         animacionJefe.SetBool("dano", true);
         animacionJefe.SetBool("bloquear", true);
         escudoActivado = true;
+        VidaJefeTotal();
 
         if (escudoActivado == true)
         {
-            saludJefe = saludJefe + 0;
+            saludJefe = saludJefe - 0;
         }
     }
 

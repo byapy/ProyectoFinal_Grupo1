@@ -12,8 +12,18 @@ public class PlayerDamage : MonoBehaviour
             movimientoEnemigo.Instance.ReceivedDamage(StatsPlayer.Instance.CalcularAtaque());
             Instantiate (ParticulaGolpe, transform.position, Quaternion.identity);
         }
-        
 
+        if (other.CompareTag("Enemy2"))
+        {
+            movimientoEnemigo2.Instance.ReceivedDamage2(StatsPlayer.Instance.CalcularAtaque());
+            Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
+        }
+
+        if (other.CompareTag("Jefe"))
+        {
+            movimientoJefe.Instance.ReciveDanoJefe(StatsPlayer.Instance.CalcularAtaque());
+            Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
+        }
     }
 
 

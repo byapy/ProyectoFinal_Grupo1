@@ -91,10 +91,11 @@ public class movimientoEnemigo2 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radioAtaque2);
     }
 
-    public void ReceivedDamage2(float Damage2)
+    public void ReceivedDamage2(float Damage)
     {
-        saludEnemi2 -= Damage2;
-        animacionEnemigo2.SetBool("golpe2", true);
+        saludEnemi2 -= Damage;
+        // animacionEnemigo2.SetBool("golpe2", true);
+        RevisarVida2();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -134,7 +135,7 @@ public class movimientoEnemigo2 : MonoBehaviour
             Agent2.speed = 0f;
             radio2 = 0f;
             Destroy(gameObject, 7f);
-            animacionEnemigo2.SetBool("derrota", true);
+            animacionEnemigo2.SetBool("derrota2", true);
             Posicion2();
         }
     }
