@@ -47,7 +47,8 @@ public class movimientoEnemigo : MonoBehaviour
     public void ReceivedDamage(float Damage)
     {
         saludEnemigo -= Damage;
-        animacionEnemigo.SetBool("golpess", true);
+        //animacionEnemigo.SetBool("golpess", true);
+        RevisarVida();
     }
     public void NavMeshMovimiento()
     {
@@ -126,9 +127,10 @@ public class movimientoEnemigo : MonoBehaviour
     }
     private void RevisarVida()
     {
-        barraVida.ActualizarBarra(saludEnemigo, MaxSalud);
+        
+        // barraVida.ActualizarBarra(saludEnemigo, MaxSalud); esta linea de codigo no deja que el enemigo muera
 
-        if (saludEnemigo <= 0 && IsAlive)
+        if (saludEnemigo <= 0 && IsAlive == true)
         {
             Agent.speed = 0f;
             radio = 0f;
