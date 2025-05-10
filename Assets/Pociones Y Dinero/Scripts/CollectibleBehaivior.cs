@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollectibleBehaivior : MonoBehaviour
 {
+    //variable para Ui
+    public ItemUI ItemCorrespondiente;
 
     //public string ColorPocion;
     public GameObject ParticulaRecolectado;
