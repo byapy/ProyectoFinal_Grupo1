@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     public int nivelProgreso = 1;
 
     public GameObject PuertaBloqueo;
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public void Start()
     {
+        Instance = this;
         ActualizarPuerta();
         Fuego.SetActive(false);
     }
@@ -22,21 +25,10 @@ public class PlayerController : MonoBehaviour
         ActualizarPuerta();
     }
     
-    private void ActualizarPuerta()
+    public void ActualizarPuerta()
     {
-        PuertaBloqueo.SetActive(nivelProgreso < 2); //Aqui mientras sea menor a 3, va estar false
-        Fuego.SetActive(nivelProgreso >= 2); //Lo mismo pero con true, en las fogatas que aparecen cuando esta abierto.
+        PuertaBloqueo.SetActive(nivelProgreso < 3); //Aqui mientras sea menor a 3, va estar false
+        Fuego.SetActive(nivelProgreso >= 3); //Lo mismo pero con true, en las fogatas que aparecen cuando esta abierto.
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (nivelProgreso < 3)
-            {
-                Debug.Log("Regresa cuando tengas todas las gemas");
-
-            }
-            
-        }
-    }
+    
 }

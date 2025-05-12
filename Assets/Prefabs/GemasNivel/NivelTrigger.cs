@@ -17,6 +17,7 @@ public class NivelTrigger : MonoBehaviour
             {
                 if (nivelId > playerController.nivelProgreso)
                 {
+                    playerController.AumentarProgreso();
                     playerController.nivelProgreso = nivelId;
                     Debug.Log($"Nivel {nivelId} asignado al jugador");
                 }
