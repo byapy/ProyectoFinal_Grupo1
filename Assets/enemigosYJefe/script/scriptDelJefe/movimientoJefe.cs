@@ -16,7 +16,7 @@ public class movimientoJefe : MonoBehaviour
 
     public bool escudoActivado;
 
-    public static float saludJefe = 10f;
+    public static float saludJefe = 1260f;
 
     public void Awake()
     {
