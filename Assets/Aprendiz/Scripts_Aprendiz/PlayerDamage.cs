@@ -18,6 +18,11 @@ public class PlayerDamage : MonoBehaviour
             movimientoEnemigo2.Instance.ReceivedDamage2(StatsPlayer.Instance.CalcularAtaque());
             Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
         }
+        if (other.CompareTag("Enemy3"))
+        {
+            MaestraNegra.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+            Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
+        }
 
         if (other.CompareTag("Jefe"))
         {

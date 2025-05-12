@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI; // Necesario para trabajar con la UI
+
 
 public class MaestraNegra : MonoBehaviour
 {
@@ -40,6 +42,7 @@ public class MaestraNegra : MonoBehaviour
     public Transform PointerBala;
     public GameObject ParticulasDerrota;
 
+
     // Estado interno
     private bool sacandoArma = false;
     private bool armaSacada = false;
@@ -49,7 +52,9 @@ public class MaestraNegra : MonoBehaviour
 
 
     //Stats
-    public float vida = 500;
+    public Image BarraVida;
+    public float vida = 300;
+    public float vidaMax = 300;
     public int DañoG;
     public int DañoD;
 
@@ -57,6 +62,7 @@ public class MaestraNegra : MonoBehaviour
     {
         StartCoroutine(SonidoPasos());
         Animator = GetComponentInChildren<Animator>();
+        BarraVida = GetComponentInChildren<Image>();
     }
 
     private void Awake()
@@ -150,6 +156,9 @@ public class MaestraNegra : MonoBehaviour
     public void RecibirDaño(float Damage)
     {
         vida -= Damage;
+        Debug.Log("Daño recibido");
+        BarraVida.fillAmount = vida / vidaMax; // Actualiza la barra de vida
+
     }
     void Muriendo()
     {

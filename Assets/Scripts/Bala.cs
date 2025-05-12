@@ -42,6 +42,10 @@ public class Bala : MonoBehaviour
             
 
         }
+        if (other.CompareTag("Enemy3"))
+        {
+            MaestraNegra.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+        }
 
     }
 }
