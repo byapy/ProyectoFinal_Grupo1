@@ -9,17 +9,23 @@ public class cargarJefe : MonoBehaviour
     public GameObject particula1;
     public GameObject panelNombreJ;
 
-    
-   
+    public GameObject puerta;
+    public Animator cerrarPuerta;
+
     public GameObject Player;
     public Transform transportar;
 
     public float conteoRegresivo;
     public float entradaJefe;
     public float tiempoCambio;
+
+    public bool adentro;
+
+    private MovAnimacionesArmas codigoJugador;
+
     void Start()
     {
-        // cambioDeArea();
+       
         
     }
 
@@ -29,30 +35,35 @@ public class cargarJefe : MonoBehaviour
         
     }
 
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other2)
     {
-        camaraEntrada.SetActive(true);
-        panelNombreJ.SetActive(true);
-        entradaDelJefe();
-        cambio();
-        cambioDeArea();
-        
-
+        if (other2.CompareTag("Player"))
+        {
+            camaraEntrada.SetActive(true);
+            panelNombreJ.SetActive(true);
+            adentro = true;
+            cambio();
+           // trasladar();
+            entradaDelJefe();
+            cambioDeArea();
+            cerrarPuerta.SetBool("cerrar", true);
+        }
         
     }
-    public void OnTriggerEnter(Collider other)
-    {
-       
-    }
-
+   
     public void cambio()
     {
+        codigoJugador = Player.GetComponent<MovAnimacionesArmas>();
+        codigoJugador.enabled = false;
+
         conteoRegresivo = conteoRegresivo - Time.deltaTime;
 
         if(conteoRegresivo <= 0)
         {
             camaraEntrada.SetActive(false);
             panelNombreJ.SetActive(false);
+
+            codigoJugador.enabled = true;
 
             conteoRegresivo = 0;
         }
@@ -71,7 +82,7 @@ public class cargarJefe : MonoBehaviour
     public void cambioDeArea()
     {
         
-        if (movimientoJefe.saludJefe <= 0)
+        if (movimientoJefe.saludJefe <= 0 && adentro == true)
         {
            
             tiempoCambio = tiempoCambio - Time.deltaTime;
@@ -79,6 +90,7 @@ public class cargarJefe : MonoBehaviour
             {
                 trasladar();
                 tiempoCambio = 0;
+                adentro = false;
             }
         }
         
