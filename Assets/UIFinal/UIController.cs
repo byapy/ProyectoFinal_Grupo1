@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
     //3 Imagenes para las barras
     //5 Textos, 3 pociones, 1 de dinero y uno para mensajes que querramos meter
     public Image BarraVida, BarraDefensa, BarraAtaque;
-    public Text TxtPVida, TxtPDefensa, TxtPAtaque, TxtDinero;
+    public Text TxtPVida, TxtPDefensa, TxtPAtaque, TxtDinero, TxtGemasRecolectadas;
     //Esta variable va a ser la que vamos a llamar para que esté mostrando
     //mensajes durante el gameplay
     public Text TxtConsola;
@@ -48,6 +48,7 @@ public class UIController : MonoBehaviour
         TxtPVida.text = StatsPlayer.PPociones[0].ToString();
         TxtPDefensa.text = StatsPlayer.PPociones[1].ToString();
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
+        TxtGemasRecolectadas.text = Mecanica_Recoleccion.Gema.ToString();
     }
 
     public void MensajeAConsola(string Mnsj)

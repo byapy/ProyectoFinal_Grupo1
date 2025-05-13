@@ -4,41 +4,40 @@ using UnityEngine;
 
 public class Mecanica_Recoleccion : MonoBehaviour
 {
-    public int Gema;
+    public static int Gema;
 
     private void OnTriggerEnter(Collider other)
     {
         UIController.Instance.MensajeAConsola("Se agarró " + other.tag);
 
-        switch (other.tag)
+        switch (other.tag.ToLower())
         {
-            case "Saco10":
+            case "saco10":
                 StatsPlayer.Instance.AgregarDinero(10);
                 break;
-            case "Saco50":
+            case "saco50":
                 StatsPlayer.Instance.AgregarDinero(50);
                 break;
-            case "Vida":
+            case "vida":
                 StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
                 break;
-            case "Defensa":
+            case "defensa":
                 StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
                 break;
-            case "Ataque":
+            case "ataque":
                 StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
                 break;
-        }
-        if (other.transform.tag == "Gema")
-        {
-            Gema = Gema + 1;
-            Destroy(other.transform.gameObject);
-            Debug.Log($"Has obtenido la gema {Gema}");
-            if (Gema >= 3)
-            {
-                Debug.Log("Has conseguido la gema completa");
-            }
-        }
+            case "gema":
+                Gema = Gema + 1;
+                if (Gema >= 3)
+                {
+                    Debug.Log("Has conseguido la gema completa");
+                }
+                Destroy(other.gameObject);
+                break;
 
+                //Agregar booleanas con tags de armas
+        }
     }
     //Meter en el código lo de añadir las partes de la gema
             

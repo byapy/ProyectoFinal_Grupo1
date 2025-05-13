@@ -15,6 +15,9 @@ public class StatsPlayer : MonoBehaviour
     public static int PDinero;
 
     public static bool BoostDefensa, BoostAtaque;
+
+    public static bool TieneEspada, TieneMosquete;
+
     public static bool IsAlive;
 
     //Las pociones y los trozos de Gema van a ser un array de 3 filas
@@ -22,10 +25,10 @@ public class StatsPlayer : MonoBehaviour
     //Gema en fila 0 va a ser la del tutorial, 1 la del nivel 2 y 2 la del final del nivel 3
     //Todo está inicializado en 0 y False
     public static int [] PPociones = new int [3];
-    public static bool[] PGemas = new bool[3];
 
     private void Awake()
     {
+   
         Instance = this;
     }
 
@@ -145,6 +148,16 @@ public class StatsPlayer : MonoBehaviour
         }
     }
 
+    #region Objetos
+    public void ActivarEspada()
+    {
+        TieneEspada = true;
+    }
+
+    public void ActivarMosquete()
+    {
+        TieneMosquete = true;
+    }
     public void AgregarPocion(string TipoPocion)
     {
         switch (TipoPocion)
@@ -169,10 +182,18 @@ public class StatsPlayer : MonoBehaviour
         if (PDinero + ValorMoneda >= 1000) PDinero = 1000;
         else PDinero += ValorMoneda;
     }
-    public void QuitarDinero(int PrecioPagado)
+    public bool QuitarDinero(int PrecioPagado)
     {
-        PDinero -= PrecioPagado;
+        if (PDinero - PrecioPagado < 0)
+        {
+            return false;
+        }
+        else
+        { 
+            PDinero -= PrecioPagado;
+            return true;
+        }
     }
-
+    #endregion
 
 }
