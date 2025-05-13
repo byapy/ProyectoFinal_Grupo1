@@ -176,16 +176,16 @@ public class movimientoJefe : MonoBehaviour
 
     public void ReciveDanoJefe(float Damage)
     {
-        saludJefe -= Damage;
-        animacionJefe.SetBool("dano", true);
-        animacionJefe.SetBool("bloquear", true);
-        escudoActivado = true;
-        VidaJefeTotal();
-
-        if (escudoActivado == true)
+        if (escudoActivado == false)
         {
-            saludJefe = saludJefe - 0;
+            saludJefe -= Damage;
+            animacionJefe.SetBool("dano", true);
+            animacionJefe.SetBool("bloquear", true);
+            escudoActivado = true;
+
         }
+        VidaJefeTotal();
+             
     }
 
     public void VidaJefeTotal()
