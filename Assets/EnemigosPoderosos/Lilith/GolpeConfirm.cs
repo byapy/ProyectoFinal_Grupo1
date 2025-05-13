@@ -8,7 +8,6 @@ public class GolpeConfirm : MonoBehaviour
 
     public Collider espadaCollider;
     public GameObject ParticulasHIT;
-    public GameObject visualtest;
 
     private SonidoAleatorio SonidoSeleccion;
 
@@ -62,7 +61,6 @@ public class GolpeConfirm : MonoBehaviour
 
         GolpesSource.PlayOneShot(impactoClip);
 
-        visualtest.SetActive(true);
         Debug.Log("Golpe Realizado");
         golpeActivo = true;
         yaGolpeo = false;
@@ -84,7 +82,7 @@ public class GolpeConfirm : MonoBehaviour
     {
         JefaLilith.Instance.TerminarAnimacion();
         //espadaCollider.enabled = false;
-        visualtest.SetActive(false);
+;
 
 
 

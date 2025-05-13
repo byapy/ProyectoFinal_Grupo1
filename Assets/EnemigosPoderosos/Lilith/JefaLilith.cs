@@ -17,6 +17,7 @@ public class JefaLilith : MonoBehaviour
     public float VidaLilith;
     public bool Aura;
     public float Fases;
+    public GameObject InterfazLilith;
 
     public bool JugadorEnRango;
     public bool Derrotada;
@@ -394,7 +395,9 @@ public class JefaLilith : MonoBehaviour
     void ActivarParticulas()
     {
         ParticulasDerrota.SetActive(true);
+        InterfazLilith.SetActive(false);
         Destroy(gameObject, 8);
+        
     }
     void OnTriggerStay(Collider other)
     {
