@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110245086934461456}
-  m_LocalRotation: {x: 0.05242483, y: -0.67396176, z: 0.04804926, w: 0.73533565}
+  m_LocalRotation: {x: 0.12540917, y: -0.6658242, z: 0.11494217, w: 0.72645646}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -213,7 +213,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477162920022076498}
-  m_LocalRotation: {x: 0.06579153, y: -0.67297626, z: 0.060300328, w: 0.7342604}
+  m_LocalRotation: {x: 0.1386023, y: -0.6636233, z: 0.12703413, w: 0.7240552}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -324,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3365507966782719905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.166101, y: -0.048186302, z: -0.452137}
+  m_LocalPosition: {x: 10.817413, y: 2.959263, z: -0.77075195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.292551, z: -7.1547904}
+  m_FollowOffset: {x: 0, y: 4.3, z: -10.82}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -876,7 +876,7 @@ GameObject:
   - component: {fileID: 4291434147397070234}
   - component: {fileID: 4020152034725402217}
   - component: {fileID: 391099879516465733}
-  - component: {fileID: 6920572062638784708}
+  - component: {fileID: 6010537386066020360}
   m_Layer: 7
   m_Name: Aprendiz
   m_TagString: Player
@@ -960,7 +960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b632e7d413dfe4e4098459b94ddc644e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gema: 0
 --- !u!114 &4291434147397070234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,7 +1010,7 @@ MonoBehaviour:
   ParticulaCambioArma: {fileID: 3166972268852818041, guid: a425776b6b702af478b82873b3f9d794, type: 3}
   enConversacion: 0
   ClipCambioArma: {fileID: 8300000, guid: 284324031a02e91478bb9ee1f2043304, type: 3}
-  Source: {fileID: 6920572062638784708}
+  Source: {fileID: 6010537386066020360}
 --- !u!114 &4020152034725402217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,7 +1038,7 @@ MonoBehaviour:
   nivelProgreso: 0
   PuertaBloqueo: {fileID: 0}
   Fuego: {fileID: 0}
---- !u!82 &6920572062638784708
+--- !u!82 &6010537386066020360
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1162,8 +1161,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584547041481216658}
-  m_LocalRotation: {x: 0.044050038, y: -0.6744651, z: 0.040373456, w: 0.7358848}
-  m_LocalPosition: {x: 7.166101, y: -0.048186302, z: -0.452137}
+  m_LocalRotation: {x: 0.08059286, y: -0.67359084, z: 0.074270226, w: 0.7309338}
+  m_LocalPosition: {x: 10.817413, y: 4.201, z: -0.77075195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1312,7 +1311,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5843585970871093537}
-  m_LocalRotation: {x: 0.039076146, y: -0.67472255, z: 0.035814706, w: 0.7361657}
+  m_LocalRotation: {x: 0.11220958, y: -0.66779983, z: 0.10284422, w: 0.728612}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1687,7 +1686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.292551, z: -7.1547904}
+  m_FollowOffset: {x: 0, y: 4.3, z: -10.82}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1814,7 +1813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.292551, z: -7.1547904}
+  m_FollowOffset: {x: 0, y: 4.3, z: -10.82}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2465,7 +2464,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3334,7 +3333,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3436,7 +3435,7 @@ MonoBehaviour:
   HitboxLanza: {fileID: 0}
   HitboxEspada: {fileID: 0}
   ClipAttack: {fileID: 8300000, guid: c4ffd5766671afb4bbaedc14c498cc1e, type: 3}
-  Source: {fileID: 8944300245160273809}
+  Source: {fileID: 7860102697008823063}
 --- !u!114 &5688156578152767348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3454,7 +3453,7 @@ MonoBehaviour:
   ClipIdle: {fileID: 8300000, guid: ebf87a8a0101aa34eb6699b1825ea989, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
   ClipMuerte: {fileID: 8300000, guid: 99b4378c79c37f749a8194ecf06cc239, type: 3}
-  SourceBlendTree: {fileID: 7860102697008823063}
+  SourceBlendTree: {fileID: 8944300245160273809}
 --- !u!4 &626043718429385375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3f455196111adce45aefcdc6b10c989c, type: 3}
@@ -3889,7 +3888,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4496,7 +4495,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4598,7 +4597,7 @@ MonoBehaviour:
   HitboxLanza: {fileID: 3953402577517171994}
   HitboxEspada: {fileID: 0}
   ClipAttack: {fileID: 8300000, guid: 1c569dcf292e1c44ea69be57adf7eea5, type: 3}
-  Source: {fileID: 5560296527123136426}
+  Source: {fileID: 3114416467151995794}
 --- !u!114 &4870683617953566827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4616,7 +4615,7 @@ MonoBehaviour:
   ClipIdle: {fileID: 8300000, guid: cda90da9e5c385847936633d5c7e71cb, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
   ClipMuerte: {fileID: 8300000, guid: 99b4378c79c37f749a8194ecf06cc239, type: 3}
-  SourceBlendTree: {fileID: 3114416467151995794}
+  SourceBlendTree: {fileID: 5560296527123136426}
 --- !u!1001 &9078925468525794719
 PrefabInstance:
   m_ObjectHideFlags: 0
