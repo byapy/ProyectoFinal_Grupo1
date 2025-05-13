@@ -1010,6 +1010,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2119203483, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263469885922511665, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5748700052000992292, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1024,7 +1032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5748700052000992292, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -114
+      value: -117.2
       objectReference: {fileID: 0}
     - target: {fileID: 5748700052000992292, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1076,7 +1084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5748700052000992299, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcd301055ad85ce478c71d1e602a3905, type: 3}
@@ -2030,7 +2038,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1469107171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,6 +2278,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.114941925
       objectReference: {fileID: 0}
+    - target: {fileID: 828447158838291709, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3189374955767280319, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2373,6 +2385,10 @@ PrefabInstance:
     - target: {fileID: 6355737971303276855, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.12703392
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920572062638784708, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
+      propertyPath: MaxDistance
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8570215316284140429, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2591,6 +2607,14 @@ PrefabInstance:
       propertyPath: reciveDano
       value: 
       objectReference: {fileID: 8300000, guid: e63465dc964496541a9d8e7b706b3df9, type: 3}
+    - target: {fileID: 1858663160, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1858663160, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1102789863073423383, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
       propertyPath: MaxSalud2
       value: 300
@@ -2617,7 +2641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1102789863073423384, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -134.66
+      value: -197.9
       objectReference: {fileID: 0}
     - target: {fileID: 1102789863073423384, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2653,11 +2677,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1102789863073423385, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1102789863073423385, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
       propertyPath: m_TagString
       value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3840083143492665059, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 270c3453a2cf7564da9d45f0df77c61b, type: 3}
@@ -3116,7 +3144,7 @@ PrefabInstance:
       objectReference: {fileID: 547892036}
     - target: {fileID: 2369504650213459960, guid: bedac5e4860c34645a802e5d2a8a4ff9, type: 3}
       propertyPath: MaxSaludJefe
-      value: 2500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2369504650213459960, guid: bedac5e4860c34645a802e5d2a8a4ff9, type: 3}
       propertyPath: escudoActivado
@@ -3128,7 +3156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2369504650213459961, guid: bedac5e4860c34645a802e5d2a8a4ff9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2369504650213459961, guid: bedac5e4860c34645a802e5d2a8a4ff9, type: 3}
       propertyPath: m_TagString
@@ -3162,7 +3190,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.53
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2369504650213459957, guid: bedac5e4860c34645a802e5d2a8a4ff9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bedac5e4860c34645a802e5d2a8a4ff9, type: 3}
 --- !u!4 &7438678460721251058 stripped
 Transform:
