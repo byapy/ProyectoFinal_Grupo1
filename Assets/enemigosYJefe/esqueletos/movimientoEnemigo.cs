@@ -60,7 +60,7 @@ public class movimientoEnemigo : MonoBehaviour
             Agent.SetDestination(pointPlayer.position);
             animacionEnemigo.SetBool("correr", true);
             
-            Agent.speed = 3.5f;
+            Agent.speed = 3f;
             
             if (rango <= radioAtaque)
             {
