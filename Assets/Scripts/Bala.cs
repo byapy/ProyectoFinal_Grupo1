@@ -35,6 +35,18 @@ public class Bala : MonoBehaviour
             movimientoEnemigo.Instance.ReceivedDamage(BalaDamage);
             
         }
+        if (other.CompareTag("Enemy2"))
+        {
+            Destroy(gameObject);
+            movimientoEnemigo2.Instance.ReceivedDamage2(BalaDamage);
+
+        }
+        if (other.CompareTag("Jefe"))
+        {
+            Destroy(gameObject);
+            movimientoJefe.Instance.ReciveDanoJefe(BalaDamage);
+
+        }
         if (other.CompareTag("Lilith"))
         {
          
