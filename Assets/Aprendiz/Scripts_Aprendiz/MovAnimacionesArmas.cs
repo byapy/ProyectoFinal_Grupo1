@@ -112,7 +112,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     Source.PlayOneShot(ClipCambioArma);
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && StatsPlayer.TieneEspada)
             {
                 if (ArmaEspada)
                 {
@@ -129,7 +129,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     Source.PlayOneShot(ClipCambioArma);
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && StatsPlayer.TieneMosquete)
             {
                 if (ArmaMosquete)
                 {

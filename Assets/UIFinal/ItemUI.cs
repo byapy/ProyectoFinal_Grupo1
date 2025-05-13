@@ -6,7 +6,19 @@ using UnityEngine;
 public class ItemUI : ScriptableObject 
 {
     public int id;
-    public string ItemName;
-    public int value;
+    public string ItemName, Descripcion;
+    public int value, price;
     public Sprite icon;
+    public ItemTag EtiquetaItem;
+    public TipoItem TipoObjeto;
+
+    public enum ItemTag
+    {
+        Vida, Defensa, Ataque, Mosquete, Espada
+    }
+
+    public enum TipoItem
+    {
+        Arma, Pocion
+    }
 }
