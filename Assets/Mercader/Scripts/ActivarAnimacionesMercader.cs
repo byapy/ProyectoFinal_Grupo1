@@ -22,7 +22,7 @@ public class ActivarAnimacionesMercader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+       // gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
     }
 
     public void Hablando()
