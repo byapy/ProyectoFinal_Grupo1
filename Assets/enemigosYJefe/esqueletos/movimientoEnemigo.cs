@@ -128,7 +128,7 @@ public class movimientoEnemigo : MonoBehaviour
     private void RevisarVida()
     {
         
-        // barraVida.ActualizarBarra(saludEnemigo, MaxSalud); esta linea de codigo no deja que el enemigo muera
+        barraVida.ActualizarBarra(saludEnemigo, MaxSalud); 
 
         if (saludEnemigo <= 0 && IsAlive == true)
         {

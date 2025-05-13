@@ -14,22 +14,27 @@ public class movimientoJefe : MonoBehaviour
     public float radioCorrer;
     public Animator animacionJefe;
 
+    barraVidaJefe barraVidaJefe;
     public bool escudoActivado;
 
-    public static float saludJefe = 1260f;
+    public float MaxSaludJefe;
+    [SerializeField] public static float saludJefe = 2500f;
 
     public void Awake()
     {
+        barraVidaJefe = GetComponentInChildren<barraVidaJefe>();
         Instance = this;
     }
     void Start()
     {
-        
+        barraVidaJefe.ActualizarBarra(saludJefe, MaxSaludJefe);
+        saludJefe = MaxSaludJefe;
     }
 
     void Update()
     {
         NavMeshMovimiento();
+        VidaJefeTotal();
         Debug.Log("salud jefe " + saludJefe);
         
     }
@@ -185,6 +190,7 @@ public class movimientoJefe : MonoBehaviour
 
     public void VidaJefeTotal()
     {
+        barraVidaJefe.ActualizarBarra(saludJefe, MaxSaludJefe);
         if (saludJefe <= 0)
         {
             Agent.speed = 0f;

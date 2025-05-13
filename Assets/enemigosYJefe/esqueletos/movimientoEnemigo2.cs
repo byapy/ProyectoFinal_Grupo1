@@ -15,24 +15,35 @@ public class movimientoEnemigo2 : MonoBehaviour
 
    // public GameObject objeto2;
     public GameObject enemigo2;
-    public float saludEnemi2;
+    //public float saludEnemi2;
 
     [SerializeField] GameObject[] objetos2;
 
+    //Para la barra flotante
+    bool IsAlive2;
+    BarraVidaEnemigo barraVida2;
+    [SerializeField] private float saludEnemi2;
+    public float MaxSalud2;
 
     private void Awake()
     {
+        barraVida2 = GetComponentInChildren<BarraVidaEnemigo>();
         Instance = this;
     }
     void Start()
     {
-        
+        IsAlive2 = true;
+        //Para que se reinicien los valores
+        barraVida2.ActualizarBarra(saludEnemi2, MaxSalud2);
+
+        saludEnemi2 = MaxSalud2;
     }
 
     // Update is called once per frame
     void Update()
     {
         NaveMeshMover2();
+        RevisarVida2();
     }
     public void NaveMeshMover2()
     {
@@ -130,12 +141,16 @@ public class movimientoEnemigo2 : MonoBehaviour
 
     private void RevisarVida2()
     {
-        if (saludEnemi2 <= 0)
+        barraVida2.ActualizarBarra(saludEnemi2, MaxSalud2);
+
+        if (saludEnemi2 <= 0 && IsAlive2 == true)
         {
             Agent2.speed = 0f;
             radio2 = 0f;
             Destroy(gameObject, 7f);
             animacionEnemigo2.SetBool("derrota2", true);
+            IsAlive2 = false;
+
             Posicion2();
         }
     }
