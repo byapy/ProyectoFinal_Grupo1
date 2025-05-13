@@ -8,6 +8,7 @@ public class cargarJefe : MonoBehaviour
     public GameObject camaraEntrada;
     public GameObject particula1;
     public GameObject panelNombreJ;
+    public GameObject panelVida;
 
     public GameObject puerta;
     public Animator cerrarPuerta;
@@ -37,17 +38,17 @@ public class cargarJefe : MonoBehaviour
 
     public void OnTriggerStay(Collider other2)
     {
-        if (other2.CompareTag("Player"))
-        {
+       
             camaraEntrada.SetActive(true);
             panelNombreJ.SetActive(true);
+            panelVida.SetActive(true);
             adentro = true;
             cambio();
            // trasladar();
             entradaDelJefe();
             cambioDeArea();
             cerrarPuerta.SetBool("cerrar", true);
-        }
+        
         
     }
    
