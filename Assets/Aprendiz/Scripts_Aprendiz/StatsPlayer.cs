@@ -149,15 +149,19 @@ public class StatsPlayer : MonoBehaviour
     }
 
     #region Objetos
-    public void ActivarEspada()
+    public void ActivarArmaNueva(string TipoArma)
     {
-        TieneEspada = true;
+        switch (TipoArma.ToLower())
+        {
+            case "espada":
+                TieneEspada = true;
+                break;
+            case "mosquete":
+                TieneMosquete = true;
+                break;
+        }
     }
 
-    public void ActivarMosquete()
-    {
-        TieneMosquete = true;
-    }
     public void AgregarPocion(string TipoPocion)
     {
         switch (TipoPocion)

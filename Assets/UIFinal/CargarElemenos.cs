@@ -84,11 +84,8 @@ public class CargarElemenos : MonoBehaviour
     public void MandarMensaje(string MensajeVenta)
     {
         CajaDialogo.transform.gameObject.SetActive(true);
-        //Nombre Dialogo Continuar(boton)
-        var TxtNombre = CajaDialogo.transform.Find("Nombre").GetComponent<Text>();
+        //Nombre Dialogo
         var TxtDialogo = CajaDialogo.transform.Find("Dialogo").GetComponent<Text>();
-
-        TxtNombre.text = "Mercader";
         TxtDialogo.text = MensajeVenta;
     }
 

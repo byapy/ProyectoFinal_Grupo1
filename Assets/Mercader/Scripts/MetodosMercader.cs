@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class MetodosMercader : MonoBehaviour
 {
-    public Animator Animador_Mercader;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Animador_Mercader = GetComponentInChildren<Animator>();
 
+    public GameObject CanvasCompra;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CanvasCompra.SetActive(true);
+        ActivarAnimacionesMercader.Instance.SaludarAlJugador();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
-    }
-
-    public void Hablando()
-    {
-        Animador_Mercader.SetBool("DebeHablar", true);
-    }
-
-    public void YaNoHabla()
-    {
-        Animador_Mercader.SetBool("DebeHablar", false);
+        CanvasCompra.SetActive(false);
     }
 
 }
