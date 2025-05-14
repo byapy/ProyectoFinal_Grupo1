@@ -31,6 +31,7 @@ public class TiendaItemController : MonoBehaviour
             {
                 case "arma":
                     StatsPlayer.Instance.ActivarArmaNueva(item.EtiquetaItem.ToString().ToLower());
+                    UIController.Instance.ActivarArmaNueva(item.EtiquetaItem.ToString().ToLower());
                     Destroy(this.gameObject);
                     break;
                 case "pocion":

@@ -11,14 +11,13 @@ public class EmpezarConversacion : MonoBehaviour
 
     private void Start()
     {
-        EmpezoDialogo = false;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.F) && !EmpezoDialogo)
+            if (Input.GetKey(KeyCode.F))
             {
                 EmpezoDialogo = true;
                 ButtonPrompt.SetActive(false);
@@ -32,13 +31,11 @@ public class EmpezarConversacion : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         TerminoConversacion();
-        
+        ConversationManager.Instance.EndConversation();
     }
 
     public void TerminoConversacion()
     {
-        EmpezoDialogo = false;
-
         CamaraNPC.SetActive(false);
         CamaraPlayer.SetActive(true);
     }

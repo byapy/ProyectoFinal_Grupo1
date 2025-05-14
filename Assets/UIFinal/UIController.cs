@@ -9,6 +9,10 @@ public class UIController : MonoBehaviour
     //5 Textos, 3 pociones, 1 de dinero y uno para mensajes que querramos meter
     public Image BarraVida, BarraDefensa, BarraAtaque;
     public Text TxtPVida, TxtPDefensa, TxtPAtaque, TxtDinero, TxtGemasRecolectadas;
+
+    //Armas compradas
+    public Image ImgPistola, ImgEspada;
+
     //Esta variable va a ser la que vamos a llamar para que esté mostrando
     //mensajes durante el gameplay
     public Text TxtConsola;
@@ -50,6 +54,20 @@ public class UIController : MonoBehaviour
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
         TxtGemasRecolectadas.text = Mecanica_Recoleccion.Gema.ToString();
     }
+
+    public void ActivarArmaNueva(string Nombre)
+    {
+        switch(Nombre.ToLower())
+        {
+            case "espada":
+                    ImgEspada.gameObject.SetActive(true);
+                    break; 
+            case "mosquete":
+                    ImgPistola.gameObject.SetActive(true);
+                    break;
+        }
+    }
+
 
     public void MensajeAConsola(string Mnsj)
     {
