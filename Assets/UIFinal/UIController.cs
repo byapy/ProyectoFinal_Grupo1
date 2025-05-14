@@ -68,7 +68,10 @@ public class UIController : MonoBehaviour
         }
     }
 
-
+    public void UsarPocion(string TipoPocion)
+    {
+        StatsPlayer.Instance.UsarPocion(TipoPocion);
+    }
     public void MensajeAConsola(string Mnsj)
     {
         TxtConsola.text = Mnsj;

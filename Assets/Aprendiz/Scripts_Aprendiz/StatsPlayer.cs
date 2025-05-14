@@ -108,6 +108,7 @@ public class StatsPlayer : MonoBehaviour
     //Métodos para contar, agregar y quitar los objetos
     public void UsarPocion(string TipoPocion)
     {
+        Debug.Log(PPociones[0] + " " + PPociones[1] + " " + PPociones[2]);
         switch (TipoPocion)
         {
             case "vida":
