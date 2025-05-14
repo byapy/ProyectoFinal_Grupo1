@@ -29,6 +29,10 @@ public class Mecanica_Recoleccion : MonoBehaviour
                 break;
             case "gema":
                 Gema = Gema + 1;
+
+                PlayerController.Instance.ActualizarProgreso(Gema);
+                EmpezarDialogoAnciano.GemasAgarradas = Gema;
+
                 if (Gema >= 3)
                 {
                     Debug.Log("Has conseguido la gema completa");

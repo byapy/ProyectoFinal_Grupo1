@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    public int nivelProgreso = 1;
+    public static int nivelProgreso = 1;
 
     public GameObject PuertaBloqueo;
     public GameObject Fuego;
@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
         PuertaBloqueo.SetActive(nivelProgreso < 2); //Aqui mientras sea menor a 3, va estar false
         Fuego.SetActive(nivelProgreso >= 3); //Lo mismo pero con true, en las fogatas que aparecen cuando esta abierto.
 
+    }
+
+    public void ActualizarProgreso(int GemaRecolectada)
+    {
+        nivelProgreso = GemaRecolectada;
     }
     public void OnTriggerEnter(Collider other)
     {

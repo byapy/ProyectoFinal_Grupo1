@@ -16,7 +16,7 @@ public class TriggerBloqueoTorre : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             
-                if (PlayerController.Instance.nivelProgreso < 3)
+                if (PlayerController.nivelProgreso < 3)
                 {
                     CartelPuerta.SetActive(true);
                     Debug.Log("Vuelve cuando tengas todas las gemas");
@@ -30,7 +30,7 @@ public class TriggerBloqueoTorre : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             
-                if (PlayerController.Instance.nivelProgreso < 3)
+                if (PlayerController.nivelProgreso < 3)
                 {
                     CartelPuerta.SetActive(false);
                 }

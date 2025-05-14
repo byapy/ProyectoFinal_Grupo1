@@ -17,7 +17,7 @@ public class AncianoInteraccion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            int nivelActual = playerController.nivelProgreso;
+            int nivelActual = PlayerController.nivelProgreso;
 
             //Muestra los dialogos dependiendo del nivel que registra en el nivel progreso
             if (nivelActual == 0)

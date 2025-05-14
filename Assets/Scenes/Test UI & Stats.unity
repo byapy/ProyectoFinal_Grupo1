@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 299677220}
   - component: {fileID: 299677219}
   - component: {fileID: 299677218}
+  - component: {fileID: 299677222}
   m_Layer: 0
   m_Name: TriggerDialogo
   m_TagString: Untagged
@@ -441,10 +442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94607956596bbbd48a13fb5cf05e73db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcDialogo: {fileID: 803372145}
+  npcDialogo: []
   ButtonPrompt: {fileID: 7573404650843565996}
   CamaraNPC: {fileID: 8025807225742447776}
   CamaraPlayer: {fileID: 1389614061}
+  GemasAgarradas: 0
 --- !u!114 &299677219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +517,18 @@ Transform:
   m_Father: {fileID: 9191837256493320772}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299677222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299677217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29956fb587976b14c920e0aa5a80db87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &318400510
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1548,7 +1562,7 @@ GameObject:
   - component: {fileID: 803372144}
   - component: {fileID: 803372145}
   m_Layer: 0
-  m_Name: DialogosNPC
+  m_Name: DialogosNPCSinGemas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2549,15 +2563,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6355737971303276855, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7240554
+      value: 0.72405547
       objectReference: {fileID: 0}
     - target: {fileID: 6355737971303276855, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13860221
+      value: 0.13860218
       objectReference: {fileID: 0}
     - target: {fileID: 6355737971303276855, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6636231
+      value: -0.66362303
       objectReference: {fileID: 0}
     - target: {fileID: 6355737971303276855, guid: 9b7523a9b90003b46ae0d39842c8c129, type: 3}
       propertyPath: m_LocalRotation.z
