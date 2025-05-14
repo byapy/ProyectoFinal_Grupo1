@@ -6,9 +6,8 @@ public class ActivarAnimacionesMercader : MonoBehaviour
 {
     // Start is called before the first frame update
     public Animator Animaciones_Mercader;
-
+    
     public static ActivarAnimacionesMercader Instance;
-
     private void Awake()
     {
         Instance = this;
@@ -20,9 +19,9 @@ public class ActivarAnimacionesMercader : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void CentrarMercader()
     {
-       // gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+       //gameObject.transform.rotation = Quaternion.Euler(0,0,0);
     }
 
     public void Hablando()
