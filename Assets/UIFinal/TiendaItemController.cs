@@ -20,10 +20,10 @@ public class TiendaItemController : MonoBehaviour
 
     public void PurchaseItem()
     {
-        bool pudoComprar;
-        pudoComprar = StatsPlayer.Instance.QuitarDinero(item.price);
+        bool puedeComprar;
+        puedeComprar = StatsPlayer.Instance.PuedeComprar(item.price);
 
-        if (pudoComprar)
+        if (puedeComprar)
         {
             //Tipoobjeto está solo Arma o Pocion
             //EtiquetaItem están los tags
@@ -34,12 +34,40 @@ public class TiendaItemController : MonoBehaviour
                     UIController.Instance.ActivarArmaNueva(item.EtiquetaItem.ToString().ToLower());
                     Destroy(this.gameObject);
                     break;
+
                 case "pocion":
-                    StatsPlayer.Instance.AgregarPocion(item.EtiquetaItem.ToString().ToLower());
+                    //Limitar la compra de pociones
+                    bool TieneEspacio = false;
+                    switch (item.EtiquetaItem.ToString().ToLower())
+                    {
+                        case "vida":
+                            if (StatsPlayer.PPociones[0] + 1 <= 15) TieneEspacio = true;
+                            break;
+
+                        case "defensa":
+                            if (StatsPlayer.PPociones[1] + 1 <= 15) TieneEspacio = true;
+                            break;
+
+                        case "ataque":
+                            if (StatsPlayer.PPociones[2] + 1 <= 15) TieneEspacio = true;
+                            break;
+
+                    }
+
+                    if (TieneEspacio) StatsPlayer.Instance.AgregarPocion(item.EtiquetaItem.ToString().ToLower());
+                    else
+                    {
+                        ActivarAnimacionesMercader.Instance.VentaMalaInicio();
+                        CargarElemenos.Instance.MandarMensaje("Ya tienes suficientes pociones de este tipo.\nVuelve cuando hayas usado algunas de ellas.");
+                        return;
+                    }
                     break;
 
             }
 
+            
+
+            StatsPlayer.Instance.QuitarDinero(item.price);
             ActivarAnimacionesMercader.Instance.VentaBuenaInicio();
             CargarElemenos.Instance.MandarMensaje($"Gracias por tu compra.\nCompraste {item.ItemName} por {item.price} de Oro.");
         }

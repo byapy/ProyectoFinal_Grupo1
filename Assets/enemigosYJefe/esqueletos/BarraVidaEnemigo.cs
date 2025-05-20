@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class BarraVidaEnemigo : MonoBehaviour
 {
     [SerializeField] private Image BarraVida;
-    [SerializeField] private Camera camara;
 
     public void ActualizarBarra(float VidaActual, float ValorMaximo)
     {
@@ -15,7 +14,7 @@ public class BarraVidaEnemigo : MonoBehaviour
 
     private void Update()
     {
-        transform.rotation = camara.transform.rotation;
+        transform.rotation = Quaternion.LookRotation(transform.position - PlayerController.CamaraPlayer.transform.position);
     }
 
 }

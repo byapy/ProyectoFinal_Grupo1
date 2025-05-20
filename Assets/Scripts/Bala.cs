@@ -27,9 +27,9 @@ public class Bala : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Instantiate(ParticulaExplocion, transform.position, Quaternion.identity);
-        
 
-        if (other.CompareTag("Enemy"))
+
+        /*if (other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             movimientoEnemigo.Instance.ReceivedDamage(BalaDamage);
@@ -57,6 +57,36 @@ public class Bala : MonoBehaviour
         if (other.CompareTag("Enemy3"))
         {
             MaestraNegra.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+        }*/
+
+        //*********************************
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<movimientoEnemigo>().ReceivedDamage(StatsPlayer.Instance.CalcularAtaque());
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Enemy2"))
+        {
+            other.GetComponent<movimientoEnemigo2>().ReceivedDamage2(StatsPlayer.Instance.CalcularAtaque());
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Enemy3"))
+        {
+            other.GetComponent<MaestraNegra>().RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Jefe"))
+        {
+            other.GetComponent<movimientoJefe>().ReciveDanoJefe(StatsPlayer.Instance.CalcularAtaque());
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("Lilith"))
+        {
+            Debug.Log("Es lilith");
+
+            JefaLilith.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+            Destroy(gameObject);
+
         }
 
     }

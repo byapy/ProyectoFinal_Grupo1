@@ -6,7 +6,10 @@ using UnityEngine.Events;
 public class PlayerEvents : MonoBehaviour
 {
     [SerializeField] private UnityEvent EntrarPlayer;
+    [SerializeField] private UnityEvent PresionaTeclaF;
+    [SerializeField] private UnityEvent PresionaEscape;
     [SerializeField] public UnityEvent ExitPlayer;
+
     public static PlayerEvents Instance;
 
     private void Awake()
@@ -14,6 +17,21 @@ public class PlayerEvents : MonoBehaviour
         Instance = this;
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        { 
+            if (Input.GetKey(KeyCode.F))
+            {
+                PresionaTeclaF.Invoke();
+            }
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                PresionaEscape.Invoke();
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")

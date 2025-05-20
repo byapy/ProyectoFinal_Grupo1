@@ -9,30 +9,28 @@ public class PlayerDamage : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            movimientoEnemigo.Instance.ReceivedDamage(StatsPlayer.Instance.CalcularAtaque());
+            other.GetComponent<movimientoEnemigo>().ReceivedDamage(StatsPlayer.Instance.CalcularAtaque());
             Instantiate (ParticulaGolpe, transform.position, Quaternion.identity);
         }
-
         if (other.CompareTag("Enemy2"))
         {
-            movimientoEnemigo2.Instance.ReceivedDamage2(StatsPlayer.Instance.CalcularAtaque());
+            other.GetComponent<movimientoEnemigo2>().ReceivedDamage2(StatsPlayer.Instance.CalcularAtaque());
             Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
         }
         if (other.CompareTag("Enemy3"))
         {
-            MaestraNegra.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
+            other.GetComponent<MaestraNegra>().RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
             Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
         }
-
         if (other.CompareTag("Jefe"))
         {
-            movimientoJefe.Instance.ReciveDanoJefe(StatsPlayer.Instance.CalcularAtaque());
+            other.GetComponent<movimientoJefe>().ReciveDanoJefe(StatsPlayer.Instance.CalcularAtaque());
             Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
 
         }
         if (other.CompareTag("Lilith"))
         {
-           
+            Debug.Log("Es lilith");
             JefaLilith.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
             Instantiate(ParticulaGolpe, transform.position, Quaternion.identity);
 

@@ -8,9 +8,15 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
 
     public static int nivelProgreso = 1;
-
+    public static GameObject CamaraPlayer;
     public GameObject PuertaBloqueo;
     public GameObject Fuego;
+
+    private void Awake()
+    {
+        CamaraPlayer = GameObject.Find("CameraAprediz");
+        Cursor.lockState = CursorLockMode.Confined;
+    }
 
     public void Start()
     {

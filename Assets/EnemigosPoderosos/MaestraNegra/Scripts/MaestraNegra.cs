@@ -72,7 +72,7 @@ public class MaestraNegra : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("VIDA:" + StatsPlayer.PVidaActual);
+        //Debug.Log("VIDA:" + StatsPlayer.PVidaActual);
 
 
         // Si no está muerta, realiza el movimiento

@@ -365,6 +365,7 @@ public class JefaLilith : MonoBehaviour
     }
     public void RecibirDaño(float Damage)
     {
+        Debug.Log("Entró a la clase");
         VidaActual -= Damage;
         VidaLilith -= Damage;
         Debug.Log("Daño recibido");

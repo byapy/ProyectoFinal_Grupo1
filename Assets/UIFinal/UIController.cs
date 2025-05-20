@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        ImgEspada.gameObject.SetActive(StatsPlayer.TieneEspada);
+        ImgPistola.gameObject.SetActive(StatsPlayer.TieneMosquete);
     }
 
 

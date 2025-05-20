@@ -108,44 +108,46 @@ public class StatsPlayer : MonoBehaviour
     //Métodos para contar, agregar y quitar los objetos
     public void UsarPocion(string TipoPocion)
     {
-        Debug.Log(PPociones[0] + " " + PPociones[1] + " " + PPociones[2]);
-        switch (TipoPocion)
-        {
-            case "vida":
-                if (PPociones[0] > 0)
-                {
-                    PPociones[0] -= 1;
+        //Debug.Log(PPociones[0] + " " + PPociones[1] + " " + PPociones[2]);
+        if (IsAlive) { 
+            switch (TipoPocion)
+            {
+                case "vida":
+                    if (PPociones[0] > 0)
+                    {
+                        PPociones[0] -= 1;
                     
-                    if ((PVidaActual + 30) >= PVidaMaxima) PVidaActual = PVidaMaxima;
-                    else PVidaActual += 30;
-                }
-                else
-                    UIController.Instance.MensajeAConsola("No tienes pociones de Vida.");
-                break;
+                        if ((PVidaActual + 30) >= PVidaMaxima) PVidaActual = PVidaMaxima;
+                        else PVidaActual += 30;
+                    }
+                    else
+                        UIController.Instance.MensajeAConsola("No tienes pociones de Vida.");
+                    break;
 
-            case "defensa":
-                if (PPociones[1] > 0)
-                {
-                    PPociones[1] -= 1;
-                    PDefensa = 15;
-                    TiempoDefensa = 20f;
-                    BoostDefensa = true;
-                }
-                else
-                    UIController.Instance.MensajeAConsola("No tienes pociones de Defensa.");
-                break;
+                case "defensa":
+                    if (PPociones[1] > 0)
+                    {
+                        PPociones[1] -= 1;
+                        PDefensa = 15;
+                        TiempoDefensa = 20f;
+                        BoostDefensa = true;
+                    }
+                    else
+                        UIController.Instance.MensajeAConsola("No tienes pociones de Defensa.");
+                    break;
 
-            case "ataque":
-                if (PPociones[2] > 0)
-                {
-                    PPociones[2] -= 1;
-                    PAtaque = 10;
-                    BoostAtaque = true;
-                    TiempoAtaque = 15f;
-                }
-                else
-                    UIController.Instance.MensajeAConsola("No tienes pociones de Ataque.");
-                break;
+                case "ataque":
+                    if (PPociones[2] > 0)
+                    {
+                        PPociones[2] -= 1;
+                        PAtaque = 10;
+                        BoostAtaque = true;
+                        TiempoAtaque = 15f;
+                    }
+                    else
+                        UIController.Instance.MensajeAConsola("No tienes pociones de Ataque.");
+                    break;
+            }
         }
     }
 
@@ -187,18 +189,17 @@ public class StatsPlayer : MonoBehaviour
         if (PDinero + ValorMoneda >= 1000) PDinero = 1000;
         else PDinero += ValorMoneda;
     }
-    public bool QuitarDinero(int PrecioPagado)
+    public void QuitarDinero(int PrecioPagado)
     {
-        if (PDinero - PrecioPagado < 0)
-        {
-            return false;
-        }
-        else
-        { 
             PDinero -= PrecioPagado;
-            return true;
-        }
     }
+
+    public bool PuedeComprar(int PrecioAPagar)
+    {
+        if (PDinero - PrecioAPagar < 0) return false;
+        else return true;
+    }
+
     #endregion
 
 }
