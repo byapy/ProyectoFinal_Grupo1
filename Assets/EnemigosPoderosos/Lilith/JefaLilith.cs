@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -333,7 +334,7 @@ public class JefaLilith : MonoBehaviour
     void DañoDeArea()
     {
         
-       if(Aura == true)
+       if(Aura == true & !Derrotada)
         {
             CirculoFisicoAura.transform.Rotate(0, 10, 0);
             CirculoFisicoAura.SetActive(true);
@@ -356,7 +357,7 @@ public class JefaLilith : MonoBehaviour
 
     public void CurarsePorGolpe()
     {
-        if (CuracionON && VidaActual < VidaMaxima)
+        if (CuracionON && VidaActual < VidaMaxima && !Derrotada)
         {
             VidaActual += 100;
             VidaActual = Mathf.Min(VidaActual, VidaMaxima);
@@ -378,11 +379,10 @@ public class JefaLilith : MonoBehaviour
         Animator.SetBool("Golpe1", false);
         Animator.Play("Muerte");
 
-        Debug.Log("Uhhm..Acabas de cometer un error..");
-        Debug.Log("Lilith ha sido derrotada");
 
         Invoke("ActivarParticulas", 4);
         Destroy(LilithModel, 4);
+        Destroy(gameObject, 6);
 
 
         agentLilith.enabled = false;

@@ -26,10 +26,7 @@ public class GolpeConfirm : MonoBehaviour
 
         espadaCollider = GetComponentInChildren<Collider>();
     }
-    public void Update()
-    {
-        Debug.Log("VIDA: " + StatsPlayer.PVidaActual);
-    }
+  
     private enum SonidoAleatorio
     {
         Sonido1,
@@ -66,7 +63,6 @@ public class GolpeConfirm : MonoBehaviour
         yaGolpeo = false;
         espadaCollider.enabled = true;
         StartCoroutine(DesactivarCollider());
-        //Instantiate(ParticulasHIT, PointerParticulas);
     }
 
     private IEnumerator DesactivarCollider()
