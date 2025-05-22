@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4698235289076562767}
   - component: {fileID: 3221565902363735721}
-  - component: {fileID: 5744861604038849577}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -95,26 +94,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &5744861604038849577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3538170396574824354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &5759078148044734595
 GameObject:
   m_ObjectHideFlags: 0
@@ -4947,6 +4926,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f99a4d6e0727b6c47b5a03d567bbcf75, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5025,7 +5005,7 @@ Transform:
   m_GameObject: {fileID: 5880797563127281583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.27692437, y: 0.27692437, z: 0.27692437}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 632921438649993955}
@@ -9662,6 +9642,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9c0d180acd07ffd4183763050b4d1d22, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9762,7 +9743,7 @@ MonoBehaviour:
   - light: {fileID: 3221565902363735721}
     loop: 0
     animateIntensity: 1
-    intensityStart: 2
+    intensityStart: 4.594794
     intensityEnd: 0
     intensityDuration: 0.3
     intensityCurve:
@@ -14544,6 +14525,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9c0d180acd07ffd4183763050b4d1d22, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -65,7 +65,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     public AudioClip ClipCambioArma;
     public AudioSource Source;
 
-    public bool Teletransporting;
+    public static bool Teletransporting;
     private void Awake()
     {
         Instance = this;
