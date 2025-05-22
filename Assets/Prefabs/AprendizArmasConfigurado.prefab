@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110245086934461456}
-  m_LocalRotation: {x: 0.12540917, y: -0.6658242, z: 0.11494217, w: 0.72645646}
+  m_LocalRotation: {x: 0.12540907, y: -0.66582394, z: 0.11494196, w: 0.72645676}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -213,7 +213,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477162920022076498}
-  m_LocalRotation: {x: 0.1386023, y: -0.6636233, z: 0.12703413, w: 0.7240552}
+  m_LocalRotation: {x: 0.13860218, y: -0.66362303, z: 0.12703393, w: 0.72405547}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -324,7 +324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3365507966782719905}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.817413, y: 2.959263, z: -0.77075195}
+  m_LocalPosition: {x: 10.817433, y: 2.959263, z: -0.77076674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1011,6 +1011,7 @@ MonoBehaviour:
   enConversacion: 0
   ClipCambioArma: {fileID: 8300000, guid: 284324031a02e91478bb9ee1f2043304, type: 3}
   Source: {fileID: 6010537386066020360}
+  Teletransporting: 0
 --- !u!114 &4020152034725402217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,7 +1036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49950155936398c49a3dc7cefa1fd94f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nivelProgreso: 0
   PuertaBloqueo: {fileID: 0}
   Fuego: {fileID: 0}
 --- !u!82 &6010537386066020360
@@ -1161,8 +1161,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584547041481216658}
-  m_LocalRotation: {x: 0.08059286, y: -0.67359084, z: 0.074270226, w: 0.7309338}
-  m_LocalPosition: {x: 10.817413, y: 4.201, z: -0.77075195}
+  m_LocalRotation: {x: 0.12540907, y: -0.665824, z: 0.11494196, w: 0.7264567}
+  m_LocalPosition: {x: 10.817433, y: 2.959263, z: -0.77076674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1311,7 +1311,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5843585970871093537}
-  m_LocalRotation: {x: 0.11220958, y: -0.66779983, z: 0.10284422, w: 0.728612}
+  m_LocalRotation: {x: 0.11220945, y: -0.6677996, z: 0.10284403, w: 0.7286123}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1525,7 +1525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381d3d0e9f8ffa7488b591da12432267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipCaminar: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
+  ClipCaminarD: {fileID: 0}
+  ClipCaminarI: {fileID: 0}
   ClipCorrer: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
   ClipIdle: {fileID: 8300000, guid: cda90da9e5c385847936633d5c7e71cb, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
@@ -2560,8 +2561,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381d3d0e9f8ffa7488b591da12432267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipCaminar: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
-  ClipCorrer: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCaminarD: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
+  ClipCaminarI: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCorrer: {fileID: 8300000, guid: 7a1da8275935858428d3af22a10ab810, type: 3}
   ClipIdle: {fileID: 8300000, guid: cda90da9e5c385847936633d5c7e71cb, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
   ClipMuerte: {fileID: 8300000, guid: 99b4378c79c37f749a8194ecf06cc239, type: 3}
@@ -3448,8 +3450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381d3d0e9f8ffa7488b591da12432267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipCaminar: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
-  ClipCorrer: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCaminarD: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
+  ClipCaminarI: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCorrer: {fileID: 8300000, guid: 7a1da8275935858428d3af22a10ab810, type: 3}
   ClipIdle: {fileID: 8300000, guid: ebf87a8a0101aa34eb6699b1825ea989, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
   ClipMuerte: {fileID: 8300000, guid: 99b4378c79c37f749a8194ecf06cc239, type: 3}
@@ -4003,8 +4006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381d3d0e9f8ffa7488b591da12432267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipCaminar: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
-  ClipCorrer: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCaminarD: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
+  ClipCaminarI: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCorrer: {fileID: 8300000, guid: 7a1da8275935858428d3af22a10ab810, type: 3}
   ClipIdle: {fileID: 8300000, guid: a3d55145331f7a149920ecda7ea3d3f9, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
   ClipMuerte: {fileID: 8300000, guid: 99b4378c79c37f749a8194ecf06cc239, type: 3}
@@ -4610,8 +4614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381d3d0e9f8ffa7488b591da12432267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipCaminar: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
-  ClipCorrer: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCaminarD: {fileID: 8300000, guid: 407dcc26caf0ba744be7325cdcb164a5, type: 3}
+  ClipCaminarI: {fileID: 8300000, guid: 0eb06131e9b318545a7f953ef8baade7, type: 3}
+  ClipCorrer: {fileID: 8300000, guid: 7a1da8275935858428d3af22a10ab810, type: 3}
   ClipIdle: {fileID: 8300000, guid: cda90da9e5c385847936633d5c7e71cb, type: 3}
   Clipland: {fileID: 8300000, guid: 387058ac73e72af46af9222103b6d812, type: 3}
   ClipMuerte: {fileID: 8300000, guid: 99b4378c79c37f749a8194ecf06cc239, type: 3}

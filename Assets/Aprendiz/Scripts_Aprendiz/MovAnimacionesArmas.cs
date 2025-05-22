@@ -281,28 +281,13 @@ public class MovAnimacionesArmas : MonoBehaviour
     {
         if (!enConversacion && Input.GetMouseButtonDown(0)) //if (animacionNpc != null && !animacionNpc.enConversacion && Input.GetMouseButtonDown(0)) "Si  está asignado, el jugador NO está en conversación con el NPC, y el botón izquierdo del ratón fue presionado, entonces ejecuta lo que sigue"
         {
-            animator.SetBool("Attack", true);
-
-            /*if (ArmaLanza)
-            {
-                EsferaLaza.SetActive(true);
-            }
-            else if (ArmaEspada)
-            {
-                EsferaEspada.SetActive(true);
-            }
-
-            EsferaAtaque.SetActive(true);*/
-
+            animator.SetTrigger("AttackT");
             tiempoUltimoUso = Time.time;
+            
         }
         else
         {
-            animator.SetBool("Attack", false);
-            /*EsferaAtaque.SetActive(false);
-            EsferaLaza.SetActive(false);
-            EsferaEspada.SetActive(false);*/
-
+            animator.SetBool("isMoving", true);
         }
     }
 
@@ -377,5 +362,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     {
         enConversacion = false;
     }
+
     
+
 }

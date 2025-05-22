@@ -7,28 +7,42 @@ public class PlayerAudioEvents : MonoBehaviour
 {
     //Variables de Audio
     
-    public AudioClip ClipCaminar;
+    public AudioClip ClipCaminarD;
+    public AudioClip ClipCaminarI;
     public AudioClip ClipCorrer;
     public AudioClip ClipIdle;
     public AudioClip Clipland;
     public AudioClip ClipMuerte;
 
     public AudioSource SourceBlendTree;
-    public void Caminar()
+    public void CaminarDerecho()
     {
-        SourceBlendTree.Stop();
-        SourceBlendTree.PlayOneShot(ClipCaminar);
+    
+        SourceBlendTree.PlayOneShot(ClipCaminarD);
+    }
+    public void CaminarIzquierdo()
+    {
+        SourceBlendTree.PlayOneShot(ClipCaminarI);
+
     }
     public void Correr()
     {
-        SourceBlendTree.Stop();
-        SourceBlendTree.PlayOneShot(ClipCorrer);
+        if (SourceBlendTree.clip != ClipCorrer)
+        {
+            SourceBlendTree.clip = ClipCorrer;
+            SourceBlendTree.Play();
+        }
     }
     public void Idle()
     {
-        SourceBlendTree.Stop();
-        SourceBlendTree.PlayOneShot(ClipIdle);
+        if (SourceBlendTree.clip != ClipIdle)
+        {
+            SourceBlendTree.clip = ClipIdle;
+            SourceBlendTree.Play();
+        }
     }
+   
+    
     public void Salto()
     {
         SourceBlendTree.Stop();
