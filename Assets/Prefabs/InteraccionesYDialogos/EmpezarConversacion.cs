@@ -7,6 +7,11 @@ public class EmpezarConversacion : MonoBehaviour
     [SerializeField] private NPCConversation npcDialogo;
     [SerializeField] private GameObject ButtonPrompt, CamaraNPC, CamaraPlayer;
 
+    private void Start()
+    {
+        CamaraPlayer = GameObject.Find("CameraAprediz");
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Player"))
