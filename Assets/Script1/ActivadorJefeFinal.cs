@@ -12,11 +12,29 @@ public class ActivadorJefeFinal : MonoBehaviour
 
     public AudioSource MusicaSource;
     public Collider boxcollider;
+    public AudioClip MusicaDerrotaLilith;
+    private bool musicaCambiada = false;
+
     void Start()
     {
         LilithActivar.SetActive(false);
         ColisionEntrada.SetActive(false);
         BarraVida.SetActive(false);
+    }
+    void Update()
+    {
+        if (!musicaCambiada && JefaLilith.Instance != null && JefaLilith.Instance.VidaLilith <= 0)
+        {
+            if (MusicaSource != null && MusicaDerrotaLilith != null)
+            {
+                MusicaSource.Stop();
+                MusicaSource.clip = MusicaDerrotaLilith;
+                MusicaSource.Play();
+
+                musicaCambiada = true;
+            }
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {
