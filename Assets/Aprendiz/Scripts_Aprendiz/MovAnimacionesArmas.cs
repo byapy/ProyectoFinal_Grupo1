@@ -353,6 +353,8 @@ public class MovAnimacionesArmas : MonoBehaviour
             }
         }
     }
+
+    #region Activar/Desactivar ataques si está hablando
     public void ActivarHablarNPC()
     {
         enConversacion = true;
@@ -363,6 +365,6 @@ public class MovAnimacionesArmas : MonoBehaviour
         enConversacion = false;
     }
 
-    
+    #endregion
 
 }

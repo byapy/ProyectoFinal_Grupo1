@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Mecanica_Recoleccion : MonoBehaviour
 {
+    [SerializeField] public static bool[] NivelSuperado = new bool[3];
     public static int Gema;
+
+    private void Awake()
+    {
+        for(int i = 0; i == 2; i++)
+        {
+            NivelSuperado[i] = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,10 +37,12 @@ public class Mecanica_Recoleccion : MonoBehaviour
                 StatsPlayer.Instance.AgregarPocion(other.tag.ToLower());
                 break;
             case "gema":
-                Gema = Gema + 1;
+                Gema += + 1;
 
                 PlayerController.Instance.ActualizarProgreso(Gema);
                 EmpezarDialogoAnciano.GemasAgarradas = Gema;
+                //para obetener el nivelID de la gema
+                NivelSuperado[other.GetComponent<NivelTrigger>().NivelSuperado()] = true;
 
                 if (Gema >= 3)
                 {

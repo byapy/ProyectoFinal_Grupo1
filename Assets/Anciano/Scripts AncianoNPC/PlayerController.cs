@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
 
-    public static int nivelProgreso = 1;
+    [SerializeField] public static int nivelProgreso = 1;
     public static GameObject CamaraPlayer;
     public GameObject PuertaBloqueo;
 
