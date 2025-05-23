@@ -915,7 +915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &577874311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4498,6 +4498,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1760634711498194603, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1936220497063922246, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5022,6 +5026,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1337305515}
+    - target: {fileID: 8862006386780097076, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8862006386788935353, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5158,6 +5166,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1317006227}
+    - target: {fileID: 8862006388073968759, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8862006388459884791, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
