@@ -7,6 +7,7 @@ public class ControlScenes : MonoBehaviour
 {
     public GameObject PanelPausa;
     public GameObject PanelGamePlay;
+    private MovAnimacionesArmas ataque;
     void Start()
     {
         
@@ -22,12 +23,15 @@ public class ControlScenes : MonoBehaviour
         PanelPausa.SetActive(true);
         Time.timeScale = 0;
         PanelGamePlay.SetActive(false);
+        //Input.ResetInputAxes();
+        //animator.ResetTrigger("AttackT");
     }
     public void Continuar()
     {
         PanelPausa.SetActive(false);
         Time.timeScale = 1;
         PanelGamePlay.SetActive(true);
+        //
     }
     public void CargarEscena()
     {
