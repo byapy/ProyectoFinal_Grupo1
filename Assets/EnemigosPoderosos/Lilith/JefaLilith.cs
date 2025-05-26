@@ -30,6 +30,7 @@ public class JefaLilith : MonoBehaviour
     public GameObject CirculoFisicoAura;
     public GameObject LilithModel;
     public GameObject EspadaHit;
+    public GameObject EspadaEnElPiso;
     public Transform PlayerPointer;
     public float Rango;
     public float Melee;
@@ -397,6 +398,8 @@ public class JefaLilith : MonoBehaviour
     {
         ParticulasDerrota.SetActive(true);
         InterfazLilith.SetActive(false);
+        EspadaEnElPiso.transform.SetParent(null);
+        EspadaEnElPiso.SetActive(true);
         Destroy(gameObject, 8);
         
     }
