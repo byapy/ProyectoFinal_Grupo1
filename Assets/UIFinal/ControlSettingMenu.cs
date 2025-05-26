@@ -5,11 +5,11 @@ using UnityEngine.Audio;
 
 public class ControlSettingMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer audioMixerAmbiente;
     public AudioMixer audioMixerSFX;
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("ambiente",volume);
+        audioMixerAmbiente.SetFloat("ambiente",volume);
     }
 
     public void SetVolumeSFX(float volumenSFX)
