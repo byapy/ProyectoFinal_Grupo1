@@ -14,6 +14,8 @@ public class TeletransportScript : MonoBehaviour
             {
                 other.gameObject.SetActive(false);
                 other.transform.position = VaHacia.position;
+                other.transform.rotation = VaHacia.rotation;
+
                 other.gameObject.SetActive(true);
                 MovAnimacionesArmas.Teletransporting = true;
             }
