@@ -136,8 +136,8 @@ public class movimientoEnemigo : MonoBehaviour
             radio = 0f;
             Destroy(gameObject, 5f);
             animacionEnemigo.SetBool("derrota", true);
-            Rigidbody rigidbody = GetComponent<Rigidbody>();
-            rigidbody.gameObject.SetActive(false);
+          //  Rigidbody rigidbody = GetComponent<Rigidbody>();
+           // rigidbody.gameObject.SetActive(false);
             IsAlive = false;
 
             Posicion();
