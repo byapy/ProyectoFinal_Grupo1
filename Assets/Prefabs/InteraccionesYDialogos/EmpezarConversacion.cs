@@ -4,12 +4,18 @@ using UnityEngine;
 using DialogueEditor;
 public class EmpezarConversacion : MonoBehaviour
 {
-    [SerializeField] private NPCConversation npcDialogo;
-    [SerializeField] private GameObject ButtonPrompt, CamaraNPC, CamaraPlayer;
+    [SerializeField] private NPCConversation[] npcDialogo;
+    [SerializeField] private GameObject ButtonPrompt, CamaraNPC, CamaraPlayer, ItemNPC, ParticulaItem;
+    [SerializeField] private int ramaDialogoActual;
 
     private void Start()
     {
         CamaraPlayer = GameObject.Find("CameraAprediz");
+    }
+
+    public void NuevoDialogo(int nuevoDialogo)
+    {
+        ramaDialogoActual = nuevoDialogo;
     }
 
     private void OnTriggerStay(Collider other)
@@ -22,7 +28,7 @@ public class EmpezarConversacion : MonoBehaviour
                 ButtonPrompt.SetActive(false);
                 CamaraNPC.SetActive(true);
                 CamaraPlayer.SetActive(false);
-                ConversationManager.Instance.StartConversation(npcDialogo);
+                ConversationManager.Instance.StartConversation(npcDialogo[ramaDialogoActual]);
             }
 
             if(Input.GetKey(KeyCode.Escape))
@@ -44,5 +50,11 @@ public class EmpezarConversacion : MonoBehaviour
         ConversationManager.Instance.EndConversation();
         CamaraNPC.SetActive(false);
         CamaraPlayer.SetActive(true);
+    }
+
+    public void AparecerObjeto()
+    {
+        Instantiate(ParticulaItem, ItemNPC.transform.position, Quaternion.identity);
+        ItemNPC.SetActive(true);
     }
 }

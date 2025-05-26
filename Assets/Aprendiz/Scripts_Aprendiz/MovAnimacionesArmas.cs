@@ -231,7 +231,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
             if ((DistanciaRecorrida * -1) > 5f)
             {
-                float FallDamage = (95f * ((DistanciaRecorrida*-1) - 3f))/7f + 5f;
+                float FallDamage = (95f * ((DistanciaRecorrida*-1) - 10f))/20f + 5f;
                 StatsPlayer.Instance.ReceivedDamage(FallDamage);
                 UIController.Instance.MensajeAConsola("Caíste " + (DistanciaRecorrida * -1) + " metros. Eso es un daño del " + FallDamage);
             }
