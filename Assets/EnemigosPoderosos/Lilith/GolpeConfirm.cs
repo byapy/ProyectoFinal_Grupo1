@@ -67,7 +67,7 @@ public class GolpeConfirm : MonoBehaviour
 
     private IEnumerator DesactivarCollider()
     {
-        yield return new WaitForSeconds(3f); 
+        yield return new WaitForSeconds(1f); 
         //espadaCollider.enabled = false;
         golpeActivo = false;
         yaGolpeo = false;
