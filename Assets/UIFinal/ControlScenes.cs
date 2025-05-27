@@ -31,7 +31,7 @@ public class ControlScenes : MonoBehaviour
         PanelPausa.SetActive(false);
         Time.timeScale = 1;
         PanelGamePlay.SetActive(true);
-        //
+        
     }
     public void CargarEscena()
     {
