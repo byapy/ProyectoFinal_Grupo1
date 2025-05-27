@@ -65,7 +65,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     public AudioClip ClipCambioArma;
     public AudioSource Source;
 
-    public static bool Teletransporting;
+    public static bool Teletransporting, IsPaused;
     private void Awake()
     {
         Instance = this;
@@ -93,84 +93,97 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     void Update()
     {
-        if(StatsPlayer.IsAlive)
-        { 
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                if (ArmaLanza)
+        if (!IsPaused) { 
+            if(StatsPlayer.IsAlive)
+            { 
+                if(Input.GetKeyDown(KeyCode.Escape))
                 {
-                    ActivarPersonajeLanza();
-                    ArmaLanza = false;
+                    ControlScenes.Instance.MenuPausa();
                 }
-                else
-                {
-                    ActivarPersonajeLanza();
-                    ArmaLanza = true;
-                    ArmaEspada = false;
-                    ArmaMosquete = false;
 
-                    Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
-                    Source.PlayOneShot(ClipCambioArma);
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2) && StatsPlayer.TieneEspada)
-            {
-                if (ArmaEspada)
+                if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    ActivarPersonajeEspada();
-                    ArmaEspada = false;
-                }
-                else
-                {
-                    ActivarPersonajeEspada();
-                    ArmaLanza = false;
-                    ArmaEspada = true;
-                    ArmaMosquete = false;
-                    Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
-                    Source.PlayOneShot(ClipCambioArma);
-                }
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3) && StatsPlayer.TieneMosquete)
-            {
-                if (ArmaMosquete)
-                {
-                    ActivarPersonajeMosquete();
-                    ArmaMosquete = false;
-                }
-                else
-                {
-                    ActivarPersonajeMosquete();
-                    ArmaLanza = false;
-                    ArmaEspada = false;
-                    ArmaMosquete = true;
-                    Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
-                    Source.PlayOneShot(ClipCambioArma);
-                }
-            }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                ActivarPersonajeSinArma();
-                ArmaMosquete = false;//para que no reconozca la bala
+                    if (ArmaLanza)
+                    {
+                        ActivarPersonajeLanza();
+                        ArmaLanza = false;
+                    }
+                    else
+                    {
+                        ActivarPersonajeLanza();
+                        ArmaLanza = true;
+                        ArmaEspada = false;
+                        ArmaMosquete = false;
 
+                        Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                        Source.PlayOneShot(ClipCambioArma);
+                    }
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha2) && StatsPlayer.TieneEspada)
+                {
+                    if (ArmaEspada)
+                    {
+                        ActivarPersonajeEspada();
+                        ArmaEspada = false;
+                    }
+                    else
+                    {
+                        ActivarPersonajeEspada();
+                        ArmaLanza = false;
+                        ArmaEspada = true;
+                        ArmaMosquete = false;
+                        Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                        Source.PlayOneShot(ClipCambioArma);
+                    }
+                }
+                else if (Input.GetKeyDown(KeyCode.Alpha3) && StatsPlayer.TieneMosquete)
+                {
+                    if (ArmaMosquete)
+                    {
+                        ActivarPersonajeMosquete();
+                        ArmaMosquete = false;
+                    }
+                    else
+                    {
+                        ActivarPersonajeMosquete();
+                        ArmaLanza = false;
+                        ArmaEspada = false;
+                        ArmaMosquete = true;
+                        Instantiate(ParticulaCambioArma, transform.position, Quaternion.identity);
+                        Source.PlayOneShot(ClipCambioArma);
+                    }
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    ActivarPersonajeSinArma();
+                    ArmaMosquete = false;//para que no reconozca la bala
+
+                }
+                if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
+                {
+                    ActivarPersonajeSinArma();
+                    ArmaMosquete = false;//para que no reconozca la bala
+                }
+
+                    Movimiento();
+                    Salto();
+                    Ataque();
+
+                    DispararMosquete();
+                    EstaCayendo();
             }
-            if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
+            else
             {
-                ActivarPersonajeSinArma();
-                ArmaMosquete = false;//para que no reconozca la bala
+                animator.SetBool("IsAlive", false);
             }
-
-                Movimiento();
-                Salto();
-                Ataque();
-
-                DispararMosquete();
-                EstaCayendo();
         }
         else
         {
-            animator.SetBool("IsAlive", false);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ControlScenes.Instance.Continuar();
+            }
         }
-
     }
     void Movimiento()
     {
@@ -365,6 +378,10 @@ public class MovAnimacionesArmas : MonoBehaviour
         enConversacion = false;
     }
 
+    /*public void JuegoPausado(bool SePauso)
+    {
+        IsPaused = SePauso;
+    }*/
     #endregion
 
 }

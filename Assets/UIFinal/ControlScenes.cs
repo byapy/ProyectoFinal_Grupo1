@@ -8,9 +8,12 @@ public class ControlScenes : MonoBehaviour
     public GameObject PanelPausa;
     public GameObject PanelGamePlay;
     private MovAnimacionesArmas ataque;
-    void Start()
+
+    public static ControlScenes Instance;
+
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -23,6 +26,8 @@ public class ControlScenes : MonoBehaviour
         PanelPausa.SetActive(true);
         Time.timeScale = 0;
         PanelGamePlay.SetActive(false);
+        //Para que el player no registre movimientos ni ataques
+        MovAnimacionesArmas.IsPaused = true;
         //Input.ResetInputAxes();
         //animator.ResetTrigger("AttackT");
     }
@@ -31,7 +36,9 @@ public class ControlScenes : MonoBehaviour
         PanelPausa.SetActive(false);
         Time.timeScale = 1;
         PanelGamePlay.SetActive(true);
-        
+
+        //Para que el player no registre movimientos ni ataques
+        MovAnimacionesArmas.IsPaused = false;
     }
     public void CargarEscena()
     {
