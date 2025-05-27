@@ -2653,6 +2653,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8862006386559613296, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1669649679}
+    - target: {fileID: 8862006386559613296, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Continuar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862006387139496956, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1669649679}
+    - target: {fileID: 8862006387139496956, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CargarEscenaInicio
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862006387328745596, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8862006387837897126, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
       propertyPath: m_Name
       value: CanvasPlayerUi
@@ -2744,6 +2764,14 @@ PrefabInstance:
     - target: {fileID: 8862006387837897130, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862006387952501034, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1669649679}
+    - target: {fileID: 8862006387952501034, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReiniciarEscena
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
@@ -14912,6 +14940,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b3d12019c1d65e4899d4d21c3378f52, type: 3}
   m_PrefabInstance: {fileID: 1578838760}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1669649679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1827337123541290322, guid: 6e428eaf1f0098a4785ba7d2cdbcbf81, type: 3}
+  m_PrefabInstance: {fileID: 395458517}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96f9e5e48e5eee4ab388e00df2c5b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1676992367
 PrefabInstance:
   m_ObjectHideFlags: 0
