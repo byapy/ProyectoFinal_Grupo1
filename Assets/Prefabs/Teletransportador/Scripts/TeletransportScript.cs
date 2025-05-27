@@ -12,11 +12,12 @@ public class TeletransportScript : MonoBehaviour
         {
             if (other.CompareTag("Player") && !MovAnimacionesArmas.Teletransporting)
             {
-                other.gameObject.SetActive(false);
-                other.transform.position = VaHacia.position;
-                other.transform.rotation = VaHacia.rotation;
+                GameObject PersonajeFull = GameObject.Find("AprendizArmasConfigurado");
+                PersonajeFull.SetActive(false);
+                PersonajeFull.transform.SetPositionAndRotation(VaHacia.position, VaHacia.rotation);
+                other.gameObject.transform.SetPositionAndRotation(VaHacia.position, VaHacia.rotation);
 
-                other.gameObject.SetActive(true);
+                PersonajeFull.SetActive(true);
                 MovAnimacionesArmas.Teletransporting = true;
             }
         }
