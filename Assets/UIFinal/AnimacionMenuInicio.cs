@@ -10,7 +10,7 @@ public class AnimacionMenuInicio : MonoBehaviour
     void Start()
     {
         titulo.LeanAlpha(1, 7f).setEase(LeanTweenType.easeInCirc).setOnComplete(PanelBotones);
-        //LeanTween.moveLocal(niebla, new Vector3 (0f,0f,0f), 0.9f).setDelay(0.5f).setEase(LeanTweenType.easeInCirc).setOnComplete(PanelBotones);
+        
     }
 
     void PanelBotones()
