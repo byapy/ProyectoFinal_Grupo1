@@ -13,6 +13,8 @@ public class UIController : MonoBehaviour
     //Armas compradas
     public Image ImgPistola, ImgEspada;
 
+    //Gemas que se veran en el canva de pausa
+    public Image Gema1, Gema2, Gema3;
     //Esta variable va a ser la que vamos a llamar para que esté mostrando
     //mensajes durante el gameplay
     public Text TxtConsola;
@@ -55,6 +57,7 @@ public class UIController : MonoBehaviour
         TxtPDefensa.text = StatsPlayer.PPociones[1].ToString();
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
         TxtGemasRecolectadas.text = Mecanica_Recoleccion.Gema.ToString();
+        ActualizacionImagenesGemas();
     }
 
     public void ActivarArmaNueva(string Nombre)
@@ -79,4 +82,13 @@ public class UIController : MonoBehaviour
         TxtConsola.text = Mnsj;
     }
     
+    //Metodo que segun las gemas que recolecte se activan en el panel de pausa
+    void ActualizacionImagenesGemas()
+    {
+        int cantidadGemas = Mecanica_Recoleccion.Gema;
+        Gema1.gameObject.SetActive(cantidadGemas >= 1);
+        Gema2.gameObject.SetActive(cantidadGemas >= 2);
+        Gema3.gameObject.SetActive(cantidadGemas >= 3);
+
+    }
 }
