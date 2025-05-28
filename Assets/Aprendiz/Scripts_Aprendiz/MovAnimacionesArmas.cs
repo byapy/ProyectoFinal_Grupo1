@@ -177,13 +177,13 @@ public class MovAnimacionesArmas : MonoBehaviour
                 animator.SetBool("IsAlive", false);
             }
         }
-        else
+        /*else
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 ControlScenes.Instance.Continuar();
             }
-        }
+        }*/
     }
     void Movimiento()
     {
