@@ -96,10 +96,10 @@ public class MovAnimacionesArmas : MonoBehaviour
         if (!IsPaused) { 
             if(StatsPlayer.IsAlive)
             { 
-                if(Input.GetKeyDown(KeyCode.Escape))
+                /*if(Input.GetKeyDown(KeyCode.Escape))
                 {
                     ControlScenes.Instance.MenuPausa();
-                }
+                }*/
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
@@ -159,6 +159,25 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ArmaMosquete = false;//para que no reconozca la bala
 
                 }
+
+                if(Input.GetKeyDown(KeyCode.Z))
+                {
+                    StatsPlayer.Instance.UsarPocion("vida");
+                    //vida
+                }
+                if(Input.GetKeyDown(KeyCode.X))
+                {
+                    StatsPlayer.Instance.UsarPocion("defensa");
+
+                    //defensa
+                }
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    StatsPlayer.Instance.UsarPocion("ataque");
+                    //ataqu
+                }
+
+
                 if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
                 {
                     ActivarPersonajeSinArma();

@@ -48,6 +48,7 @@ public class Mecanica_Recoleccion : MonoBehaviour
                 {
                     Debug.Log("Has conseguido la gema completa");
                 }
+
                 Destroy(other.gameObject);
                 break;
 

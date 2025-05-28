@@ -8,9 +8,17 @@ public class EmpezarConversacion : MonoBehaviour
     [SerializeField] private GameObject ButtonPrompt, CamaraNPC, CamaraPlayer, ItemNPC, ParticulaItem;
     [SerializeField] private int ramaDialogoActual;
 
+    private void Awake()
+    {
+        if(Mecanica_Recoleccion.NivelSuperado[0])
+        {
+            ramaDialogoActual = 3;
+        }
+    }
     private void Start()
     {
         CamaraPlayer = GameObject.Find("CameraAprediz");
+
     }
 
     public void NuevoDialogo(int nuevoDialogo)

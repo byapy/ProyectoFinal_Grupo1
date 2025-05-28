@@ -9,8 +9,8 @@ public class StatsPlayer : MonoBehaviour
 
 
     //variables de solo los objetos que el jugador va a tener
-    public static float PVidaActual, PVidaMaxima = 100f;
-    public static float PDefensa, PAtaque, PAtaqueBase;
+    [SerializeField] public static float PVidaActual, PVidaMaxima = 100f;
+    [SerializeField]  public static float PDefensa, PAtaque, PAtaqueBase;
     public static float TiempoDefensa, TiempoAtaque;
     public static int PDinero;
 
@@ -24,7 +24,7 @@ public class StatsPlayer : MonoBehaviour
     //Pociones en Fila 0 son Vida, 1 son Defensa y 2 son ataque.
     //Gema en fila 0 va a ser la del tutorial, 1 la del nivel 2 y 2 la del final del nivel 3
     //Todo está inicializado en 0 y False
-    public static int [] PPociones = new int [3];
+    [SerializeField] public static int [] PPociones = new int [3];
 
     private void Awake()
     {

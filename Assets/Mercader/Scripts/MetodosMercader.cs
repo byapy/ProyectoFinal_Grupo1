@@ -26,19 +26,18 @@ public class MetodosMercader : MonoBehaviour
     {
         ActivarAnimacionesMercader.Instance.SaludarAlJugador();
     }
-    /* public GameObject CanvasCompra, CanvasInventario, CamaraPlayer, CamaraNPC;
-     private void OnTriggerEnter(Collider other)
-     {
-         CanvasCompra.SetActive(true);
-         ActivarAnimacionesMercader.Instance.SaludarAlJugador();
-     }
 
-     private void OnTriggerExit(Collider other)
-     {
-         CanvasCompra.SetActive(false);
-         CanvasInventario.SetActive(false);
-         CamaraNPC.SetActive(false);
-         CamaraPlayer.SetActive(true);
-     }*/
+    public void CambiarPosicion(Transform PosicionNueva)
+    {
+        if(MovAnimacionesArmas.Teletransporting)
+        {
+            transform.SetPositionAndRotation(PosicionNueva.position, PosicionNueva.rotation);
+            GameObject GraficosMercader = GameObject.Find("GraficosMercader");
+            GraficosMercader.transform.SetPositionAndRotation(PosicionNueva.position, PosicionNueva.rotation);
+        }
+    }
+
+
+
 
 }

@@ -23,20 +23,22 @@ public class EnemyGauntlet : MonoBehaviour
 
         if (EnemigosTotales == 0)
         {
-
-            for (int i = 0; i < ItemPremio.Length; i++)
-            {
-                ItemPremio[i].SetActive(true);
-                Debug.Log($"La I vale {i}");
-
-                if (ParticulaPremio.Length < i)
-                {
-                    Instantiate(ParticulaPremio[i], ItemPremio[i].transform.position, Quaternion.identity);
-                    Debug.Log($"Se metió aquí en {i}, las particulas tienen valor de {ParticulaPremio.Length}");
-                }
-            }
-            EnemigosTotales -= 1;
-            gameObject.SetActive(false);
+            DarPremio();
         }
+    }
+
+    void DarPremio()
+    {
+        for (int i = 0; i < ItemPremio.Length; i++)
+        {
+            ItemPremio[i].SetActive(true);
+
+            if (i < ParticulaPremio.Length)
+            {
+                Instantiate(ParticulaPremio[i], ItemPremio[i].transform.position, ItemPremio[i].transform.rotation);
+            }
+        }
+        //EnemigosTotales -= 1;
+        Destroy(gameObject);
     }
 }

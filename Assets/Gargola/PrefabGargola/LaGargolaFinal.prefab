@@ -107,10 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94607956596bbbd48a13fb5cf05e73db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcDialogo: {fileID: 0}
+  npcDialogo:
+  - {fileID: 0}
   ButtonPrompt: {fileID: 5723279932606737974}
   CamaraNPC: {fileID: 2771701280024583699}
   CamaraPlayer: {fileID: 0}
+  ItemNPC: {fileID: 0}
+  ParticulaItem: {fileID: 0}
+  ramaDialogoActual: 0
 --- !u!1 &2771701280024583699
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +415,7 @@ MonoBehaviour:
 
 
 
-    para <color=#3CB371>Interactuar</color>'
+    para <color=#3CB371>Hablar</color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 34a4a0c89db9414489be1315c76bc9f1, type: 2}
   m_sharedMaterial: {fileID: 4068044055246775935, guid: 34a4a0c89db9414489be1315c76bc9f1, type: 2}
