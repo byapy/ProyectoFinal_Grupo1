@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class Creditos : MonoBehaviour
 {
-    public float velocidad = 30f;  
-    public float limiteY = 1200f;  
+    public float velocidad = 100f;  
+    public float limiteY = 0f;  
 
     void Update()
     {

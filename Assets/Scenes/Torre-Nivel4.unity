@@ -6555,6 +6555,7 @@ MonoBehaviour:
   Fondo: {fileID: 396856683}
   duracionCinematica: 25
   duracionFade: 2
+  mostrandoCreditos: 0
 --- !u!65 &813860830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17822,7 +17823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 129cd2e3082b52442bebd000c058f48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 80
+  velocidad: 50
+  limiteY: 1200
 --- !u!4 &1872981728 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b3d12019c1d65e4899d4d21c3378f52, type: 3}

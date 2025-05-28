@@ -14,6 +14,7 @@ public class Terminar_Juego : MonoBehaviour
     public Image FadePanel;
 
     public GameObject Creditos;
+    public GameObject Texto;
     public GameObject END;
     public GameObject Activador;
     public GameObject Fondo;
@@ -93,7 +94,7 @@ public class Terminar_Juego : MonoBehaviour
         foreach (GameObject obj in todosLosObjetos)
         {
             // No desactivar el objeto de créditos ni el panel de fade, ni objetos inactivos para evitar errores
-            if (obj != Creditos && obj != END && obj != Activador && obj != CamaraCinematica && obj != Fondo)
+            if (obj != Creditos && obj != END && obj != Activador && obj != CamaraCinematica && obj != Fondo && obj != Texto) 
             {
                 Destroy(obj);
 
