@@ -17,6 +17,7 @@ public class NivelTrigger : MonoBehaviour
             GemaGraficos.SetActive(true);
         }
         else Destroy(gameObject);
+        gemaSprite = GameObject.Find("GemaSprite");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,10 +34,12 @@ public class NivelTrigger : MonoBehaviour
                 }
             }
             //Algo que cuando choque se active mi animacion
+            gemaSprite .SetActive(true);
+            gemaSprite.transform.localPosition = Vector3.zero;
             LeanTween.scale(gemaSprite, new Vector3(0.7f, 0.7f, 0.7f), 0.2f).setDelay(0.5f).setEase(LeanTweenType.easeOutBack);
             LeanTween.moveLocal(gemaSprite, new Vector3 (842f,432f, 0f),0.8f).setDelay(0.6f).setEase(LeanTweenType.easeOutBack).setOnComplete(() =>
             {
-                Destroy(gemaSprite);
+               gemaSprite.SetActive(false);
             });
         }
         
