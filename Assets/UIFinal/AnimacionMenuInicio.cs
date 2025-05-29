@@ -9,8 +9,7 @@ public class AnimacionMenuInicio : MonoBehaviour
 
     void Start()
     {
-        titulo.LeanAlpha(1, 7f).setEase(LeanTweenType.easeInCirc).setOnComplete(PanelBotones);
-        
+        titulo.LeanAlpha(1, 5f).setEase(LeanTweenType.easeInCirc).setOnComplete(PanelBotones);   
     }
 
     void PanelBotones()
