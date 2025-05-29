@@ -8,14 +8,12 @@ public class SceneLoadManager : MonoBehaviour
 {
     [SerializeField] private Slider barraCarga;
     [SerializeField] private GameObject loadPanel;
-    public CanvasGroup canvaNegro, slider, texto;
 
     public void LoadScene(int sceneIndex)
     {
         loadPanel.SetActive (true);
         //lamaremos corrutina
-        StartCoroutine (LoadAsync (sceneIndex));
-        canvaNegro.LeanAlpha(1, 0.3f).setEase(LeanTweenType.easeOutQuad).setOnComplete(imagenesCarga); ;
+        StartCoroutine (LoadAsync (sceneIndex)); 
         
     }
     IEnumerator LoadAsync(int sceneIndex)
@@ -29,11 +27,6 @@ public class SceneLoadManager : MonoBehaviour
             yield return null;
         }
     }
-    void imagenesCarga()
-    {
-       slider.LeanAlpha(1, 0.1f);
-       texto.LeanAlpha(1, 0.1f);
-       
-    }
+   
     
 }
