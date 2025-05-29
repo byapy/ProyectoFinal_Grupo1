@@ -65,7 +65,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     public AudioClip ClipCambioArma;
     public AudioSource Source;
 
-    public static bool Teletransporting, IsPaused;
+    public static bool Teletransporting, IsPaused, InCutscene;
     private void Awake()
     {
         Instance = this;
@@ -184,12 +184,15 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ArmaMosquete = false;//para que no reconozca la bala
                 }
 
+                if (!InCutscene) 
+                { 
                     Movimiento();
                     Salto();
                     Ataque();
 
                     DispararMosquete();
                     EstaCayendo();
+                }
             }
             else
             {
@@ -397,6 +400,16 @@ public class MovAnimacionesArmas : MonoBehaviour
         enConversacion = false;
     }
 
+    public void EnCutscene()
+    {
+        InCutscene = true;
+    }
+
+    public void SeAcaboCutscene()
+    {
+        InCutscene = false;
+
+    }
     /*public void JuegoPausado(bool SePauso)
     {
         IsPaused = SePauso;

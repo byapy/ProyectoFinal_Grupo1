@@ -40,19 +40,27 @@ public class ControlScenes : MonoBehaviour
         //Para que el player no registre movimientos ni ataques
         MovAnimacionesArmas.IsPaused = false;
     }
+
+    //Este metodo es para reiniciar en el nivel 1
     public void CargarEscena()
     {
+        MovAnimacionesArmas.IsPaused = false;
+
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
     public void CargarEscenaInicio()//Carga la escena principal desde el panel perdiste
     {
+        MovAnimacionesArmas.IsPaused = false;
+
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
 
     public void ReiniciarEscena()
     {
+        MovAnimacionesArmas.IsPaused = false;
+
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
