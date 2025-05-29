@@ -49,20 +49,25 @@ public class cargarJefe : MonoBehaviour
     }
     public void OnTriggerStay(Collider other2)
     {
-        camaraEntrada.SetActive(true);
-        panelNombreJ.SetActive(true);
-        panelVida.SetActive(true);
-        cambio();
-        entradaDelJefe();
-        cambioDeArea();
-        cerrarPuerta.SetBool("cerrar", true);
+        if (other2.CompareTag("Player"))
+        {
+           camaraEntrada.SetActive(true);
+           panelNombreJ.SetActive(true);
+           panelVida.SetActive(true);
+           cambio();
+           entradaDelJefe();
+           cambioDeArea();
+           cerrarPuerta.SetBool("cerrar", true);
+        }
     }
 
     
     public void cambio()
     {
-        codigoJugador = Player.GetComponent<MovAnimacionesArmas>(); 
-        codigoJugador.enabled = false;  //desactiva el script de movimiento del player para la escena de entrada del jefe
+        codigoJugador = Player.GetComponent<MovAnimacionesArmas>();
+
+         //codigoJugador.sePuedeMover = false;
+       codigoJugador.enabled = false;  //desactiva el script de movimiento del player para la escena de entrada del jefe
 
         conteoRegresivo = conteoRegresivo - Time.deltaTime;
 
@@ -72,6 +77,7 @@ public class cargarJefe : MonoBehaviour
             panelNombreJ.SetActive(false);
 
             codigoJugador.enabled = true;
+           // codigoJugador.sePuedeMover = true;
 
             conteoRegresivo = 0;
         }
