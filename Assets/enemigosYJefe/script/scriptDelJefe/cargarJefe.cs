@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class cargarJefe : MonoBehaviour
-{
+{   // particulas, el jefe y panel de canva a usar
     public GameObject villano;
     public GameObject camaraEntrada;
     public GameObject particula1;
     public GameObject panelNombreJ;
     public GameObject panelVida;
-
+    // Asignar una puerta y tambien se le activa la animacion cuando se necesite 
     public GameObject puerta;
     public Animator cerrarPuerta;
-
+    // busca un objeto en este caso se le asigna el player y tambien buscar un transform en especifico
     public GameObject Player;
     public GameObject transportar;
-
+    // cronometros
     public float conteoRegresivo;
     public float entradaJefe;
     public float tiempoCambio;
-
+    // clip de musica y audios sfx
     public AudioClip pelea;
     public AudioClip ambiente;
     public AudioSource fuentePrueba;
     
-
+    // obtiene el script del player (MovAnimacionesArmas)
     private MovAnimacionesArmas codigoJugador;
 
     void Start()
@@ -41,31 +41,28 @@ public class cargarJefe : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        cambiarAudio();
+        if (other.CompareTag("Player"))  
+        {
+            cambiarAudio();  //Este metodo detiene la musica de ambiente y la cambia por otra (em este caso para el combate)
+        }
+        
     }
     public void OnTriggerStay(Collider other2)
     {
-       
         camaraEntrada.SetActive(true);
         panelNombreJ.SetActive(true);
         panelVida.SetActive(true);
         cambio();
-        
         entradaDelJefe();
         cambioDeArea();
-       
         cerrarPuerta.SetBool("cerrar", true);
     }
 
-    public void OnTriggerExit(Collider other)
-    {
-        continuarAudioAnterior();
-    }
-
+    
     public void cambio()
     {
-        codigoJugador = Player.GetComponent<MovAnimacionesArmas>();
-        codigoJugador.enabled = false;
+        codigoJugador = Player.GetComponent<MovAnimacionesArmas>(); 
+        codigoJugador.enabled = false;  //desactiva el script de movimiento del player para la escena de entrada del jefe
 
         conteoRegresivo = conteoRegresivo - Time.deltaTime;
 
@@ -95,10 +92,12 @@ public class cargarJefe : MonoBehaviour
         
         if (movimientoJefe.saludJefe <= 0)
         {
-           
+            fuentePrueba.Stop();
             tiempoCambio = tiempoCambio - Time.deltaTime;
             if (tiempoCambio <= 0)
             {
+                continuarAudioAnterior();
+                panelVida.SetActive(false);
                 transportar.SetActive(true);
                 tiempoCambio = 0;
                 
@@ -106,7 +105,7 @@ public class cargarJefe : MonoBehaviour
         }
         
     }
-    public void cambiarAudio()
+    public void cambiarAudio()  // metodo para cambiar el clip de musica por otro clip 
     {
         if(fuentePrueba != null && pelea != null)
         {
@@ -118,7 +117,7 @@ public class cargarJefe : MonoBehaviour
       
     }
 
-    public void continuarAudioAnterior()
+    public void continuarAudioAnterior() // metodo para cambiar el clip de musica por el clip anterior
     {
        if (fuentePrueba != null && ambiente != null)
         {
