@@ -14,13 +14,16 @@ public class cargarJefe : MonoBehaviour
     public Animator cerrarPuerta;
 
     public GameObject Player;
-    public Transform transportar;
+    public GameObject transportar;
 
     public float conteoRegresivo;
     public float entradaJefe;
     public float tiempoCambio;
 
-    public bool adentro;
+    public AudioClip pelea;
+    public AudioClip ambiente;
+    public AudioSource fuentePrueba;
+    
 
     private MovAnimacionesArmas codigoJugador;
 
@@ -36,22 +39,29 @@ public class cargarJefe : MonoBehaviour
         
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        cambiarAudio();
+    }
     public void OnTriggerStay(Collider other2)
     {
        
-            camaraEntrada.SetActive(true);
-            panelNombreJ.SetActive(true);
-            panelVida.SetActive(true);
-            adentro = true;
-            cambio();
-           // trasladar();
-            entradaDelJefe();
-            cambioDeArea();
-            cerrarPuerta.SetBool("cerrar", true);
+        camaraEntrada.SetActive(true);
+        panelNombreJ.SetActive(true);
+        panelVida.SetActive(true);
+        cambio();
         
-        
+        entradaDelJefe();
+        cambioDeArea();
+       
+        cerrarPuerta.SetBool("cerrar", true);
     }
-   
+
+    public void OnTriggerExit(Collider other)
+    {
+        continuarAudioAnterior();
+    }
+
     public void cambio()
     {
         codigoJugador = Player.GetComponent<MovAnimacionesArmas>();
@@ -83,22 +93,41 @@ public class cargarJefe : MonoBehaviour
     public void cambioDeArea()
     {
         
-        if (movimientoJefe.saludJefe <= 0 && adentro == true)
+        if (movimientoJefe.saludJefe <= 0)
         {
            
             tiempoCambio = tiempoCambio - Time.deltaTime;
             if (tiempoCambio <= 0)
             {
-                trasladar();
+                transportar.SetActive(true);
                 tiempoCambio = 0;
-                adentro = false;
+                
             }
         }
         
     }
-      public void trasladar()
-      {
-        Player.transform.position = transportar.position;
-        Player.transform.rotation = transportar.rotation;
+    public void cambiarAudio()
+    {
+        if(fuentePrueba != null && pelea != null)
+        {
+            fuentePrueba.Stop();
+            fuentePrueba.clip = pelea;
+            fuentePrueba.time = 0;
+            fuentePrueba.Play();
+        }
+      
     }
+
+    public void continuarAudioAnterior()
+    {
+       if (fuentePrueba != null && ambiente != null)
+        {
+            fuentePrueba.Stop();
+            fuentePrueba.clip = ambiente;
+            fuentePrueba.time = 0;
+            fuentePrueba.Play();
+        }
+       
+    }
+
 }

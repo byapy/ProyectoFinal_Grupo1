@@ -197,7 +197,7 @@ public class movimientoJefe : MonoBehaviour
             radioAcercarse = 0f;
             radioCorrer = 0f;
             animacionJefe.SetBool("derrotaJ", true);
-            Destroy(gameObject, 10f);
+            Destroy(gameObject, 14f);
 
         }
     }
