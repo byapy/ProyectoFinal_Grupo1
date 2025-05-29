@@ -102,7 +102,7 @@ public class StatsPlayer : MonoBehaviour
     public void SetPlayerDamage(float Damage)
     {
         PAtaqueBase = Damage;
-        UIController.Instance.MensajeAConsola("El jugador hace un daño base de " + PAtaqueBase);
+        //UIController.Instance.MensajeAConsola("El jugador hace un daño base de " + PAtaqueBase);
     }
 
     //Métodos para contar, agregar y quitar los objetos
@@ -120,8 +120,8 @@ public class StatsPlayer : MonoBehaviour
                         if ((PVidaActual + 30) >= PVidaMaxima) PVidaActual = PVidaMaxima;
                         else PVidaActual += 30;
                     }
-                    else
-                        UIController.Instance.MensajeAConsola("No tienes pociones de Vida.");
+                    //else
+                        //UIController.Instance.MensajeAConsola("No tienes pociones de Vida.");
                     break;
 
                 case "defensa":
@@ -132,8 +132,8 @@ public class StatsPlayer : MonoBehaviour
                         TiempoDefensa = 20f;
                         BoostDefensa = true;
                     }
-                    else
-                        UIController.Instance.MensajeAConsola("No tienes pociones de Defensa.");
+                    //else
+                        //UIController.Instance.MensajeAConsola("No tienes pociones de Defensa.");
                     break;
 
                 case "ataque":
@@ -144,8 +144,8 @@ public class StatsPlayer : MonoBehaviour
                         BoostAtaque = true;
                         TiempoAtaque = 15f;
                     }
-                    else
-                        UIController.Instance.MensajeAConsola("No tienes pociones de Ataque.");
+                    //else
+                        //UIController.Instance.MensajeAConsola("No tienes pociones de Ataque.");
                     break;
             }
         }

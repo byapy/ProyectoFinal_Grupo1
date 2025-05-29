@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mecanica_Recoleccion : MonoBehaviour
 {
-    [SerializeField] public static bool[] NivelSuperado = new bool[3];
+    public static bool[] NivelSuperado = new bool[3];
     public static int Gema;
 
     private void Awake()

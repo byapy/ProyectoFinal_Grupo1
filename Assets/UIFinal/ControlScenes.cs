@@ -15,12 +15,6 @@ public class ControlScenes : MonoBehaviour
     {
         Instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void MenuPausa()
     {
         PanelPausa.SetActive(true);
@@ -45,7 +39,6 @@ public class ControlScenes : MonoBehaviour
     public void CargarEscena()
     {
         MovAnimacionesArmas.IsPaused = false;
-
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
@@ -60,9 +53,10 @@ public class ControlScenes : MonoBehaviour
     public void ReiniciarEscena()
     {
         MovAnimacionesArmas.IsPaused = false;
-
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
+
+
     }
 
 }

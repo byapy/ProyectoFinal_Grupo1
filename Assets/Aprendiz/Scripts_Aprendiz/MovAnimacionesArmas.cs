@@ -74,8 +74,8 @@ public class MovAnimacionesArmas : MonoBehaviour
     void Start()
     {
         ActivarPersonajeSinArma();
-        
-        if(!string.IsNullOrEmpty(SceneData.spawnPoint))
+
+        if (!string.IsNullOrEmpty(SceneData.spawnPoint))
         {
             GameObject spawnpoint = GameObject.Find(SceneData.spawnPoint);
 
@@ -89,11 +89,14 @@ public class MovAnimacionesArmas : MonoBehaviour
                 Debug.LogWarning("No se encontró el punto de aparición: " + SceneData.spawnPoint);
             }
         }
+
+        CheckPointsPlayer.Instancia.ReiniciarPosicion();
     }
 
     void Update()
     {
-        if (!IsPaused) { 
+        if (IsPaused) return;
+
             if(StatsPlayer.IsAlive)
             { 
                 /*if(Input.GetKeyDown(KeyCode.Escape))
@@ -198,7 +201,7 @@ public class MovAnimacionesArmas : MonoBehaviour
             {
                 animator.SetBool("IsAlive", false);
             }
-        }
+        
         /*else
         {
             if (Input.GetKeyDown(KeyCode.Escape))
