@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BotonInteraccionCamara : MonoBehaviour
 {
     [SerializeField] private Camera camara;
+
     private void Update()
     {
         transform.rotation = camara.transform.rotation;
