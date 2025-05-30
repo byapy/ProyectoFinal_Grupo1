@@ -8,6 +8,8 @@ public class ControlScenes : MonoBehaviour
     public GameObject PanelPausa;
     public GameObject PanelGamePlay;
 
+    public GameObject PanelGameOver;
+
     public static ControlScenes Instance;
 
     private void Awake()
@@ -28,8 +30,8 @@ public class ControlScenes : MonoBehaviour
     public void Continuar()
     {
         PanelPausa.SetActive(false);
-        Time.timeScale = 1;
         PanelGamePlay.SetActive(true);
+        Time.timeScale = 1;
 
         //Para que el player no registre movimientos ni ataques
         MovAnimacionesArmas.IsPaused = false;
@@ -54,9 +56,14 @@ public class ControlScenes : MonoBehaviour
     //usado por el botón Reiniciar
     public void ReiniciarEscena()
     {
-        MovAnimacionesArmas.IsPaused = false;
-        SceneManager.LoadScene(1);
+        PanelPausa.SetActive(false);
+        PanelGamePlay.SetActive(true);
+
+        PanelGameOver.SetActive(false);
         Time.timeScale = 1;
+
+        MovAnimacionesArmas.IsPaused = false;
+        //SceneManager.LoadScene(1);
     }
 
 }

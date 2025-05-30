@@ -41,7 +41,6 @@ public class StatsPlayer : MonoBehaviour
 
     void Update()
     {
-
         CheckLife();
         DuracionAtaqueExtra();
         DuracionDefensaExtra();
@@ -149,6 +148,11 @@ public class StatsPlayer : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void SetVida(float VidaGuardada)
+    {
+        PVidaActual = VidaGuardada;
     }
 
     #region Objetos

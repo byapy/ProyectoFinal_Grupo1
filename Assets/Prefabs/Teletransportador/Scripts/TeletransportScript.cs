@@ -14,7 +14,9 @@ public class TeletransportScript : MonoBehaviour
             {
                 GameObject PersonajeFull = GameObject.Find("AprendizArmasConfigurado");
                 PersonajeFull.SetActive(false);
+
                 PersonajeFull.transform.SetPositionAndRotation(VaHacia.position, VaHacia.rotation);
+
                 other.gameObject.transform.SetPositionAndRotation(VaHacia.position, VaHacia.rotation);
 
                 PersonajeFull.SetActive(true);
