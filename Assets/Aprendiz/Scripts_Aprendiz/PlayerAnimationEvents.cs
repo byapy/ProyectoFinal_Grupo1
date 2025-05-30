@@ -15,13 +15,14 @@ public class PlayerAnimationEvents : MonoBehaviour
     public AudioClip ClipAttack;
     public AudioSource Source;
 
-
-
     public void PlayerDies()
     {
         PantallaGameOver.SetActive(true);
+        
         PantallaGameplay.SetActive(false);
         Time.timeScale = 0;
+        
+
     }
 
     public void ActivarHitboxSinArma()
@@ -57,5 +58,6 @@ public class PlayerAnimationEvents : MonoBehaviour
         HitboxLanza.SetActive(false);
     }
 
-    
+ 
+
 }
