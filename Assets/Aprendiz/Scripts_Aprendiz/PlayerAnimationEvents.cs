@@ -8,6 +8,10 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public GameObject PantallaGameOver, PantallaGameplay;
 
+    //public GameObject PanelNegro;
+    //public CanvasGroup textoHasM;
+   // public GameObject textoHasM;
+
     //Variables de hitboxes
     public GameObject HitboxSinArma, HitboxLanza, HitboxEspada;
 
@@ -18,10 +22,17 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void PlayerDies()
     {
         PantallaGameOver.SetActive(true);
-        
-        PantallaGameplay.SetActive(false);
+       
+        PantallaGameplay.SetActive(false); 
         Time.timeScale = 0;
+
+        //LeanTween.scale( textoHasM, new Vector3(1f, 1f, 1f), 0.5f).setDelay(1f).setEase(LeanTweenType.easeInOutBack);
+        //textoHasM.LeanAlpha(1, 1f);//le da opacidad
+       // LeanTween.moveLocal(PanelNegro, new Vector3(0f, 0f, 0f), 0.5f).setDelay(1f).setEase(LeanTweenType.easeInOutBack);//este lo mueve para arriba
+       
+        //Aqui estaba poniendo las animaciones 
         
+
 
     }
 
