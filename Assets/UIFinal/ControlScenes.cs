@@ -38,13 +38,13 @@ public class ControlScenes : MonoBehaviour
     }
 
     //Este metodo es para reiniciar en el nivel 1
-   /* public void CargarEscena()
+   public void ReiniciarTodo()
     {
         MovAnimacionesArmas.IsPaused = false;
         SceneManager.LoadScene(1);
 
         Time.timeScale = 1;
-    }*/
+    }
 
     //Carga a la pantalla de título
     public void CargarEscenaInicio()

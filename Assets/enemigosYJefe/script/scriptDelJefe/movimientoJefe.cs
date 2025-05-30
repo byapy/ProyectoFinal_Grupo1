@@ -23,6 +23,8 @@ public class movimientoJefe : MonoBehaviour
     public void Awake()
     {
         barraVidaJefe = GetComponentInChildren<barraVidaJefe>();
+        pointPlayer = GameObject.Find("Aprendiz").transform;
+
         Instance = this;
     }
     void Start()

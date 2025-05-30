@@ -5,7 +5,7 @@ using UnityEngine;
 public class CheckPointSystem : MonoBehaviour
 {
     public static CheckPointSystem Instancia;
-    public GameObject Player, TodoElPlayer;
+    public GameObject Player;
     public static Transform PuntoControl;
     float VidaGuardada;
 
@@ -13,6 +13,7 @@ public class CheckPointSystem : MonoBehaviour
     {
         Instancia = this;
     }
+
 
     public void LoadCheckPoint()
     {
@@ -23,7 +24,6 @@ public class CheckPointSystem : MonoBehaviour
 
             Player.SetActive(false);
             StatsPlayer.Instance.SetVida(VidaGuardada);
-            StatsPlayer.IsAlive = true;
             Player.transform.SetPositionAndRotation(PuntoControl.position, PuntoControl.rotation);
 
             Debug.Log($"Se movió el player a {Player.transform.position}");
@@ -49,9 +49,7 @@ public class CheckPointSystem : MonoBehaviour
     {
         PuntoControl = checkpoint;
         VidaGuardada = VidaActual;
-
         Debug.Log($"Nuevo punto de control. Ahora su valor es {PuntoControl.position}");
-
     }
 
 }

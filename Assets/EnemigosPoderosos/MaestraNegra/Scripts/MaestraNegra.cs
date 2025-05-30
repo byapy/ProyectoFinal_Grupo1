@@ -68,6 +68,8 @@ public class MaestraNegra : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        PlayerPointer = GameObject.Find("Aprendiz").transform;
+
 
     }
     void Update()

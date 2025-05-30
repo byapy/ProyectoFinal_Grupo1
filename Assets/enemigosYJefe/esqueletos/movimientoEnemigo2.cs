@@ -27,6 +27,8 @@ public class movimientoEnemigo2 : MonoBehaviour
 
     private void Awake()
     {
+        pointPlayer = GameObject.Find("Aprendiz").transform;
+
         barraVida2 = GetComponentInChildren<BarraVidaEnemigo>();
         Instance = this;
     }

@@ -27,6 +27,10 @@ public class cargarJefe : MonoBehaviour
     // obtiene el script del player (MovAnimacionesArmas)
     private MovAnimacionesArmas codigoJugador;
 
+    private void Awake()
+    {
+        Player = GameObject.Find("Aprendiz");
+    }
     void Start()
     {
        
