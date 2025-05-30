@@ -7,7 +7,6 @@ public class ControlScenes : MonoBehaviour
 {
     public GameObject PanelPausa;
     public GameObject PanelGamePlay;
-    private MovAnimacionesArmas ataque;
 
     public static ControlScenes Instance;
 
@@ -20,6 +19,7 @@ public class ControlScenes : MonoBehaviour
         PanelPausa.SetActive(true);
         Time.timeScale = 0;
         PanelGamePlay.SetActive(false);
+
         //Para que el player no registre movimientos ni ataques
         MovAnimacionesArmas.IsPaused = true;
         //Input.ResetInputAxes();
@@ -36,27 +36,27 @@ public class ControlScenes : MonoBehaviour
     }
 
     //Este metodo es para reiniciar en el nivel 1
-    public void CargarEscena()
+   /* public void CargarEscena()
     {
         MovAnimacionesArmas.IsPaused = false;
         SceneManager.LoadScene(1);
-        Time.timeScale = 1;
-    }
-    public void CargarEscenaInicio()//Carga la escena principal desde el panel perdiste
-    {
-        MovAnimacionesArmas.IsPaused = false;
 
+        Time.timeScale = 1;
+    }*/
+
+    //Carga a la pantalla de título
+    public void CargarEscenaInicio()
+    {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
 
+    //usado por el botón Reiniciar
     public void ReiniciarEscena()
     {
         MovAnimacionesArmas.IsPaused = false;
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
-
-
     }
 
 }

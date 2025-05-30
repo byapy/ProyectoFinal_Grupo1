@@ -17,7 +17,6 @@ public class Mecanica_Recoleccion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        UIController.Instance.MensajeAConsola("Se agarró " + other.tag);
 
         switch (other.tag.ToLower())
         {
@@ -51,7 +50,12 @@ public class Mecanica_Recoleccion : MonoBehaviour
 
                 Destroy(other.gameObject);
                 break;
+            case "respawn":
+                Debug.Log("----- Punto de Control -----\n"+other.transform.position);
 
+                CheckPointSystem.PuntoControl = other.transform;
+
+                break;
                 //Agregar booleanas con tags de armas
         }
     }

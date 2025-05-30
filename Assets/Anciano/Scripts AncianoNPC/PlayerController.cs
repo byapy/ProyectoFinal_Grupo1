@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             if (nivelProgreso < 3)
             {
-                Debug.Log("Regresa cuando tengas todas las gemas");
+                //Debug.Log("Regresa cuando tengas todas las gemas");
 
             }
 

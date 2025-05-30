@@ -9,8 +9,8 @@ public class StatsPlayer : MonoBehaviour
 
 
     //variables de solo los objetos que el jugador va a tener
-    [SerializeField] public static float PVidaActual, PVidaMaxima = 100f;
-    [SerializeField]  public static float PDefensa, PAtaque, PAtaqueBase;
+    public static float PVidaActual, PVidaMaxima = 100f;
+    public static float PDefensa, PAtaque, PAtaqueBase;
     public static float TiempoDefensa, TiempoAtaque;
     public static int PDinero;
 

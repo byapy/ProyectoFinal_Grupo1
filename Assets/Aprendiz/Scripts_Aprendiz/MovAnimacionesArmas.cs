@@ -69,17 +69,21 @@ public class MovAnimacionesArmas : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
     }
 
     void Start()
     {
+
+
         ActivarPersonajeSinArma();
+
 
         if (!string.IsNullOrEmpty(SceneData.spawnPoint))
         {
             GameObject spawnpoint = GameObject.Find(SceneData.spawnPoint);
 
-            if(spawnpoint != null)
+            if (spawnpoint != null)
             {
                 transform.position = spawnpoint.transform.position;
                 transform.rotation = spawnpoint.transform.rotation;
@@ -89,15 +93,14 @@ public class MovAnimacionesArmas : MonoBehaviour
                 Debug.LogWarning("No se encontró el punto de aparición: " + SceneData.spawnPoint);
             }
         }
-
-        CheckPointsPlayer.Instancia.ReiniciarPosicion();
     }
 
     void Update()
     {
         if (IsPaused) return;
+        
 
-            if(StatsPlayer.IsAlive)
+        if (StatsPlayer.IsAlive)
             { 
                 /*if(Input.GetKeyDown(KeyCode.Escape))
                 {
@@ -271,7 +274,6 @@ public class MovAnimacionesArmas : MonoBehaviour
             {
                 float FallDamage = (95f * ((DistanciaRecorrida*-1) - 10f))/20f + 5f;
                 StatsPlayer.Instance.ReceivedDamage(FallDamage);
-                UIController.Instance.MensajeAConsola("Caíste " + (DistanciaRecorrida * -1) + " metros. Eso es un daño del " + FallDamage);
             }
 
             animator.SetBool("isFalling", false);
@@ -331,6 +333,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     void ActivarPersonajeSinArma()
     {
+
         personajeSinArma.SetActive(true);
         personajeConLanza.SetActive(false);
         personajeConEspada.SetActive(false);

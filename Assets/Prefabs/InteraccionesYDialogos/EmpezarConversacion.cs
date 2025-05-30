@@ -65,4 +65,10 @@ public class EmpezarConversacion : MonoBehaviour
         Instantiate(ParticulaItem, ItemNPC.transform.position, Quaternion.identity);
         ItemNPC.SetActive(true);
     }
+
+    public void ActivarCamaraPlayer()
+    {
+        CamaraNPC.SetActive(false);
+        CamaraPlayer.SetActive(true);
+    }
 }

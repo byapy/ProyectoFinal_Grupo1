@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SceneController : MonoBehaviour
 {
-    public GameObject playerPrefab;
+   public GameObject playerPrefab;
     public GameObject panelGameOver;
     public GameObject panelGameplay;
 
