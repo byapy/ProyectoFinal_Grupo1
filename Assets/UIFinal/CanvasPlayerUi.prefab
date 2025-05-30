@@ -4893,6 +4893,7 @@ GameObject:
   - component: {fileID: 6081999237088101055}
   - component: {fileID: 1403041521516997062}
   - component: {fileID: 8033150724869393391}
+  - component: {fileID: 5991952284904467908}
   m_Layer: 5
   m_Name: TxtMensajeMuerto
   m_TagString: Untagged
@@ -4909,7 +4910,7 @@ RectTransform:
   m_GameObject: {fileID: 6294570783297669460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8862006386513346310}
@@ -4962,6 +4963,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: HAS MUERTO
+--- !u!225 &5991952284904467908
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294570783297669460}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6331982526119260809
 GameObject:
   m_ObjectHideFlags: 0
@@ -6956,6 +6969,8 @@ GameObject:
   - component: {fileID: 8862006386513346310}
   - component: {fileID: 8862006386513346308}
   - component: {fileID: 8862006386513346309}
+  - component: {fileID: 2757664633117147564}
+  - component: {fileID: 6248155031308029810}
   m_Layer: 5
   m_Name: PanelGameOver
   m_TagString: Untagged
@@ -7026,6 +7041,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2757664633117147564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862006386513346311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ddeb337f321cc4099d8358b04fc72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PanelCompleto: {fileID: 6248155031308029810}
+  textoHasM: {fileID: 5991952284904467908}
+--- !u!225 &6248155031308029810
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862006386513346311}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8862006386554113902
 GameObject:
   m_ObjectHideFlags: 0
@@ -12090,7 +12131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8862006388392702715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12108,8 +12149,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -675.97, y: 254}
-  m_SizeDelta: {x: 337.3838, y: 337.389}
+  m_AnchoredPosition: {x: 0.0041504, y: 0}
+  m_SizeDelta: {x: 559.7556, y: 559.7643}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8862006388392702713
 CanvasRenderer:
