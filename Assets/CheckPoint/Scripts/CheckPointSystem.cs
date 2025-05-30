@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class CheckPointSystem : MonoBehaviour
 {
-    public static Transform PuntoControl;
-
-    public GameObject Player;
     public static CheckPointSystem Instancia;
 
+    public static Vector3 PuntoControl;
 
-    private void Awake()
+    public GameObject Player;
+
+
+   /* private void Awake()
     {
-        if(PuntoControl != null) Debug.Log($"Se despertó el script. El valor de inicial puntocontrol es {PuntoControl.position}");
+        if(PuntoControl != null) Debug.Log($"Se despertó el script. El valor de inicial puntocontrol es {PuntoControl}");
 
-        PuntoControl = GameObject.Find("SpawnPointInicial").transform;
+        PuntoControl = GameObject.Find("SpawnPointInicial").transform.position;
         Instancia = this;
-        Debug.Log($"Se despertó el script. El valor nuevo de puntocontrol es {PuntoControl.position}");
+        Debug.Log($"Se despertó el script. El valor nuevo de puntocontrol es {PuntoControl}");
 
     }
 
@@ -29,7 +30,7 @@ public class CheckPointSystem : MonoBehaviour
     {
         Debug.Log($"Se ha cargado un punto de control. El player está en {Player.transform.position} y va a {PuntoControl.position}");
 
-        Instantiate(Player, PuntoControl.position, PuntoControl.rotation);
+        Instantiate(Player, transform. PuntoControl, Quaternion.identity);
     }
 
    /* public void SetCheckpoint(Transform checkpoint)

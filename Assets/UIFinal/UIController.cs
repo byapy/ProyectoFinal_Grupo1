@@ -7,7 +7,8 @@ public class UIController : MonoBehaviour
 {
     //3 Imagenes para las barras
     //5 Textos, 3 pociones, 1 de dinero y uno para mensajes que querramos meter
-    public Image BarraVida, BarraDefensa, BarraAtaque;
+    [SerializeField]private float VelocidadDeAnimacion = 20f;
+    public Image BarraVida, BarraVidaPerdida, BarraDefensa, BarraAtaque;
     public Text TxtPVida, TxtPDefensa, TxtPAtaque, TxtDinero, TxtGemasRecolectadas;
 
     //Armas compradas
@@ -34,6 +35,9 @@ public class UIController : MonoBehaviour
     void Start()
     {
         BarraVida.fillAmount = StatsPlayer.PVidaActual / StatsPlayer.PVidaMaxima;
+
+        BarraVidaPerdida.fillAmount = BarraVida.fillAmount;
+
         BarraDefensa.fillAmount = 0;
         BarraAtaque.fillAmount = 0;
 
@@ -41,8 +45,12 @@ public class UIController : MonoBehaviour
 
         //Pociones en Fila 0 son Vida, 1 son Defensa y 2 son ataque.
         TxtPVida.text = StatsPlayer.PPociones[0].ToString();
+        TxtPVida.color = ColorAlTexto(StatsPlayer.PPociones[0]);
         TxtPDefensa.text = StatsPlayer.PPociones[1].ToString();
+        TxtPDefensa.color = ColorAlTexto(StatsPlayer.PPociones[1]);
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
+        TxtPAtaque.color = ColorAlTexto(StatsPlayer.PPociones[2]);
+
     }
 
     //20 segundos defensa, 15 ataque
@@ -50,17 +58,31 @@ public class UIController : MonoBehaviour
     void Update()
     {
         BarraVida.fillAmount = StatsPlayer.PVidaActual / StatsPlayer.PVidaMaxima;
+        StartCoroutine(BajarVida());
+
+
         BarraDefensa.fillAmount = StatsPlayer.TiempoDefensa / 20;
         BarraAtaque.fillAmount = StatsPlayer.TiempoAtaque / 15;
 
         TxtDinero.text = StatsPlayer.PDinero.ToString();
+
         TxtPVida.text = StatsPlayer.PPociones[0].ToString();
+        TxtPVida.color = ColorAlTexto(StatsPlayer.PPociones[0]);
         TxtPDefensa.text = StatsPlayer.PPociones[1].ToString();
+        TxtPDefensa.color = ColorAlTexto(StatsPlayer.PPociones[1]);
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
+        TxtPAtaque.color = ColorAlTexto(StatsPlayer.PPociones[2]);
+
         TxtGemasRecolectadas.text = Mecanica_Recoleccion.Gema.ToString();
         ActualizacionImagenesGemas();
     }
 
+    public IEnumerator BajarVida()
+    {
+        BarraVidaPerdida.fillAmount = Mathf.MoveTowards(BarraVidaPerdida.fillAmount, BarraVida.fillAmount, VelocidadDeAnimacion * Time.deltaTime);
+        yield return new WaitForSeconds(2f);
+
+    }
     public void ActivarArmaNueva(string Nombre)
     {
         switch(Nombre.ToLower())
@@ -83,6 +105,19 @@ public class UIController : MonoBehaviour
         TxtConsola.text = Mnsj;
     }
     
+    Color ColorAlTexto(int numeroPociones)
+    {
+        switch(numeroPociones)
+        {
+            case 0:
+                return Color.red;    
+            case 15:
+                return Color.green;
+            default:
+                return Color.white;
+        }
+    }
+
     //Metodo que segun las gemas que recolecte se activan en el panel de pausa
     void ActualizacionImagenesGemas()
     {

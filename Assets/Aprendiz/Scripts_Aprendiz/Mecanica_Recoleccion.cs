@@ -50,13 +50,13 @@ public class Mecanica_Recoleccion : MonoBehaviour
 
                 Destroy(other.gameObject);
                 break;
-            case "respawn":
+            /*case "respawn":
                 Debug.Log("----- Punto de Control -----\n"+other.transform.position);
 
                 CheckPointSystem.PuntoControl = other.transform;
 
                 break;
-                //Agregar booleanas con tags de armas
+                //Agregar booleanas con tags de armas*/
         }
     }
     //Meter en el código lo de añadir las partes de la gema

@@ -45,18 +45,22 @@ public class Bala : MonoBehaviour
         }
         if (other.CompareTag("Jefe"))
         {
+            Debug.Log("Entró aquí");
             other.GetComponent<movimientoJefe>().ReciveDanoJefe(StatsPlayer.Instance.CalcularAtaque());
             Destroy(gameObject);
         }
         if (other.CompareTag("Lilith"))
         {
-            Debug.Log("Es lilith");
 
             JefaLilith.Instance.RecibirDaño(StatsPlayer.Instance.CalcularAtaque());
             Destroy(gameObject);
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
     private void OnDestroy()
     {
         Instantiate(ParticulaExplocion, transform.position, Quaternion.identity);
