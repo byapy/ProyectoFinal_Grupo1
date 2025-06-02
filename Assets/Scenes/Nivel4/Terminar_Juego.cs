@@ -53,8 +53,7 @@ public class Terminar_Juego : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (JefaLilith.Instance.VidaLilith == 0)
-            {
+            
                 Muñeco.SetActive(true);
                 Destroy(JugadorL);
                 Destroy(Interfaz);
@@ -64,7 +63,7 @@ public class Terminar_Juego : MonoBehaviour
                 Debug.Log("CinematicaCorriendo");
                 StartCoroutine(EsperarYHacerFade());
 
-            }
+            
         }
 
     }

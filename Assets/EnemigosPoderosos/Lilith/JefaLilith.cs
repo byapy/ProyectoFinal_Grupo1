@@ -31,6 +31,7 @@ public class JefaLilith : MonoBehaviour
     public GameObject LilithModel;
     public GameObject EspadaHit;
     public GameObject EspadaEnElPiso;
+    public GameObject TronoTrigger;
     public Transform PlayerPointer;
     public float Rango;
     public float Melee;
@@ -79,6 +80,7 @@ public class JefaLilith : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         agentLilith.enabled = true;
         velocidadLi = 10;
+        TronoTrigger.SetActive(false);
 
 
         Player = GameObject.FindWithTag("Player");
@@ -384,7 +386,7 @@ public class JefaLilith : MonoBehaviour
         Invoke("ActivarParticulas", 4);
         Destroy(LilithModel, 4);
         Destroy(gameObject, 6);
-
+        TronoTrigger.SetActive(true);
 
         agentLilith.enabled = false;
             rb.isKinematic = false; 
