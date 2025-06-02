@@ -6,7 +6,10 @@ public class AnimacionMenuInicio : MonoBehaviour
 {
     public CanvasGroup titulo;
     public CanvasGroup continuar, nuevapartida, ajustes;
-
+    private void Awake()
+    {
+        Time.timeScale = 1;
+    }
     void Start()
     {
         titulo.LeanAlpha(1, 5f).setEase(LeanTweenType.easeInCirc).setOnComplete(PanelBotones);   
