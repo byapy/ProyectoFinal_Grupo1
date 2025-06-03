@@ -46,6 +46,15 @@ public class ControlScenes : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    //Cargar pantalla de jefe otra vez
+    public void ReiniciarTodoJefe()
+    {
+        MovAnimacionesArmas.IsPaused = false;
+        SceneManager.LoadScene("Torre-Nivel4");
+
+        Time.timeScale = 1;
+    }
+
     //Carga a la pantalla de título
     public void CargarEscenaInicio()
     {
