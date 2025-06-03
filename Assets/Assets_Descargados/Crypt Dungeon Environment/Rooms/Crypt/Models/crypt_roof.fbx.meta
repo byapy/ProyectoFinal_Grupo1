@@ -1,255 +1,737 @@
 fileFormatVersion: 2
 guid: 8d21d1605928a4d46b68ae5628341f42
-timeCreated: 1546254686
-licenseType: Store
 ModelImporter:
-  serializedVersion: 22
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: frame1
-    100004: frame1 1
-    100006: frame1 2
-    100008: frame1 3
-    100010: frame1 4
-    100012: frame1 5
-    100014: frame1 6
-    100016: frame1 7
-    100018: frames
-    100020: group1
-    100022: group2
-    100024: group3
-    100026: group4
-    100028: group5
-    100030: group6
-    100032: group7
-    100034: group8
-    100036: roof1
-    100038: roof2
-    100040: roof3
-    100042: roof4
-    100044: roof5
-    100046: roof6
-    100048: roof7
-    100050: roof8
-    100052: roofs
-    100054: group10
-    100056: group11
-    100058: group12
-    100060: group13
-    100062: group14
-    100064: group15
-    100066: group16
-    100068: group16 1
-    100070: group16 2
-    100072: group16 3
-    100074: group17
-    100076: group17 1
-    100078: group17 2
-    100080: group17 3
-    100082: group18
-    100084: group18 1
-    100086: group19
-    100088: group19 1
-    100090: group20
-    100092: group21
-    100094: group9
-    100096: roof 1
-    100098: roof 2
-    100100: roof 3
-    100102: roof 4
-    100104: roof 5
-    100106: roof 6
-    100108: roof 7
-    100110: roof 8
-    100112: frame2
-    100114: frame3
-    100116: frame4
-    100118: frame5
-    100120: frame6
-    100122: frame7
-    100124: frame8
-    100126: roof_top1
-    100128: roof_top2
-    100130: roof_top3
-    100132: roof_top4
-    400000: //RootNode
-    400002: frame1
-    400004: frame1 1
-    400006: frame1 2
-    400008: frame1 3
-    400010: frame1 4
-    400012: frame1 5
-    400014: frame1 6
-    400016: frame1 7
-    400018: frames
-    400020: group1
-    400022: group2
-    400024: group3
-    400026: group4
-    400028: group5
-    400030: group6
-    400032: group7
-    400034: group8
-    400036: roof1
-    400038: roof2
-    400040: roof3
-    400042: roof4
-    400044: roof5
-    400046: roof6
-    400048: roof7
-    400050: roof8
-    400052: roofs
-    400054: group10
-    400056: group11
-    400058: group12
-    400060: group13
-    400062: group14
-    400064: group15
-    400066: group16
-    400068: group16 1
-    400070: group16 2
-    400072: group16 3
-    400074: group17
-    400076: group17 1
-    400078: group17 2
-    400080: group17 3
-    400082: group18
-    400084: group18 1
-    400086: group19
-    400088: group19 1
-    400090: group20
-    400092: group21
-    400094: group9
-    400096: roof 1
-    400098: roof 2
-    400100: roof 3
-    400102: roof 4
-    400104: roof 5
-    400106: roof 6
-    400108: roof 7
-    400110: roof 8
-    400112: frame2
-    400114: frame3
-    400116: frame4
-    400118: frame5
-    400120: frame6
-    400122: frame7
-    400124: frame8
-    400126: roof_top1
-    400128: roof_top2
-    400130: roof_top3
-    400132: roof_top4
-    2100000: lambert1
-    2300000: frame1
-    2300002: frame1 1
-    2300004: frame1 2
-    2300006: frame1 3
-    2300008: frame1 4
-    2300010: frame1 5
-    2300012: frame1 6
-    2300014: frame1 7
-    2300016: roof1
-    2300018: roof2
-    2300020: roof3
-    2300022: roof4
-    2300024: roof5
-    2300026: roof6
-    2300028: roof7
-    2300030: roof8
-    2300032: roof 1
-    2300034: roof 2
-    2300036: roof 3
-    2300038: roof 4
-    2300040: roof 5
-    2300042: roof 6
-    2300044: roof 7
-    2300046: roof 8
-    2300048: //RootNode
-    2300050: frame2
-    2300052: frame3
-    2300054: frame4
-    2300056: frame5
-    2300058: frame6
-    2300060: frame7
-    2300062: frame8
-    2300064: roof_top1
-    2300066: roof_top2
-    2300068: roof_top3
-    2300070: roof_top4
-    3300000: frame1
-    3300002: frame1 1
-    3300004: frame1 2
-    3300006: frame1 3
-    3300008: frame1 4
-    3300010: frame1 5
-    3300012: frame1 6
-    3300014: frame1 7
-    3300016: roof1
-    3300018: roof2
-    3300020: roof3
-    3300022: roof4
-    3300024: roof5
-    3300026: roof6
-    3300028: roof7
-    3300030: roof8
-    3300032: roof 1
-    3300034: roof 2
-    3300036: roof 3
-    3300038: roof 4
-    3300040: roof 5
-    3300042: roof 6
-    3300044: roof 7
-    3300046: roof 8
-    3300048: //RootNode
-    3300050: frame2
-    3300052: frame3
-    3300054: frame4
-    3300056: frame5
-    3300058: frame6
-    3300060: frame7
-    3300062: frame8
-    3300064: roof_top1
-    3300066: roof_top2
-    3300068: roof_top3
-    3300070: roof_top4
-    4300000: roof2
-    4300002: roof3
-    4300004: roof4
-    4300006: roof5
-    4300008: roof6
-    4300010: roof7
-    4300012: roof8
-    4300014: roof1
-    4300016: frame1
-    4300018: frame1
-    4300020: frame1
-    4300022: frame1
-    4300024: frame1
-    4300026: frame1
-    4300028: frame1
-    4300030: frame1
-    4300032: roof
-    4300034: roof
-    4300036: roof
-    4300038: roof
-    4300040: roof
-    4300042: roof
-    4300044: roof
-    4300046: roof
-    4300048: frame2
-    4300050: frame3
-    4300052: frame4
-    4300054: frame5
-    4300056: frame6
-    4300058: frame7
-    4300060: frame8
-    4300062: roof_top1
-    4300064: roof_top2
-    4300066: roof_top3
-    4300068: roof_top4
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: frame1
+  - first:
+      1: 100004
+    second: frame1 1
+  - first:
+      1: 100006
+    second: frame1 2
+  - first:
+      1: 100008
+    second: frame1 3
+  - first:
+      1: 100010
+    second: frame1 4
+  - first:
+      1: 100012
+    second: frame1 5
+  - first:
+      1: 100014
+    second: frame1 6
+  - first:
+      1: 100016
+    second: frame1 7
+  - first:
+      1: 100018
+    second: frames
+  - first:
+      1: 100020
+    second: group1
+  - first:
+      1: 100022
+    second: group2
+  - first:
+      1: 100024
+    second: group3
+  - first:
+      1: 100026
+    second: group4
+  - first:
+      1: 100028
+    second: group5
+  - first:
+      1: 100030
+    second: group6
+  - first:
+      1: 100032
+    second: group7
+  - first:
+      1: 100034
+    second: group8
+  - first:
+      1: 100036
+    second: roof1
+  - first:
+      1: 100038
+    second: roof2
+  - first:
+      1: 100040
+    second: roof3
+  - first:
+      1: 100042
+    second: roof4
+  - first:
+      1: 100044
+    second: roof5
+  - first:
+      1: 100046
+    second: roof6
+  - first:
+      1: 100048
+    second: roof7
+  - first:
+      1: 100050
+    second: roof8
+  - first:
+      1: 100052
+    second: roofs
+  - first:
+      1: 100054
+    second: group10
+  - first:
+      1: 100056
+    second: group11
+  - first:
+      1: 100058
+    second: group12
+  - first:
+      1: 100060
+    second: group13
+  - first:
+      1: 100062
+    second: group14
+  - first:
+      1: 100064
+    second: group15
+  - first:
+      1: 100066
+    second: group16
+  - first:
+      1: 100068
+    second: group16 1
+  - first:
+      1: 100070
+    second: group16 2
+  - first:
+      1: 100072
+    second: group16 3
+  - first:
+      1: 100074
+    second: group17
+  - first:
+      1: 100076
+    second: group17 1
+  - first:
+      1: 100078
+    second: group17 2
+  - first:
+      1: 100080
+    second: group17 3
+  - first:
+      1: 100082
+    second: group18
+  - first:
+      1: 100084
+    second: group18 1
+  - first:
+      1: 100086
+    second: group19
+  - first:
+      1: 100088
+    second: group19 1
+  - first:
+      1: 100090
+    second: group20
+  - first:
+      1: 100092
+    second: group21
+  - first:
+      1: 100094
+    second: group9
+  - first:
+      1: 100096
+    second: roof 1
+  - first:
+      1: 100098
+    second: roof 2
+  - first:
+      1: 100100
+    second: roof 3
+  - first:
+      1: 100102
+    second: roof 4
+  - first:
+      1: 100104
+    second: roof 5
+  - first:
+      1: 100106
+    second: roof 6
+  - first:
+      1: 100108
+    second: roof 7
+  - first:
+      1: 100110
+    second: roof 8
+  - first:
+      1: 100112
+    second: frame2
+  - first:
+      1: 100114
+    second: frame3
+  - first:
+      1: 100116
+    second: frame4
+  - first:
+      1: 100118
+    second: frame5
+  - first:
+      1: 100120
+    second: frame6
+  - first:
+      1: 100122
+    second: frame7
+  - first:
+      1: 100124
+    second: frame8
+  - first:
+      1: 100126
+    second: roof_top1
+  - first:
+      1: 100128
+    second: roof_top2
+  - first:
+      1: 100130
+    second: roof_top3
+  - first:
+      1: 100132
+    second: roof_top4
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: frame1
+  - first:
+      4: 400004
+    second: frame1 1
+  - first:
+      4: 400006
+    second: frame1 2
+  - first:
+      4: 400008
+    second: frame1 3
+  - first:
+      4: 400010
+    second: frame1 4
+  - first:
+      4: 400012
+    second: frame1 5
+  - first:
+      4: 400014
+    second: frame1 6
+  - first:
+      4: 400016
+    second: frame1 7
+  - first:
+      4: 400018
+    second: frames
+  - first:
+      4: 400020
+    second: group1
+  - first:
+      4: 400022
+    second: group2
+  - first:
+      4: 400024
+    second: group3
+  - first:
+      4: 400026
+    second: group4
+  - first:
+      4: 400028
+    second: group5
+  - first:
+      4: 400030
+    second: group6
+  - first:
+      4: 400032
+    second: group7
+  - first:
+      4: 400034
+    second: group8
+  - first:
+      4: 400036
+    second: roof1
+  - first:
+      4: 400038
+    second: roof2
+  - first:
+      4: 400040
+    second: roof3
+  - first:
+      4: 400042
+    second: roof4
+  - first:
+      4: 400044
+    second: roof5
+  - first:
+      4: 400046
+    second: roof6
+  - first:
+      4: 400048
+    second: roof7
+  - first:
+      4: 400050
+    second: roof8
+  - first:
+      4: 400052
+    second: roofs
+  - first:
+      4: 400054
+    second: group10
+  - first:
+      4: 400056
+    second: group11
+  - first:
+      4: 400058
+    second: group12
+  - first:
+      4: 400060
+    second: group13
+  - first:
+      4: 400062
+    second: group14
+  - first:
+      4: 400064
+    second: group15
+  - first:
+      4: 400066
+    second: group16
+  - first:
+      4: 400068
+    second: group16 1
+  - first:
+      4: 400070
+    second: group16 2
+  - first:
+      4: 400072
+    second: group16 3
+  - first:
+      4: 400074
+    second: group17
+  - first:
+      4: 400076
+    second: group17 1
+  - first:
+      4: 400078
+    second: group17 2
+  - first:
+      4: 400080
+    second: group17 3
+  - first:
+      4: 400082
+    second: group18
+  - first:
+      4: 400084
+    second: group18 1
+  - first:
+      4: 400086
+    second: group19
+  - first:
+      4: 400088
+    second: group19 1
+  - first:
+      4: 400090
+    second: group20
+  - first:
+      4: 400092
+    second: group21
+  - first:
+      4: 400094
+    second: group9
+  - first:
+      4: 400096
+    second: roof 1
+  - first:
+      4: 400098
+    second: roof 2
+  - first:
+      4: 400100
+    second: roof 3
+  - first:
+      4: 400102
+    second: roof 4
+  - first:
+      4: 400104
+    second: roof 5
+  - first:
+      4: 400106
+    second: roof 6
+  - first:
+      4: 400108
+    second: roof 7
+  - first:
+      4: 400110
+    second: roof 8
+  - first:
+      4: 400112
+    second: frame2
+  - first:
+      4: 400114
+    second: frame3
+  - first:
+      4: 400116
+    second: frame4
+  - first:
+      4: 400118
+    second: frame5
+  - first:
+      4: 400120
+    second: frame6
+  - first:
+      4: 400122
+    second: frame7
+  - first:
+      4: 400124
+    second: frame8
+  - first:
+      4: 400126
+    second: roof_top1
+  - first:
+      4: 400128
+    second: roof_top2
+  - first:
+      4: 400130
+    second: roof_top3
+  - first:
+      4: 400132
+    second: roof_top4
+  - first:
+      21: 2100000
+    second: lambert1
+  - first:
+      23: 2300000
+    second: frame1
+  - first:
+      23: 2300002
+    second: frame1 1
+  - first:
+      23: 2300004
+    second: frame1 2
+  - first:
+      23: 2300006
+    second: frame1 3
+  - first:
+      23: 2300008
+    second: frame1 4
+  - first:
+      23: 2300010
+    second: frame1 5
+  - first:
+      23: 2300012
+    second: frame1 6
+  - first:
+      23: 2300014
+    second: frame1 7
+  - first:
+      23: 2300016
+    second: roof1
+  - first:
+      23: 2300018
+    second: roof2
+  - first:
+      23: 2300020
+    second: roof3
+  - first:
+      23: 2300022
+    second: roof4
+  - first:
+      23: 2300024
+    second: roof5
+  - first:
+      23: 2300026
+    second: roof6
+  - first:
+      23: 2300028
+    second: roof7
+  - first:
+      23: 2300030
+    second: roof8
+  - first:
+      23: 2300032
+    second: roof 1
+  - first:
+      23: 2300034
+    second: roof 2
+  - first:
+      23: 2300036
+    second: roof 3
+  - first:
+      23: 2300038
+    second: roof 4
+  - first:
+      23: 2300040
+    second: roof 5
+  - first:
+      23: 2300042
+    second: roof 6
+  - first:
+      23: 2300044
+    second: roof 7
+  - first:
+      23: 2300046
+    second: roof 8
+  - first:
+      23: 2300048
+    second: //RootNode
+  - first:
+      23: 2300050
+    second: frame2
+  - first:
+      23: 2300052
+    second: frame3
+  - first:
+      23: 2300054
+    second: frame4
+  - first:
+      23: 2300056
+    second: frame5
+  - first:
+      23: 2300058
+    second: frame6
+  - first:
+      23: 2300060
+    second: frame7
+  - first:
+      23: 2300062
+    second: frame8
+  - first:
+      23: 2300064
+    second: roof_top1
+  - first:
+      23: 2300066
+    second: roof_top2
+  - first:
+      23: 2300068
+    second: roof_top3
+  - first:
+      23: 2300070
+    second: roof_top4
+  - first:
+      33: 3300000
+    second: frame1
+  - first:
+      33: 3300002
+    second: frame1 1
+  - first:
+      33: 3300004
+    second: frame1 2
+  - first:
+      33: 3300006
+    second: frame1 3
+  - first:
+      33: 3300008
+    second: frame1 4
+  - first:
+      33: 3300010
+    second: frame1 5
+  - first:
+      33: 3300012
+    second: frame1 6
+  - first:
+      33: 3300014
+    second: frame1 7
+  - first:
+      33: 3300016
+    second: roof1
+  - first:
+      33: 3300018
+    second: roof2
+  - first:
+      33: 3300020
+    second: roof3
+  - first:
+      33: 3300022
+    second: roof4
+  - first:
+      33: 3300024
+    second: roof5
+  - first:
+      33: 3300026
+    second: roof6
+  - first:
+      33: 3300028
+    second: roof7
+  - first:
+      33: 3300030
+    second: roof8
+  - first:
+      33: 3300032
+    second: roof 1
+  - first:
+      33: 3300034
+    second: roof 2
+  - first:
+      33: 3300036
+    second: roof 3
+  - first:
+      33: 3300038
+    second: roof 4
+  - first:
+      33: 3300040
+    second: roof 5
+  - first:
+      33: 3300042
+    second: roof 6
+  - first:
+      33: 3300044
+    second: roof 7
+  - first:
+      33: 3300046
+    second: roof 8
+  - first:
+      33: 3300048
+    second: //RootNode
+  - first:
+      33: 3300050
+    second: frame2
+  - first:
+      33: 3300052
+    second: frame3
+  - first:
+      33: 3300054
+    second: frame4
+  - first:
+      33: 3300056
+    second: frame5
+  - first:
+      33: 3300058
+    second: frame6
+  - first:
+      33: 3300060
+    second: frame7
+  - first:
+      33: 3300062
+    second: frame8
+  - first:
+      33: 3300064
+    second: roof_top1
+  - first:
+      33: 3300066
+    second: roof_top2
+  - first:
+      33: 3300068
+    second: roof_top3
+  - first:
+      33: 3300070
+    second: roof_top4
+  - first:
+      43: 4300000
+    second: roof2
+  - first:
+      43: 4300002
+    second: roof3
+  - first:
+      43: 4300004
+    second: roof4
+  - first:
+      43: 4300006
+    second: roof5
+  - first:
+      43: 4300008
+    second: roof6
+  - first:
+      43: 4300010
+    second: roof7
+  - first:
+      43: 4300012
+    second: roof8
+  - first:
+      43: 4300014
+    second: roof1
+  - first:
+      43: 4300016
+    second: frame1
+  - first:
+      43: 4300018
+    second: frame1
+  - first:
+      43: 4300020
+    second: frame1
+  - first:
+      43: 4300022
+    second: frame1
+  - first:
+      43: 4300024
+    second: frame1
+  - first:
+      43: 4300026
+    second: frame1
+  - first:
+      43: 4300028
+    second: frame1
+  - first:
+      43: 4300030
+    second: frame1
+  - first:
+      43: 4300032
+    second: roof
+  - first:
+      43: 4300034
+    second: roof
+  - first:
+      43: 4300036
+    second: roof
+  - first:
+      43: 4300038
+    second: roof
+  - first:
+      43: 4300040
+    second: roof
+  - first:
+      43: 4300042
+    second: roof
+  - first:
+      43: 4300044
+    second: roof
+  - first:
+      43: 4300046
+    second: roof
+  - first:
+      43: 4300048
+    second: frame2
+  - first:
+      43: 4300050
+    second: frame3
+  - first:
+      43: 4300052
+    second: frame4
+  - first:
+      43: 4300054
+    second: frame5
+  - first:
+      43: 4300056
+    second: frame6
+  - first:
+      43: 4300058
+    second: frame7
+  - first:
+      43: 4300060
+    second: frame8
+  - first:
+      43: 4300062
+    second: roof_top1
+  - first:
+      43: 4300064
+    second: roof_top2
+  - first:
+      43: 4300066
+    second: roof_top3
+  - first:
+      43: 4300068
+    second: roof_top4
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -258,6 +740,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -266,6 +749,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -280,21 +764,33 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -302,10 +798,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -315,14 +814,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
