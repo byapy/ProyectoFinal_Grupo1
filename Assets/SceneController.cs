@@ -19,7 +19,6 @@ public class SceneController : MonoBehaviour
             GameObject playerInstance = Instantiate(playerPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
             Debug.Log("Jugador instanciado correctamente.");
 
-            // Ahora sí: accedés al script desde el objeto instanciado
             PlayerAnimationEvents playerScript = playerInstance.GetComponentInChildren<PlayerAnimationEvents>();
             if (playerScript != null)
             {
