@@ -50,6 +50,7 @@ public class ControlScenes : MonoBehaviour
     public void CargarEscenaInicio()
     {
         SceneManager.LoadScene(0);
+        MovAnimacionesArmas.IsPaused = false;
         Time.timeScale = 1;
     }
 

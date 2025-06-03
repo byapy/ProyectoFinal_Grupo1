@@ -13,14 +13,14 @@ public class Creditos : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Créditos saltados por el jugador");
+            //Debug.Log("Créditos saltados por el jugador");
 
             SalirDeCreditos();
         }
 
         if (transform.position.y >= limiteY)
         {
-            Debug.Log("Se acabaron los creditos");
+            //Debug.Log("Se acabaron los creditos");
 
             SalirDeCreditos();
         }
@@ -33,6 +33,7 @@ public class Creditos : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         SceneManager.LoadScene("InicioEcenaFinal");
+        Time.timeScale = 1;
         
     }
 }
