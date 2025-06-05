@@ -30,7 +30,7 @@ public class Creditos : MonoBehaviour
     {
         Debug.Log("Créditos terminados o salidos manualmente. ");
         Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 1;
         SceneManager.LoadScene("InicioEcenaFinal");
     }

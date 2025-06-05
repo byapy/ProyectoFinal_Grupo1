@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ControlScenes : MonoBehaviour
 {
     public GameObject PanelPausa;
     public GameObject PanelGamePlay;
-
+    public static bool EventoJefe;
+    public Text BtnReiniciarTexto;
     public GameObject PanelGameOver;
 
     public static ControlScenes Instance;
@@ -66,14 +68,24 @@ public class ControlScenes : MonoBehaviour
     //usado por el botón Reiniciar
     public void ReiniciarEscena()
     {
-        PanelPausa.SetActive(false);
-        PanelGamePlay.SetActive(true);
+        if(!EventoJefe)
+        { 
+            PanelPausa.SetActive(false);
+            PanelGamePlay.SetActive(true);
 
-        PanelGameOver.SetActive(false);
-        Time.timeScale = 1;
-
-        MovAnimacionesArmas.IsPaused = false;
+            PanelGameOver.SetActive(false);
+            Time.timeScale = 1;
+            BtnReiniciarTexto.text = "Reiniciar Punto de Control";
+            MovAnimacionesArmas.IsPaused = false;
+        }
+        else BtnReiniciarTexto.text = "¡No puedes reiniciar ahora!";
         //SceneManager.LoadScene(1);
+    }
+
+
+    public void HayJefe(bool EstaVivoJefe)
+    {
+        EventoJefe = EstaVivoJefe;
     }
 
 }

@@ -31,8 +31,14 @@ public class movimientoJefe : MonoBehaviour
     {
         barraVidaJefe.ActualizarBarra(saludJefe, MaxSaludJefe);
         saludJefe = MaxSaludJefe;
+        //Para que no se pueda reiniciar la pantalla
+        ControlScenes.Instance.HayJefe(true);
     }
 
+    private void OnDestroy()
+    {
+        ControlScenes.Instance.HayJefe(false);
+    }
     void Update()
     {
         NavMeshMovimiento();
