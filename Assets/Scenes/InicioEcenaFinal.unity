@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PanelPausa: {fileID: 0}
   PanelGamePlay: {fileID: 0}
+  BtnReiniciarTexto: {fileID: 0}
   PanelGameOver: {fileID: 0}
 --- !u!4 &74441441
 Transform:
@@ -4501,6 +4502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelCarga
       objectReference: {fileID: 0}
+    - target: {fileID: 8223244431951035250, guid: c4d342f98969ed04c8794b6c47441e62, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8223244431951035261, guid: c4d342f98969ed04c8794b6c47441e62, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4584,6 +4589,10 @@ PrefabInstance:
     - target: {fileID: 8223244431951035261, guid: c4d342f98969ed04c8794b6c47441e62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223244432389679756, guid: c4d342f98969ed04c8794b6c47441e62, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4d342f98969ed04c8794b6c47441e62, type: 3}
@@ -4763,7 +4772,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NuevaPartida
+  m_Text: Salir
 --- !u!1 &8605579466032897143
 GameObject:
   m_ObjectHideFlags: 0
@@ -4853,7 +4862,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continuar
+  m_Text: 'Nueva Partida
+
+'
 --- !u!222 &8605579466153242427
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4994,7 +5005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46.00006, y: -476.68002}
+  m_AnchoredPosition: {x: 46.00006, y: -414.2}
   m_SizeDelta: {x: 541.8689, y: 84.4828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8605579467230781680
@@ -5267,7 +5278,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8605579467600697533}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 74441440}
+        m_TargetAssemblyTypeName: ControlScenes, Assembly-CSharp
+        m_MethodName: SalirDelJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8605579467600697533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5336,7 +5359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46, y: -411}
+  m_AnchoredPosition: {x: 46, y: -481.5}
   m_SizeDelta: {x: 541.8689, y: 84.4828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8605579467727711000

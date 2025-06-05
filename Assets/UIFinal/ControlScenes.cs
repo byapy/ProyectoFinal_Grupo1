@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,6 +66,17 @@ public class ControlScenes : MonoBehaviour
         Time.timeScale = 1;
     }
 
+   /* private void Update()
+    {
+        CambiarNombreBoton();
+    }
+
+    private void CambiarNombreBoton()
+    {
+        if(!EventoJefe) BtnReiniciarTexto.text = "Reiniciar Punto de Control";
+        else BtnReiniciarTexto.text = "¡No puedes reiniciar ahora!";
+    }*/
+
     //usado por el botón Reiniciar
     public void ReiniciarEscena()
     {
@@ -72,16 +84,18 @@ public class ControlScenes : MonoBehaviour
         { 
             PanelPausa.SetActive(false);
             PanelGamePlay.SetActive(true);
-
             PanelGameOver.SetActive(false);
             Time.timeScale = 1;
-            BtnReiniciarTexto.text = "Reiniciar Punto de Control";
             MovAnimacionesArmas.IsPaused = false;
         }
-        else BtnReiniciarTexto.text = "¡No puedes reiniciar ahora!";
+
         //SceneManager.LoadScene(1);
     }
 
+    public void SalirDelJuego()
+    {
+        Application.Quit();
+    }
 
     public void HayJefe(bool EstaVivoJefe)
     {
