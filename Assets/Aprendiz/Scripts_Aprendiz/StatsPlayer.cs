@@ -24,7 +24,8 @@ public class StatsPlayer : MonoBehaviour
     //Pociones en Fila 0 son Vida, 1 son Defensa y 2 son ataque.
     //Gema en fila 0 va a ser la del tutorial, 1 la del nivel 2 y 2 la del final del nivel 3
     //Todo está inicializado en 0 y False
-    [SerializeField] public static int [] PPociones = new int [3];
+    public static int[] PPociones = new int[3];
+    [SerializeField] GameObject [] ParticulasPociones = new GameObject [3];
 
     private void Awake()
     {
@@ -115,7 +116,10 @@ public class StatsPlayer : MonoBehaviour
                     if (PPociones[0] > 0)
                     {
                         PPociones[0] -= 1;
-                    
+
+                        ParticulasPociones[0].SetActive(true);
+
+
                         if ((PVidaActual + 30) >= PVidaMaxima) PVidaActual = PVidaMaxima;
                         else PVidaActual += 30;
                     }
@@ -126,6 +130,7 @@ public class StatsPlayer : MonoBehaviour
                 case "defensa":
                     if (PPociones[1] > 0)
                     {
+                        ParticulasPociones[1].SetActive(true);
                         PPociones[1] -= 1;
                         PDefensa = 15;
                         TiempoDefensa = 20f;
@@ -138,6 +143,7 @@ public class StatsPlayer : MonoBehaviour
                 case "ataque":
                     if (PPociones[2] > 0)
                     {
+                        ParticulasPociones[2].SetActive(true);
                         PPociones[2] -= 1;
                         PAtaque = 10;
                         BoostAtaque = true;
