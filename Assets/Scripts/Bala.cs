@@ -13,7 +13,8 @@ public class Bala : MonoBehaviour
 
     void Start()
     {
-        BalaDamage = StatsPlayer.Instance.CalcularAtaque();
+        //quitar multiplicador
+        BalaDamage = StatsPlayer.Instance.CalcularAtaque();// * 20;
 
         Destroy(gameObject, 2f);
     }
