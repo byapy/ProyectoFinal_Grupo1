@@ -1042,8 +1042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 5908491220415920601}
   Speed: 0
-  SpeedWalk: 5
-  SpeedRun: 10
+  SpeedWalk: 10
+  SpeedRun: 20
   VelocitySmooth: 0.1
   SensivitySmooth: 0
   cam: {fileID: 601281833019538389}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
   personajeConEspada: {fileID: 319705330102730977}
   personajeMosquete: {fileID: 287095531713951781}
   instanciaBala: {fileID: 7574095091862830872}
-  tiempoInactivoParaRegresar: 10
+  tiempoInactivoParaRegresar: 20
   tiempoUltimoUso: 0
   ParticulaCambioArma: {fileID: 3166972268852818041, guid: a425776b6b702af478b82873b3f9d794, type: 3}
   enConversacion: 0
