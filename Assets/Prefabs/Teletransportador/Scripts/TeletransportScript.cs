@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TeletransportScript : MonoBehaviour
 {
-    [SerializeField] Transform VaHacia;
+    [SerializeField] 
+    Transform VaHacia;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -23,7 +24,7 @@ public class TeletransportScript : MonoBehaviour
                 MovAnimacionesArmas.Teletransporting = true;
             }
         }
-        else Debug.Log("No hay punto para teletransportarse");
+        //else Debug.Log("No hay punto para teletransportarse");
 
     }
 

@@ -8,7 +8,10 @@ public class PlayerEvents : MonoBehaviour
     [SerializeField] private UnityEvent EntrarPlayer;
     [SerializeField] private UnityEvent PresionaTeclaF;
     [SerializeField] private UnityEvent PresionaEscape;
+
+    [SerializeField] private UnityEvent Destruccion;
     [SerializeField] public UnityEvent ExitPlayer;
+
 
     public static PlayerEvents Instance;
 
@@ -45,5 +48,10 @@ public class PlayerEvents : MonoBehaviour
         {
             ExitPlayer.Invoke();
         }
+    }
+
+    private void OnDestroy()
+    {
+        Destruccion.Invoke();
     }
 }
