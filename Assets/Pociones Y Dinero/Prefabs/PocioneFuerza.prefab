@@ -5120,7 +5120,7 @@ Transform:
   m_GameObject: {fileID: 8888295179268573138}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.1024296, y: 2.1024296, z: 2.1024296}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2385097264631225809}
@@ -5156,6 +5156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de596db4f3dd5384bba2528e067ce2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemCorrespondiente: {fileID: 0}
   ParticulaRecolectado: {fileID: 5973229675795047882, guid: beb653af9d7dbb2438011f8235683a59, type: 3}
 --- !u!1 &9006936173963311578
 GameObject:
