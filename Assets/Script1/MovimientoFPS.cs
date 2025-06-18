@@ -19,9 +19,9 @@ public class MovimientoFPS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movimiento();        
+        MovimientoCamara();        
     }
-    public void Movimiento()
+    public void MovimientoCamara()
     {        
 
         movX = Input.GetAxis("Horizontal");

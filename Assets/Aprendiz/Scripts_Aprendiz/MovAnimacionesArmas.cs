@@ -57,7 +57,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     public GameObject ParticulaCambioArma;
 
-    //private AnimacionNpc animacionNpc;
+
     //public Animator AnimatorNpc;
     public bool enConversacion;
 
@@ -66,6 +66,16 @@ public class MovAnimacionesArmas : MonoBehaviour
     public AudioSource Source;
 
     public static bool Teletransporting, IsPaused, InCutscene;
+
+    //Cámaras de Primera y Tercera persona
+    bool EnPrimeraPersona;
+
+    [Header("Cámaras disponibles")]
+    [SerializeField] GameObject CamaraTP;
+    [SerializeField] GameObject CamaraFP;
+
+
+
     private void Awake()
     {
         Instance = this;
@@ -107,7 +117,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ControlScenes.Instance.MenuPausa();
                 }*/
 
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
                 {
                     if (ArmaLanza)
                     {
@@ -125,7 +135,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                         Source.PlayOneShot(ClipCambioArma);
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.Alpha2) && StatsPlayer.TieneEspada)
+                else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))&& StatsPlayer.TieneEspada)
                 {
                     if (ArmaEspada)
                     {
@@ -142,7 +152,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                         Source.PlayOneShot(ClipCambioArma);
                     }
                 }
-                else if (Input.GetKeyDown(KeyCode.Alpha3) && StatsPlayer.TieneMosquete)
+                else if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) && StatsPlayer.TieneMosquete)
                 {
                     if (ArmaMosquete)
                     {
@@ -162,6 +172,9 @@ public class MovAnimacionesArmas : MonoBehaviour
                 else if (Input.GetMouseButtonDown(1))
                 {
                     ActivarPersonajeSinArma();
+                    CamaraFP.SetActive(false);
+                    CamaraTP.SetActive(true);
+
                     ArmaMosquete = false;//para que no reconozca la bala
 
                 }
@@ -200,10 +213,10 @@ public class MovAnimacionesArmas : MonoBehaviour
                     EstaCayendo();
                 }
             }
-            else
-            {
-                animator.SetBool("IsAlive", false);
-            }
+        else
+        {
+            animator.SetBool("IsAlive", false);
+        }
         
         /*else
         {
@@ -233,15 +246,26 @@ public class MovAnimacionesArmas : MonoBehaviour
         }
 
         animator.SetFloat("Input Magnitude", Magnitud, 0.05f, Time.deltaTime);
+        
+        var ScriptFPS = GetComponent<FPSCharacterCtrl>();
 
-        if (direction.magnitude >= 0.1f)
+        if (!EnPrimeraPersona)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;//detecta el agunlo
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref SensivitySmooth, VelocitySmooth);//agrega el suavizado
-            transform.rotation = Quaternion.Euler(0, angle, 0);//el personaje girara
+            ScriptFPS.enabled = false;
 
-            Vector3 movDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; //sumara el vector de antes mas el giro de la camara
-            Controller.Move(movDir.normalized * Speed * Time.deltaTime);
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;//detecta el agunlo
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref SensivitySmooth, VelocitySmooth);//agrega el suavizado
+                transform.rotation = Quaternion.Euler(0, angle, 0);//el personaje girara
+
+                Vector3 movDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; //sumara el vector de antes mas el giro de la camara
+                Controller.Move(movDir.normalized * Speed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            ScriptFPS.enabled = true;
         }
     }
 
@@ -343,9 +367,19 @@ public class MovAnimacionesArmas : MonoBehaviour
         tiempoUltimoUso = Time.time;
 
         StatsPlayer.Instance.SetPlayerDamage(10f);
+        
+        EnPrimeraPersona = false;
+
+        CamaraTP.SetActive(true);
+        CamaraFP.SetActive(false);
     }
     void ActivarPersonajeLanza()
     {
+        CamaraTP.SetActive(true);
+        CamaraFP.SetActive(false);
+        
+        EnPrimeraPersona = false;
+
         personajeSinArma.SetActive(false);
         personajeConLanza.SetActive(true);
         personajeConEspada.SetActive(false);
@@ -360,6 +394,11 @@ public class MovAnimacionesArmas : MonoBehaviour
     }
     void ActivarPersonajeEspada()
     {
+        EnPrimeraPersona = false;
+
+        CamaraTP.SetActive(true);
+        CamaraFP.SetActive(false);
+
         personajeSinArma.SetActive(false);
         personajeConLanza.SetActive(false);
         personajeConEspada.SetActive(true);
@@ -374,6 +413,10 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     void ActivarPersonajeMosquete()
     {
+        CamaraFP.SetActive(true);
+        CamaraTP.SetActive(false);
+        EnPrimeraPersona = true;
+
         personajeSinArma.SetActive(false);
         personajeConLanza.SetActive(false);
         personajeConEspada.SetActive(false);
