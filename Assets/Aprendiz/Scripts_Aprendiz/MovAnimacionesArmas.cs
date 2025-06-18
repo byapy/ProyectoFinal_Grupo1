@@ -175,7 +175,6 @@ public class MovAnimacionesArmas : MonoBehaviour
                     CamaraFP.SetActive(false);
                     CamaraTP.SetActive(true);
 
-                    ArmaMosquete = false;//para que no reconozca la bala
 
                 }
 
@@ -355,8 +354,10 @@ public class MovAnimacionesArmas : MonoBehaviour
         }
     }
 
-    void ActivarPersonajeSinArma()
+    public void ActivarPersonajeSinArma()
     {
+
+        ArmaMosquete = false;//para que no reconozca la bala
 
         personajeSinArma.SetActive(true);
         personajeConLanza.SetActive(false);
@@ -429,7 +430,7 @@ public class MovAnimacionesArmas : MonoBehaviour
     }
     void DispararMosquete()
     {
-        if (ArmaMosquete && Input.GetMouseButtonDown(0))
+        if (ArmaMosquete && Input.GetMouseButtonDown(0) && !enConversacion)
         {
             if (instanciaBala != null)
             {
