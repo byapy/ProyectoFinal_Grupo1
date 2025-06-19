@@ -18,7 +18,7 @@ public class movimientoJefe : MonoBehaviour
     public bool escudoActivado;
 
     public float MaxSaludJefe;
-    [SerializeField] public static float saludJefe = 2500f;
+    [SerializeField] public static float saludJefe = 2000f;
 
     public void Awake()
     {
@@ -57,7 +57,7 @@ public class movimientoJefe : MonoBehaviour
     {
         float rango = Vector3.Distance(pointPlayer.position, transform.position);
 
-      if (saludJefe >= 1251)
+      if (saludJefe >= 1001)
       {
             if (rango <= radioAcercarse)
             {
@@ -101,7 +101,7 @@ public class movimientoJefe : MonoBehaviour
             }
       }
 
-      if (saludJefe <= 1250)
+      if (saludJefe <= 1000)
       {
          if (rango <= radioAcercarse)
          {

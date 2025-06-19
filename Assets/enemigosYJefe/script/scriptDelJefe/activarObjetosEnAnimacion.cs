@@ -41,7 +41,7 @@ public class activarObjetosEnAnimacion : MonoBehaviour
 
     public void recuperaSaludJefe()
     {
-       if(movimientoJefe.saludJefe < 2500f)
+       if(movimientoJefe.saludJefe < 2000f)
         {
          movimientoJefe.saludJefe = movimientoJefe.saludJefe + 100f;
         }
