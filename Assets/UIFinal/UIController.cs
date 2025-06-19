@@ -11,6 +11,9 @@ public class UIController : MonoBehaviour
     public Image BarraVida, BarraVidaPerdida, BarraDefensa, BarraAtaque;
     public Text TxtPVida, TxtPDefensa, TxtPAtaque, TxtDinero, TxtGemasRecolectadas;
 
+    public Text TxtInvPVida, TxtInvPDefensa, TxtInvPAtaque;
+
+
     //Armas compradas
     public Image ImgPistola, ImgEspada;
 
@@ -51,6 +54,17 @@ public class UIController : MonoBehaviour
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
         TxtPAtaque.color = ColorAlTexto(StatsPlayer.PPociones[2]);
 
+        //Asignar valores al inventario
+        TxtInvPAtaque.text = TxtPAtaque.text;
+        TxtInvPAtaque.color = TxtPAtaque.color;
+
+        TxtInvPDefensa.text = TxtPDefensa.text;
+        TxtInvPDefensa.color = TxtPDefensa.color;
+
+        TxtInvPVida.text = TxtPVida.text;
+        TxtInvPVida.color = TxtPVida.color;
+
+
     }
 
     //20 segundos defensa, 15 ataque
@@ -68,10 +82,23 @@ public class UIController : MonoBehaviour
 
         TxtPVida.text = StatsPlayer.PPociones[0].ToString();
         TxtPVida.color = ColorAlTexto(StatsPlayer.PPociones[0]);
+
         TxtPDefensa.text = StatsPlayer.PPociones[1].ToString();
         TxtPDefensa.color = ColorAlTexto(StatsPlayer.PPociones[1]);
+
         TxtPAtaque.text = StatsPlayer.PPociones[2].ToString();
         TxtPAtaque.color = ColorAlTexto(StatsPlayer.PPociones[2]);
+
+        //Asignar valores al inventario
+        TxtInvPAtaque.text = TxtPAtaque.text;
+        TxtInvPAtaque.color = TxtPAtaque.color;
+        
+        TxtInvPDefensa.text = TxtPDefensa.text;
+        TxtInvPDefensa.color = TxtPDefensa.color;
+
+        TxtInvPVida.text = TxtPVida.text;
+        TxtInvPVida.color = TxtPVida.color;
+
 
         TxtGemasRecolectadas.text = Mecanica_Recoleccion.Gema.ToString();
         ActualizacionImagenesGemas();

@@ -12,9 +12,13 @@ public class ItemUI : ScriptableObject
     public ItemTag EtiquetaItem;
     public TipoItem TipoObjeto;
 
+    [TextArea(3, 10)]
+    public string DescripcionInventario;
+    public string TeclaActivar;
+
     public enum ItemTag
     {
-        Vida, Defensa, Ataque, Mosquete, Espada
+        Vida, Defensa, Ataque, Mosquete, Espada, Lanza
     }
 
     public enum TipoItem
