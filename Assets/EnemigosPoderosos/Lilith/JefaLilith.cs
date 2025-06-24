@@ -178,16 +178,7 @@ public class JefaLilith : MonoBehaviour
         {
             CirculoFisicoAura.SetActive (false);
         }
-        if (Input.GetKey(KeyCode.U))
-        {
-            VidaActual = 0;
-            VidaLilith = 0;
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            VidaActual = 1000;
-            VidaLilith = 1000;
-        }
+        
         if (VidaLilith <= 1000 && Fases == 1)
         {
             Fase2();
