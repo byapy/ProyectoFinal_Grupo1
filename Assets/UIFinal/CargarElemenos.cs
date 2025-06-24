@@ -80,6 +80,12 @@ public class CargarElemenos : MonoBehaviour
             TiendaItemController.Instance.SetItem(objeto);
         }
     }
+    public void ReiniciarMensaje()
+    {
+        var TxtDialogo = CajaDialogo.transform.Find("Dialogo").GetComponent<Text>();
+        TxtDialogo.text = "Oh, tú de nuevo.\nBienvenido, ¿En qué te puedo ayudar?";
+
+    }
 
     public void MandarMensaje(string MensajeVenta)
     {
@@ -88,5 +94,7 @@ public class CargarElemenos : MonoBehaviour
         var TxtDialogo = CajaDialogo.transform.Find("Dialogo").GetComponent<Text>();
         TxtDialogo.text = MensajeVenta;
     }
+
+
 
 }

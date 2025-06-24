@@ -58,7 +58,7 @@ public class TiendaItemController : MonoBehaviour
                     else
                     {
                         ActivarAnimacionesMercader.Instance.VentaMalaInicio();
-                        CargarElemenos.Instance.MandarMensaje("Ya tienes suficientes pociones de este tipo.\nVuelve cuando hayas usado algunas de ellas.");
+                        CargarElemenos.Instance.MandarMensaje("Ya tienes muchas pociones de este tipo.\nVuelve cuando hayas usado algunas de ellas.");
                         return;
                     }
                     break;
@@ -69,12 +69,12 @@ public class TiendaItemController : MonoBehaviour
 
             StatsPlayer.Instance.QuitarDinero(item.price);
             ActivarAnimacionesMercader.Instance.VentaBuenaInicio();
-            CargarElemenos.Instance.MandarMensaje($"Gracias por tu compra.\nCompraste {item.ItemName} por {item.price} de Oro.");
+            CargarElemenos.Instance.MandarMensaje($"¡Gracias por tu compra!\nTengo más cosas que te pueden interesar...");
         }
         else
         {
             ActivarAnimacionesMercader.Instance.VentaMalaInicio();
-            CargarElemenos.Instance.MandarMensaje("No tienes suficiente dinero para comprar este objeto.\nVuelve cuando consigas más oro.\nAhora vete de aquí.");
+            CargarElemenos.Instance.MandarMensaje("No tienes suficiente dinero para comprar esto.\nVuelve cuando consigas <b>más oro</b>.\n¡Ahora vete de aquí!");
         }
 
 
