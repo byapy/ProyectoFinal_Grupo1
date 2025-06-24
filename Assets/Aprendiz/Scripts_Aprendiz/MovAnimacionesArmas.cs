@@ -284,7 +284,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
         if (isGrounded && VelocidadGravedad.y < 0)
         {
-            VelocidadGravedad.y = -2f;
+            VelocidadGravedad.y = -9.8f;
             animator.SetBool("isGrounded", true);
             isGround = true;
             animator.SetBool("isJumping", false);
@@ -295,7 +295,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
             if ((DistanciaRecorrida * -1) > 5f)
             {
-                float FallDamage = (95f * ((DistanciaRecorrida*-1) - 10f))/20f + 5f;
+                float FallDamage = (95f * ((DistanciaRecorrida*-1) - 10f))/30f + 5f;
                 StatsPlayer.Instance.ReceivedDamage(FallDamage);
             }
 
