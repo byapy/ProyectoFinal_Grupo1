@@ -42,8 +42,4 @@ public class SeguirAlPlayer : MonoBehaviour
         //rotar en Z a base de la rotación del player en Y
         transform.rotation = Quaternion.Euler(90f, 0, -UbicacionPlayer.rotation.eulerAngles.y);
     }
-
-
-
-
 }
