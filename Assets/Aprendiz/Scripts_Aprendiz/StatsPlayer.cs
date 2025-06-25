@@ -26,6 +26,9 @@ public class StatsPlayer : MonoBehaviour
     //Todo está inicializado en 0 y False
     public static int[] PPociones = new int[3];
     [SerializeField] GameObject [] ParticulasPociones = new GameObject [3];
+    [Space][Header("Scriptable de las Pociones")]
+    [SerializeField] ItemUI [] SOPociones;
+
 
     private void Awake()
     {
@@ -120,11 +123,9 @@ public class StatsPlayer : MonoBehaviour
                         ParticulasPociones[0].SetActive(true);
 
 
-                        if ((PVidaActual + 30) >= PVidaMaxima) PVidaActual = PVidaMaxima;
-                        else PVidaActual += 30;
+                        if ((PVidaActual + SOPociones[0].value) >= PVidaMaxima) PVidaActual = PVidaMaxima;
+                        else PVidaActual += SOPociones[0].value;
                     }
-                    //else
-                        //UIController.Instance.MensajeAConsola("No tienes pociones de Vida.");
                     break;
 
                 case "defensa":
@@ -132,12 +133,10 @@ public class StatsPlayer : MonoBehaviour
                     {
                         ParticulasPociones[1].SetActive(true);
                         PPociones[1] -= 1;
-                        PDefensa = 15;
-                        TiempoDefensa = 20f;
+                        PDefensa = SOPociones[1].value;
+                        TiempoDefensa = SOPociones[1].TDuracion;
                         BoostDefensa = true;
                     }
-                    //else
-                        //UIController.Instance.MensajeAConsola("No tienes pociones de Defensa.");
                     break;
 
                 case "ataque":
@@ -145,12 +144,10 @@ public class StatsPlayer : MonoBehaviour
                     {
                         ParticulasPociones[2].SetActive(true);
                         PPociones[2] -= 1;
-                        PAtaque = 10;
+                        PAtaque = SOPociones[2].value;
                         BoostAtaque = true;
-                        TiempoAtaque = 15f;
+                        TiempoAtaque = SOPociones[2].TDuracion;
                     }
-                    //else
-                        //UIController.Instance.MensajeAConsola("No tienes pociones de Ataque.");
                     break;
             }
         }

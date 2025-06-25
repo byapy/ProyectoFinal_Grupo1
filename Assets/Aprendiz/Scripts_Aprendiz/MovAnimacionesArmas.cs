@@ -60,7 +60,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     //public Animator AnimatorNpc;
     public static bool enConversacion;
-
+    bool EstaAtacando; //Para que no se mueva cuando esté atacando
     //Variable de audio changeWeappon
     public AudioClip ClipCambioArma;
     public AudioSource Source;
@@ -73,8 +73,10 @@ public class MovAnimacionesArmas : MonoBehaviour
     [Header("Cámaras disponibles")]
     [SerializeField] GameObject CamaraTP;
     [SerializeField] GameObject CamaraFP;
-
-
+    [Space]
+    [Header("Scriptable de las armas")]
+    [SerializeField] ItemUI[] ArmasPlayer;
+    //0 - Puños * 1 - Lanza * 2 - Espada * 3 - Pistola
 
     private void Awake()
     {
@@ -114,7 +116,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                     ControlScenes.Instance.MenuPausa();
                 }*/
 
-                if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+            if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
                 {
                     if (ArmaLanza)
                     {
@@ -132,7 +134,7 @@ public class MovAnimacionesArmas : MonoBehaviour
                         Source.PlayOneShot(ClipCambioArma);
                     }
                 }
-                else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))&& StatsPlayer.TieneEspada)
+            else if ((Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))&& StatsPlayer.TieneEspada)
                 {
                     if (ArmaEspada)
                     {
@@ -149,14 +151,15 @@ public class MovAnimacionesArmas : MonoBehaviour
                         Source.PlayOneShot(ClipCambioArma);
                     }
                 }
-                else if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) && StatsPlayer.TieneMosquete)
+            else if ((Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3)) && StatsPlayer.TieneMosquete)
                 {
-                    if (ArmaMosquete)
+                    /*if (ArmaMosquete)
                     {
                         ActivarPersonajeMosquete();
                         ArmaMosquete = false;
                     }
-                    else
+                    else*/
+                if(!ArmaMosquete)
                     {
                         ActivarPersonajeMosquete();
                         ArmaLanza = false;
@@ -166,13 +169,11 @@ public class MovAnimacionesArmas : MonoBehaviour
                         Source.PlayOneShot(ClipCambioArma);
                     }
                 }
-                else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1))
                 {
                     ActivarPersonajeSinArma();
                     CamaraFP.SetActive(false);
                     CamaraTP.SetActive(true);
-
-
                 }
 
                 if(Input.GetKeyDown(KeyCode.Z))
@@ -193,22 +194,25 @@ public class MovAnimacionesArmas : MonoBehaviour
                 }
 
 
-                if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
+            if (Time.time - tiempoUltimoUso > tiempoInactivoParaRegresar)
                 {
                     ActivarPersonajeSinArma();
                     ArmaMosquete = false;//para que no reconozca la bala
                 }
 
-                if (!InCutscene) 
-                { 
+            if (!InCutscene) 
+            {
+                if (!EstaAtacando)
+                {
                     Movimiento();
                     Salto();
+                }
                     Ataque();
 
                     DispararMosquete();
                     EstaCayendo();
-                }
             }
+        }
         else
         {
             animator.SetBool("IsAlive", false);
@@ -343,7 +347,11 @@ public class MovAnimacionesArmas : MonoBehaviour
         {
             animator.SetTrigger("AttackT");
             tiempoUltimoUso = Time.time;
-            
+
+            //Para que el player no se mueva cuando está pegando
+            if (ArmaMosquete) DejoDePegar();
+            else EstaPegando();
+
         }
         else
         {
@@ -364,7 +372,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         animator = personajeSinArma.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
 
-        StatsPlayer.Instance.SetPlayerDamage(10f);
+        StatsPlayer.Instance.SetPlayerDamage(ArmasPlayer[0].value);
         
         EnPrimeraPersona = false;
 
@@ -387,7 +395,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         animator = personajeConLanza.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
 
-        StatsPlayer.Instance.SetPlayerDamage(15f);
+        StatsPlayer.Instance.SetPlayerDamage(ArmasPlayer[1].value);
 
     }
     void ActivarPersonajeEspada()
@@ -405,7 +413,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         animator = personajeConEspada.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
 
-        StatsPlayer.Instance.SetPlayerDamage(20f);
+        StatsPlayer.Instance.SetPlayerDamage(ArmasPlayer[2].value);
 
     }
 
@@ -423,7 +431,7 @@ public class MovAnimacionesArmas : MonoBehaviour
         animator = personajeMosquete.GetComponentInChildren<Animator>();
         tiempoUltimoUso = Time.time;
 
-        StatsPlayer.Instance.SetPlayerDamage(5f);
+        StatsPlayer.Instance.SetPlayerDamage(ArmasPlayer[3].value);
     }
     void DispararMosquete()
     {
@@ -456,6 +464,16 @@ public class MovAnimacionesArmas : MonoBehaviour
     {
         InCutscene = false;
 
+    }
+
+    public void EstaPegando()
+    {
+        EstaAtacando = true;
+    }
+
+    public void DejoDePegar()
+    {
+        EstaAtacando = false;
     }
     /*public void JuegoPausado(bool SePauso)
     {

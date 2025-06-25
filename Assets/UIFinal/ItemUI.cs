@@ -11,6 +11,7 @@ public class ItemUI : ScriptableObject
     public Sprite icon;
     public ItemTag EtiquetaItem;
     public TipoItem TipoObjeto;
+    public float TDuracion;
 
     [TextArea(3, 10)]
     public string DescripcionInventario;

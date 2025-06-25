@@ -64,6 +64,10 @@ public class PlayerAnimationEvents : MonoBehaviour
         HitboxLanza.SetActive(false);
     }
 
+    public void DejaDeAtacar()
+    {
+        MovAnimacionesArmas.Instance.DejoDePegar();
+    }
  
 
 }
