@@ -59,7 +59,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
 
     //public Animator AnimatorNpc;
-    public bool enConversacion;
+    public static bool enConversacion;
 
     //Variable de audio changeWeappon
     public AudioClip ClipCambioArma;
@@ -84,10 +84,7 @@ public class MovAnimacionesArmas : MonoBehaviour
 
     void Start()
     {
-
-
         ActivarPersonajeSinArma();
-
 
         if (!string.IsNullOrEmpty(SceneData.spawnPoint))
         {
