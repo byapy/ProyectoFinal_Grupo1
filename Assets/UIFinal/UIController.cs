@@ -37,6 +37,12 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject MapaCompleto;
 
 
+    [Space]
+    [Header("Botones de las armas en el Inventario")]
+    [SerializeField] GameObject InventarioEspada;
+    [SerializeField] GameObject InventarioMosquete;
+
+
     MinimapaVisible EstadoMinimapa = MinimapaVisible.Chiquito;
 
     private void Awake()
@@ -44,6 +50,9 @@ public class UIController : MonoBehaviour
         Instance = this;
         ImgEspada.gameObject.SetActive(StatsPlayer.TieneEspada);
         ImgPistola.gameObject.SetActive(StatsPlayer.TieneMosquete);
+
+        InventarioEspada.SetActive(ImgEspada.gameObject.activeSelf);
+        InventarioMosquete.SetActive(ImgPistola.gameObject.activeSelf);
     }
 
 
@@ -135,11 +144,13 @@ public class UIController : MonoBehaviour
         switch(Nombre.ToLower())
         {
             case "espada":
-                    ImgEspada.gameObject.SetActive(true);
-                    break; 
+                ImgEspada.gameObject.SetActive(true);
+                InventarioEspada.SetActive(true);
+                break; 
             case "mosquete":
-                    ImgPistola.gameObject.SetActive(true);
-                    break;
+                ImgPistola.gameObject.SetActive(true);
+                InventarioMosquete.SetActive(true);
+                break;
         }
     }
 
