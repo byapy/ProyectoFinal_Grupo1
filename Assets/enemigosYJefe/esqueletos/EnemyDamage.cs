@@ -10,7 +10,7 @@ public class EnemyDamage : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StatsPlayer.Instance.ReceivedDamage(AttackDamage);
+            StatsPlayer.Instance.ReceivedDamage(AttackDamage / 3);
             Debug.Log("Has recibido daño de " + AttackDamage);
 
             if (JefaLilith.Instance != null &&
