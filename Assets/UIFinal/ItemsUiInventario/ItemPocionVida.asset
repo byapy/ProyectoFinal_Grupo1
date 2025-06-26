@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemPocionVida
   m_EditorClassIdentifier: 
   id: 1
-  ItemName: Pocion Vida
+  ItemName: "Poci\xF3n Roja"
   Descripcion: "Esta poci\xF3n the ayuda a recuperar algo de tu <b><color=#8B0000>Salud</color></b>.
     \xDAsalas sabiamente."
   value: 30
@@ -23,6 +23,7 @@ MonoBehaviour:
   TipoObjeto: 1
   TDuracion: 0
   DescripcionInventario: "Esta poci\xF3n the ayuda a recuperar algo de tu <b><color=#FF0700>Salud</color></b>.
-    Est\xE1 hecha con hierbas medicinales que el <color=#AC7E22>Mercader </color>encontr\xF3
-    por ah\xED."
-  TeclaActivar: Z
+    Est\xE1 hecha con hierbas medicinales y algunas frutas que el <color=#FFDD45>Mercader
+    </color>encontr\xF3 por ah\xED. \n\nEs una buena idea tener suficientes si la
+    batalla se torna dif\xEDcil."
+  TeclaActivar: <color=white>Z</color>

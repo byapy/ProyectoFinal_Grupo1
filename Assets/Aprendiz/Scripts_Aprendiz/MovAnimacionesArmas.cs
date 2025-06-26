@@ -206,11 +206,15 @@ public class MovAnimacionesArmas : MonoBehaviour
                 {
                     Movimiento();
                     Salto();
-                }
-                    Ataque();
 
-                    DispararMosquete();
-                    EstaCayendo();
+                }
+
+                if(isGrounded)
+                {
+                    Ataque();
+                }
+                DispararMosquete();
+                EstaCayendo();
             }
         }
         else

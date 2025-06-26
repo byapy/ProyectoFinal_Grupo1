@@ -63,11 +63,11 @@ public class CargarElemenos : MonoBehaviour
                     switch (objeto.EtiquetaItem.ToString().ToLower())
                     {
                         case "vida":
-                            itemDescription.text = objeto.Descripcion + "\nEsta poción te cura <b>" + objeto.value.ToString()+"</b> de daño";
+                            itemDescription.text = objeto.Descripcion + "\nEsta poción te cura <b>" + objeto.TDuracion.ToString()+"</b> de daño";
                             break;
 
                         default:
-                            itemDescription.text = objeto.Descripcion + "\nEsta poción dura <b>" + objeto.value.ToString() + "</b> segundos";
+                            itemDescription.text = objeto.Descripcion + "\nEsta poción dura <b>" + objeto.TDuracion.ToString() + "</b> segundos";
                             break;
                     }
                     break;

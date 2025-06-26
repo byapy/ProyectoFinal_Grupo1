@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemPocionDefensa
   m_EditorClassIdentifier: 
   id: 2
-  ItemName: Pocion Defensa
+  ItemName: "Poci\xF3n Azul"
   Descripcion: "Esta poci\xF3n te hace sentir invencible y <color=#00008B>aumenta
     tu defensa ante el da\xF1o</color>."
   value: 15
@@ -21,8 +21,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2902bc70fff13704580d73008cfbf58a, type: 3}
   EtiquetaItem: 1
   TipoObjeto: 1
-  TDuracion: 20
-  DescripcionInventario: "Esta poci\xF3n te hace sentir invencible y <color=#2711B1>aumenta
-    tu defensa ante el da\xF1o</color>. Algunos ataques no te da\xF1aran en absoluto,
-    mientras otros solo te quitaran algo de vida. Ten cuidado y no te conf\xEDes."
-  TeclaActivar: X
+  TDuracion: 30
+  DescripcionInventario: "Esta poci\xF3n te hace sentir invencible y <color=#4291CE><b>aumenta
+    tu defensa ante el da\xF1o</b></color>. Algunos ataques no te da\xF1ar\xE1n en
+    absoluto, mientras otros solo te quitaran menos salud de lo usual.\n\nPero recuerda:
+    la poci\xF3n no es permanente, <color=#4291CE><b>sus efectos desaparecer\xE1n
+    despu\xE9s de cierto tiempo.</b></color>"
+  TeclaActivar: <color=white>X</color>

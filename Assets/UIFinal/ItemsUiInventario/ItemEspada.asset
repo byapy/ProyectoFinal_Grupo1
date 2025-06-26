@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemEspada
   m_EditorClassIdentifier: 
   id: 4
-  ItemName: Espada
+  ItemName: Espada Vieja
   Descripcion: "\xBFQuieres una mejor arma? \xA1La podr\xE1s equipar al <b>presionar
     2</b>!"
   value: 20
@@ -21,7 +21,8 @@ MonoBehaviour:
   icon: {fileID: 6555481737146133282, guid: 252d1f9f9eb6dfe46873735361f596d6, type: 3}
   EtiquetaItem: 4
   TipoObjeto: 0
-  DescripcionInventario: "Es la espada m\xE1s barata que pudiste encontrar. Puedes
-    atacar r\xE1pidamente con ella, pero quedas abierto a ataques de los enemigos
-    si fallas."
-  TeclaActivar: 2
+  TDuracion: 0
+  DescripcionInventario: "Esta espada te la vendi\xF3 el <color=#AC7E22>Mercader</color>.
+    Tiene buen filo, aunque se ve algo vieja.\n\nPuedes atacar r\xE1pidamente con
+    ella, pero quedas abierto a ataques de los enemigos si fallas."
+  TeclaActivar: <color=white>2</color>

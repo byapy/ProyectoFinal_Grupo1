@@ -16,13 +16,14 @@ MonoBehaviour:
   ItemName: Mosquete
   Descripcion: "Podr\xE1s disparar desde un lugar seguro. Puedes equiparla al <b>presionar
     3.</b>"
-  value: 5
+  value: 48
   price: 50
   icon: {fileID: 21300000, guid: 2c04f4986ebc72e48a8b0c3eb2e42db2, type: 3}
   EtiquetaItem: 3
   TipoObjeto: 0
-  DescripcionInventario: "Te permite disparar munici\xF3n explosiva a los enemigos.
-    Al parecer, el arma est\xE1 maldita, ya que <b>solo puedes apuntar hacia los
-    lados</b>. Y aunque no puedes apuntar ni hacia arriba ni hacia abajo, puedes
-    atacar de lejos r\xE1pidamente."
-  TeclaActivar: 3
+  TDuracion: 0
+  DescripcionInventario: "Te permite disparar munici\xF3n explosiva a los enemigos.\n\nAl
+    parecer, el arma est\xE1 <color=#BA63D3>maldita</color>, ya que <b><color=red>solo
+    puedes apuntar hacia los lados</color></b>. Aunque no puedes apuntar ni hacia
+    arriba ni hacia abajo, s\xED que puedes atacar de lejos r\xE1pidamente."
+  TeclaActivar: <color=white>3</color>

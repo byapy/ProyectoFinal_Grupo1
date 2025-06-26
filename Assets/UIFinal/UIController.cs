@@ -18,7 +18,7 @@ public class UIController : MonoBehaviour
 
     public Text TxtInvPVida, TxtInvPDefensa, TxtInvPAtaque;
 
-
+    float LimiteAtaque, LimiteDefensa;
     //Armas compradas
     public Image ImgPistola, ImgEspada;
 
@@ -54,7 +54,20 @@ public class UIController : MonoBehaviour
         InventarioEspada.SetActive(ImgEspada.gameObject.activeSelf);
         InventarioMosquete.SetActive(ImgPistola.gameObject.activeSelf);
     }
-
+    public void EstablecerLimiteDefensa(float tiempoDefensa)
+    {
+        if (tiempoDefensa != 0)
+        {
+            LimiteDefensa = tiempoDefensa;
+        }
+    }
+    public void EstablecerLimiteAtaque(float tiempoAtaque)
+    {
+        if(tiempoAtaque != 0)
+        {
+            LimiteAtaque = tiempoAtaque;   
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -103,9 +116,8 @@ public class UIController : MonoBehaviour
         BarraVida.fillAmount = StatsPlayer.PVidaActual / StatsPlayer.PVidaMaxima;
         if(BarraVida.fillAmount != BarraVidaPerdida.fillAmount) StartCoroutine(BajarVida());
 
-
-        BarraDefensa.fillAmount = StatsPlayer.TiempoDefensa / 20;
-        BarraAtaque.fillAmount = StatsPlayer.TiempoAtaque / 15;
+        if(LimiteDefensa != 0) BarraDefensa.fillAmount = StatsPlayer.TiempoDefensa / LimiteDefensa;
+        if(LimiteAtaque != 0) BarraAtaque.fillAmount = StatsPlayer.TiempoAtaque / LimiteAtaque;
 
         TxtDinero.text = StatsPlayer.PDinero.ToString();
 

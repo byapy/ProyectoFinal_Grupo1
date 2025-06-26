@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ItemPocionAtaque
   m_EditorClassIdentifier: 
   id: 3
-  ItemName: Pocion de Ataque
+  ItemName: "Poci\xF3n Verde"
   Descripcion: "Una poci\xF3n que te hace sentir muy fuerte y <color=#3CB371>hacer
     m\xE1s da\xF1o a los enemigos</color>."
   value: 15
@@ -21,8 +21,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 066bb5fc61bf03541a1bb45e8e48bf83, type: 3}
   EtiquetaItem: 2
   TipoObjeto: 1
-  TDuracion: 10
-  DescripcionInventario: "Una poci\xF3n hecha con varias hierbas amargas que se encontraron
-    en un campo de batalla antiguo. Cuando la tomas, te da <color=#3CB371>m\xE1s
-    poder de ataque</color> para as\xED acabar con cualquier combate r\xE1pidamente."
-  TeclaActivar: C
+  TDuracion: 15
+  DescripcionInventario: "Est\xE1 hecha con varias hierbas extra\xF1as que se encontraron
+    en un campo de batalla antiguo. Cuando la tomas, te da <color=#3CB371><b>m\xE1s
+    poder de ataque</b></color> para as\xED acabar con cualquier combate r\xE1pidamente.\n\n<color=#3CB371><b>La
+    poci\xF3n dura algunos segundos.</b></color> Luego de eso, sus efectos desaparecer\xE1n."
+  TeclaActivar: <color=white>C</color></size>

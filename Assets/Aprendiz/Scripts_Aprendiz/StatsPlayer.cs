@@ -136,6 +136,8 @@ public class StatsPlayer : MonoBehaviour
                         PDefensa = SOPociones[1].value;
                         TiempoDefensa = SOPociones[1].TDuracion;
                         BoostDefensa = true;
+                        UIController.Instance.EstablecerLimiteDefensa(TiempoDefensa);
+
                     }
                     break;
 
@@ -147,6 +149,7 @@ public class StatsPlayer : MonoBehaviour
                         PAtaque = SOPociones[2].value;
                         BoostAtaque = true;
                         TiempoAtaque = SOPociones[2].TDuracion;
+                        UIController.Instance.EstablecerLimiteAtaque(TiempoAtaque);
                     }
                     break;
             }
@@ -193,7 +196,7 @@ public class StatsPlayer : MonoBehaviour
     //El dinero tiene un límite de 1000
     public void AgregarDinero(int ValorMoneda)
     {
-        if (PDinero + ValorMoneda >= 1000) PDinero = 1000;
+        if (PDinero + ValorMoneda >= 5000) PDinero = 5000;
         else PDinero += ValorMoneda;
     }
     public void QuitarDinero(int PrecioPagado)
