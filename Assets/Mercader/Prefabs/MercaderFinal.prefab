@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 1884348017721949201}
   - component: {fileID: 2138143248055163896}
   - component: {fileID: 7758665866132193303}
+  - component: {fileID: 593676562887031458}
   m_Layer: 0
   m_Name: GraficosMercader
   m_TagString: Untagged
@@ -388,6 +389,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animaciones_Mercader: {fileID: 0}
+--- !u!114 &593676562887031458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255761186418812587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e868d92df95d841a1d3b157933950c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconoNPC: {fileID: 0}
+  NPCaSeguir: {fileID: 0}
+  CanvasMapa: {fileID: 0}
 --- !u!1 &1344664684864112112
 GameObject:
   m_ObjectHideFlags: 0

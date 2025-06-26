@@ -9,6 +9,7 @@ public class CambiarNivelMapa : MonoBehaviour
     [SerializeField] Image ImgMapa;
     [SerializeField] Sprite[] MapasImagenes = new Sprite[3];
     [SerializeField] Transform PosicionPlayer;
+    [SerializeField] GameObject[] NivelesActivos = new GameObject[3];
 
     void Update()
     {
