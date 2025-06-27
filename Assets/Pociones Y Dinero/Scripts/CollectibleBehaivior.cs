@@ -20,7 +20,7 @@ public class CollectibleBehaivior : MonoBehaviour
             }
             catch(System.Exception ex)
             {
-                UIController.Instance.MensajeAConsola("error: " + ex.Message);
+                Debug.Log("error: " + ex.Message);
             }
             finally
             {

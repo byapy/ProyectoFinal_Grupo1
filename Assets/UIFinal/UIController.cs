@@ -8,6 +8,8 @@ enum MinimapaVisible
     Chiquito,
     Grande
 }
+
+
 public class UIController : MonoBehaviour
 {
     //3 Imagenes para las barras
@@ -36,6 +38,10 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject Minimapa;
     [SerializeField] GameObject MapaCompleto;
 
+    [Space]
+    [Header("El Inventario")]
+    [SerializeField] GameObject MenuInventario;
+    [SerializeField] GameObject BotonDelInventario;
 
     [Space]
     [Header("Botones de las armas en el Inventario")]
@@ -43,6 +49,7 @@ public class UIController : MonoBehaviour
     [SerializeField] GameObject InventarioMosquete;
 
 
+    bool InventarioAbierto, SePauso;
     MinimapaVisible EstadoMinimapa = MinimapaVisible.Chiquito;
 
     private void Awake()
@@ -102,15 +109,35 @@ public class UIController : MonoBehaviour
 
     }
 
-    //20 segundos defensa, 15 ataque
-    // Update is called once per frame
     void Update()
     {
         if (MovAnimacionesArmas.enConversacion) AbrirMinimapa(MinimapaVisible.Chiquito);
 
+        //Para Abrir el mapa
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (!MovAnimacionesArmas.enConversacion) AbrirMinimapa(EstadoMinimapa == MinimapaVisible.Chiquito ? MinimapaVisible.Grande : MinimapaVisible.Chiquito);
+        }
+        //Para abrir el Inventario
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!MovAnimacionesArmas.enConversacion) AbrirInventario(InventarioAbierto == false ? true : false);
+        }
+
+        //Para Pausar
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(EstadoMinimapa == MinimapaVisible.Chiquito && !InventarioAbierto && !MovAnimacionesArmas.enConversacion)
+            {
+                //Se puede poner y quitar la pausa
+                PausarJuego(SePauso == false ? true : false);
+            }
+            else
+            {
+                //alguna de esas ventanas está abierta y habría que cerarla
+                AbrirMinimapa(MinimapaVisible.Chiquito);
+                AbrirInventario(false);
+            }
         }
 
         BarraVida.fillAmount = StatsPlayer.PVidaActual / StatsPlayer.PVidaMaxima;
@@ -170,10 +197,10 @@ public class UIController : MonoBehaviour
     {
         StatsPlayer.Instance.UsarPocion(TipoPocion);
     }
-    public void MensajeAConsola(string Mnsj)
+    /*public void MensajeAConsola(string Mnsj)
     {
         TxtConsola.text = Mnsj;
-    }
+    }*/
     
     Color ColorAlTexto(int numeroPociones)
     {
@@ -197,7 +224,7 @@ public class UIController : MonoBehaviour
         Gema3.gameObject.SetActive(cantidadGemas >= 3);
     }
 
-
+    #region Abrir y limpiar UI
     void AbrirMinimapa(MinimapaVisible modo)
     {
         if (modo == EstadoMinimapa) return;
@@ -210,6 +237,8 @@ public class UIController : MonoBehaviour
                 EstadoMinimapa = MinimapaVisible.Chiquito;
                 break;
             case (MinimapaVisible.Grande):
+                AbrirInventario(false);
+
                 Minimapa.SetActive(false);
                 MapaCompleto.SetActive(true);
                 EstadoMinimapa = MinimapaVisible.Grande;
@@ -217,6 +246,42 @@ public class UIController : MonoBehaviour
         }
     }
 
+    void AbrirInventario(bool EstaAbierto)
+    {
+        if (EstaAbierto == InventarioAbierto) return;
 
+        switch (EstaAbierto)
+        {
+            case (false):
+                MenuInventario.SetActive(false);
+                InventarioAbierto = false;
+                BotonDelInventario.SetActive(true);
+                break;
+            case (true):
+                AbrirMinimapa(MinimapaVisible.Chiquito);
+                MenuInventario.SetActive(true);
+                InventarioAbierto = true;
+                BotonDelInventario.SetActive(false);
+                break;
+        }
+    }
 
+    public void PausarJuego(bool EstaPausado)
+    {
+        if (EstaPausado == SePauso) return;
+
+        switch (EstaPausado)
+        {
+            case (false):
+                ControlScenes.Instance.Continuar();
+                SePauso = false;
+                break;
+
+            case (true):
+                ControlScenes.Instance.MenuPausa();
+                SePauso = true;
+                break;
+        }
+    }
+    #endregion
 }

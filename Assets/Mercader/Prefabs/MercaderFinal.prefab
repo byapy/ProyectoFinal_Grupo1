@@ -402,8 +402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IconoNPC: {fileID: 0}
-  NPCaSeguir: {fileID: 0}
-  CanvasMapa: {fileID: 0}
+  PrefabImagen: {fileID: 0}
+  NivelEnElMapa: {fileID: 0}
+  NivelEnElMapaGrande: {fileID: 0}
 --- !u!1 &1344664684864112112
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +795,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ActivarAnimacionesMercader, Assembly-CSharp
         m_MethodName: YaNoHabla
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7758665866752322650}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -66,17 +66,6 @@ public class ControlScenes : MonoBehaviour
         Time.timeScale = 1;
     }
 
-   /* private void Update()
-    {
-        CambiarNombreBoton();
-    }
-
-    private void CambiarNombreBoton()
-    {
-        if(!EventoJefe) BtnReiniciarTexto.text = "Reiniciar Punto de Control";
-        else BtnReiniciarTexto.text = "¡No puedes reiniciar ahora!";
-    }*/
-
     //usado por el botón Reiniciar
     public void ReiniciarEscena()
     {

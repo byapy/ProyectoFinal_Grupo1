@@ -19528,6 +19528,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8862006388073968757}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PausarJuego
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8862006386612526684
 GameObject:
   m_ObjectHideFlags: 0
@@ -22940,6 +22952,8 @@ MonoBehaviour:
   TxtConsola: {fileID: 8862006386632455901}
   Minimapa: {fileID: 2177325999804740091}
   MapaCompleto: {fileID: 5165408637248321363}
+  MenuInventario: {fileID: 5558077405849864269}
+  BotonDelInventario: {fileID: 4193642126313401199}
   InventarioEspada: {fileID: 1904119301000205463}
   InventarioMosquete: {fileID: 8779286557558155060}
 --- !u!114 &1827337123541290322
