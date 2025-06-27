@@ -111,7 +111,11 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        if (MovAnimacionesArmas.enConversacion) AbrirMinimapa(MinimapaVisible.Chiquito);
+        if (MovAnimacionesArmas.enConversacion)
+        {
+            AbrirMinimapa(MinimapaVisible.Chiquito);
+            AbrirInventario(false);
+        }
 
         //Para Abrir el mapa
         if (Input.GetKeyDown(KeyCode.M))
