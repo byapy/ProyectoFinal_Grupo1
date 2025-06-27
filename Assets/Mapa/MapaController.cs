@@ -24,6 +24,5 @@ public class MapaController : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
 
 }
